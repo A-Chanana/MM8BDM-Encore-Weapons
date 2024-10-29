@@ -3,7 +3,6 @@ Actor FlameShowerWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Flame Shower
-dropitem "FlameShowerWep"
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
 Weapon.SlotNumber 3

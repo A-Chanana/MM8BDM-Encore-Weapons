@@ -18,13 +18,9 @@ const int CLR_WINDCYCLONE = 4254;
 const int CLR_TRAILSPARKNEEDLE = 4255;
 const int CLR_CARDINALRING = 4256;
 
-const int CLR_JUSTICEMETEOR = 4257;
-const int CLR_JMETEORCHRG = 4258;
-const int CLR_BERSERKERRUSH = 4259;
-const int CLR_SHIELDSPIRAL = 4260;
-const int CLR_RESTRICTIONRING = 4261;
-const int CLR_ONSLAUGHTGATLING = 4262;
-const int CLR_ROYALSPIN = 4263;
+const int CLR_PURITYMETEOR = 4257;
+const int CLR_PMETEORCHRG = 4258;
+
 
 #Include "actors/inventory/mmb2/BulletVulcan.txt"
 #Include "actors/inventory/mmb2/BrassBullet.txt"
@@ -43,12 +39,8 @@ const int CLR_ROYALSPIN = 4263;
 #Include "actors/inventory/buster/MaestroBuster.txt"
 #Include "actors/inventory/buster/RevolverBuster.txt"
 
-#Include "actors/inventory/misc/BerserkerRush.txt"
-#Include "actors/inventory/misc/ShieldSpiral.txt"
-#Include "actors/inventory/misc/RestrictionRing.txt"
-#Include "actors/inventory/misc/OnslaughtGatling.txt"
-#Include "actors/inventory/misc/RoyalSpin.txt"
-#Include "actors/inventory/misc/JusticeMeteor.txt"
+
+#Include "actors/inventory/misc/PurityMeteor.txt"
 
 #Include "actors/inventory/enc_copynerf.txt"
 

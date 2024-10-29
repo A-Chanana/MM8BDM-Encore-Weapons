@@ -192,8 +192,3 @@ MAEB GHI 2
 Goto Spawn+3
 }
 }
-
-actor MaestroBusterStart : MaestroBusterEnc
-{
-dropitem ""
-}

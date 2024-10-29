@@ -4,7 +4,6 @@ Actor TrailsparkNeedleWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Trailspark Needle
-dropitem "TrailsparkNeedleWep"
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7

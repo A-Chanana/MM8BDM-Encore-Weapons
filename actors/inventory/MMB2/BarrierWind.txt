@@ -3,7 +3,6 @@ actor BarrierWindWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Barrier Wind
-dropitem "BarrierWindWep"
 Weapon.AmmoUse 3
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7

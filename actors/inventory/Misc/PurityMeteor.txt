@@ -1,0 +1,312 @@
+actor PurityMeteorWep_NormalBar : NormalBar{args 192, 195}
+actor PurityMeteorWep : BaseMM8BDMWep
+{
+    Weapon.AmmoUse 1
+    Weapon.AmmoGive 28
+    Weapon.SlotNumber 5
+    Inventory.Pickupmessage "$PU_PURITYMETEOR"
+    Obituary "$OB_PURITYMETEOR"
+    Tag "$TAG_PURITYMETEOR"
+    weapon.ammotype "PurityMeteorAmmo"
+    inventory.icon "PMETICON"
+    States
+    {
+    SpawnLoop:
+        PMET A -1
+        loop
+    Ready:
+        PMET B 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_PURITYMETEOR)
+        PMET BB 1 A_WeaponReady
+        goto Ready+1
+	ReadyC:
+		Goto Ready+1
+    Deselect:
+        PMET B 0 A_SetTranslucent(1.0, 0)
+        Goto DeselectSwap
+    Select:
+        PMET B 0 
+        Goto SelectSwap
+    Fire:
+		PMET B 0 A_JumpIfNoAmmo("Fist")
+		PMET B 0 A_GiveInventory("PurityMeteorProtect", 1)
+        PMET B 0 ACS_NamedExecuteWithResult("core_flyplayer",0,2)
+        PMET B 0 ACS_NamedExecuteWithResult("core_stopplayer",0,1)
+		PMET B 0 A_PlaySoundEx("weapon/puritymeteorcharge", "Weapon")
+		PMET D 3 A_SpawnItemEx("PurityMeteorSparkSpawner")
+		PMET E 4 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET F 3 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET G 2 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET H 1
+		PMET I 3
+		PMET M 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PURITYMETEOR,TCLR_NONE)
+		PMET M 0 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET I 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PMETEORCHRG,TCLR_CHARGE1)
+		PMET M 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PURITYMETEOR,TCLR_NONE)
+		PMET M 0 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET I 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PMETEORCHRG,TCLR_CHARGE1)
+		PMET M 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PURITYMETEOR,TCLR_NONE)
+		PMET M 0 ACS_NamedExecuteAlways("Enc_StateChange",0,2)
+		PMET I 3 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PMETEORCHRG,TCLR_CHARGE1)
+        goto DashBegin
+    Altfire:
+        PMET B 0 A_JumpIfInventory("ENC_ClassAltfire", 1, "ClassAltfire")
+        PMET B 0 A_JumpIf(CallACS("Enc_class_altfire"), "ClassAltfire")
+        PMET B 1 A_JumpIfInventory("MM8BDMPlayer", 1, 1)
+        wait
+		PMET B 0
+	Fist:
+		PMET B 0 A_JumpIfInventory("DuoPunchCooldown", 1, "NoAmmo")
+        PMET B 0 A_PlaySoundEx("weapons/busters/duofistfire2", "Weapon")
+        PMET B 0 A_FireCustomMissile("MidFist", 0, 0, 8, 0)
+        PMET J 2 A_GiveInventory("DuoPunchCooldown", 1)
+		PMET L 2
+		PMET K 2
+		PMET J 6
+		PMET B 1 A_Refire("Fist")
+		PMET B 0 A_JumpIfInventory("IsBot", 1, "NoAmmo")
+		goto Ready+1
+    DashBegin:
+		PMET B 0 ACS_NamedExecuteWithResult("core_stopplayer",0,0)
+		PMET B 0 ACS_NamedExecuteWithResult("core_freezeplayer",0,1)
+		PMET B 0 A_ChangeFlag("INVULNERABLE",1)
+		PMET B 0 A_StopSoundEx ("SoundSlot5")
+		PMET B 0 A_PlaySoundEx("weapon/puritymeteorlaunch", "Weapon")
+        PMET H 1
+        PMET GF 1 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PURITYMETEOR,TCLR_NONE)
+		PMET B 0 A_SetTranslucent(0.0, 0)
+		PMET E 1 A_SpawnItemEx("PurityMeteorFX",0,0,0,0,0,0,0,SXF_TRANSFERTRANSLATION)
+    DashLoop:
+        PMET Z 0 A_GiveInventory("PurityMeteorSpeed", 1)
+        PMET Z 1 A_FireCustomMissile("PurityMeteorCheck", 0, 0, 0, -15)
+        PMET Z 0 A_FireCustomMissile("PurityMeteorDamager", 0, 0, 0, -20)
+		PMET Z 0 A_JumpIfInventory("PurityMeteorRecoil", 1, "DashStop")
+		PMET Z 0 A_JumpIfInventory("PurityMeteorRecoil_Player", 1, "DashImpact")
+        PMET Z 0 A_TakeInventory("PurityMeteorAmmo", 1)
+        PMET Z 0 A_Refire("DashCancel")
+		PMET Z 0 A_JumpIfNoAmmo("DashCancel")
+		loop
+	DashStop:
+		PMET B 0 A_PlaySoundEx("weapon/puritymeteorbounce", "weapon")
+        PMET B 0 A_TakeInventory("PurityMeteorAmmo",4,TIF_NOTAKEINFINITE)
+		PMET B 0 ACS_NamedExecuteWithResult("core_chargecolor", CLR_PURITYMETEOR,TCLR_NONE)
+		PMET B 0 A_SetTranslucent(1.0, 0)
+		PMET B 0 A_ChangeFlag("INVULNERABLE",0)
+		PMET C 1 A_SpawnItemEx("PurityMeteorExplosion",16,0,0)
+		PMET B 0 ACS_NamedExecuteWithResult("core_flyplayer",0,0)
+        PMET A 0 ACS_NamedExecuteWithResult("core_freezeplayer",0,0)
+        PMET B 0 A_ZoomFactor(1.0)
+		PMET G 0 A_TakeInventory("PurityMeteorAmmo", 4)
+        PMET B 0 A_GiveInventory("PurityMeteorRecoil", 1)
+		PMET CB 4
+        PMET B 10
+        goto Ready+1
+	DashCancel:
+		PMET B 0 A_PlaySoundEx("weapon/puritymeteorcancel", "weapon")
+		goto DashStop+1
+	DashImpact:
+		PMET B 0 A_PlaySoundEx("weapon/puritymeteorimpact", "weapon")
+		goto DashStop+1
+    NoAmmo:
+        PMET B 1 ACS_NamedExecute("core_noammo",0)
+        goto Ready+1
+	 ClassAltfire:
+            PMET B 0 
+			goto Super::Altfire
+    }
+}
+
+actor PurityMeteorRecoil : Powerup
+{
+    powerup.duration 10
+}
+
+actor PurityMeteorRecoil_Player : PurityMeteorRecoil {}
+
+actor PurityMeteorAmmo : Ammo
+{
+    inventory.amount 1
+    inventory.maxamount 28
+    +INVENTORY.IGNORESKILL
+}
+
+actor PurityMeteorSpeed : CustomInventory
+{
+    States
+    {
+    Pickup:
+        TNT1 A 0 A_CheckFloor("Floor")
+        TNT1 A 0 A_ChangeVelocity(70*cos(pitch), 0, 70*sin(-pitch), CVF_RELATIVE|CVF_REPLACE)
+        stop
+    Floor:
+        TNT1 A 0 A_ChangeVelocity(70*cos(pitch), 0, (70*sin(-pitch) > 0) * 70*sin(-pitch), CVF_RELATIVE|CVF_REPLACE)
+        stop
+    }
+}
+
+actor PurityMeteorFX
+{
+    PROJECTILE
+	+NOCLIP
+	+NOINTERACTION
+	+THRUGHOST
+    height 32
+    radius 32
+    speed 50
+	scale 2.5
+    States
+    {
+    Spawn:
+        PMET QP 1 A_Warp(AAPTR_TARGET, 0, 0, 0, 0, WARPF_COPYINTERPOLATION|WARPF_NOCHECKPOSITION )
+		PMET Q 0 A_JumpIf(ACS_NamedExecuteWithResult("core_targetexists")==0,"Death")
+        PMET Q 0 A_JumpIfInTargetInventory("PurityMeteorRecoil", 1, "Death")
+		PMET Q 0 A_JumpIfInTargetInventory("PurityMeteorRecoil_Player", 1, "Death")
+        PMET P 0 A_JumpIfInTargetInventory("IsDead", 1, "Death")
+		PMET Q 0 A_SpawnItemEx("PurityMeteorSparkFX",16,0,16)
+		loop
+		Death:
+		PMET Q 0
+		stop
+    }
+}
+
+actor PurityMeteorDamager
+{
+    PROJECTILE
+	+RIPPER
+    Obituary "$OB_PurityMeteor"
+    Damagetype "PurityMeteor"
+    height 32
+    radius 32
+    speed 35
+    Damage (CallACS("enc_cbm_damage",35))
+	scale 2.5
+    States
+    {
+    Spawn:
+		TNT1 A 0
+        TNT1 A 1 //A_Warp(AAPTR_TARGET, 0, 0, 0, 0, WARPF_COPYINTERPOLATION|WARPF_NOCHECKPOSITION )
+		stop
+    }
+}
+
+actor PurityMeteorCheck : FastProjectile
+{
+    PROJECTILE
+    Obituary "$OB_PurityMeteor"
+    Damagetype "PurityMeteor"
+    height 32
+    radius 18
+    speed 50
+    Damage (0)
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        stop
+    Death:
+        TNT1 A 0 A_SpawnItemEx("PurityMeteorQuake")
+        TNT1 A 0 A_GiveToTarget("PurityMeteorRecoil", 1)
+        stop
+	XDeath:
+        TNT1 A 0 A_SpawnItemEx("PurityMeteorQuake")
+        TNT1 A 0 A_GiveToTarget("PurityMeteorRecoil_Player", 1)
+        stop
+    }
+}
+
+actor PurityMeteorQuake
+{
+    +NOINTERACTION
+	+NOCLIP
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 Radius_Quake(2, 4, 0, 2, 0)
+		TNT1 A 1
+		stop
+	}
+}
+
+actor PurityMeteorProtect : PowerProtection
+{
+damagefactor "Normal", 0.26
+powerup.duration -5
+}
+
+actor DuoPunchCooldown : Powerup
+{
+    powerup.duration -1
+}
+
+actor PurityMeteorSparkFX : BasicGraphicEffect
+{
+    PROJECTILE
+	+NOCLIP
+	+NOINTERACTION
+	+THRUGHOST
+	+CLIENTSIDEONLY
+    Obituary "$OB_PurityMeteor"
+    Damagetype "PurityMeteor"
+    height 32
+    radius 32
+    speed 10
+    Damage (0)
+	scale 5.0
+	translation "198:198=195:195", "4:4=192:192"
+    States
+    {
+    Spawn:
+		INTQ AA 0 A_GiveInventory("ProjTeamColor1Client",1)
+        INTQ ABCDEFGFEDCBA 2
+		stop
+    }
+}
+
+actor PurityMeteorSparkSpawner
+{
+    PROJECTILE
+	+NOCLIP
+	+NOINTERACTION
+	+THRUGHOST
+	+CLIENTSIDEONLY
+    Obituary "$OB_PurityMeteor"
+    Damagetype "PurityMeteor"
+    height 32
+    radius 32
+    speed 10
+    Damage (0)
+	scale 5.0
+	translation "198:198=195:195", "4:4=192:192"
+	reactiontime 49
+    States
+    {
+    Spawn:
+        TNT1 A 0 A_Warp(AAPTR_TARGET, 0, 0, 0, 0, WARPF_COPYINTERPOLATION|WARPF_NOCHECKPOSITION )
+		TNT1 A 1 A_SpawnItemEX("PurityMeteorSparkFX",random(20,48),0,0,0,0,8,random(0,360))
+		TNT1 A 0 A_Countdown
+		loop
+    }
+}
+
+actor PurityMeteorExplosion : PharaohShot3
+{
+PROJECTILE
+Obituary "$OB_PurityMeteor"
+Damagetype "PurityMeteor"
++NOCLIP
+damage (0)
+radius 16
+height 16
+Scale 5.0
+States
+{
+Spawn:
+TNT1 E 0
+TNT1 A 0 A_SpawnItemEx("OilPitIgnite",0,0,8)
+TNT1 A 0 A_Explode(CallACS("enc_cbm_damage",45),128,0,0,16)
+PMET LMNO 2
+stop
+}
+}

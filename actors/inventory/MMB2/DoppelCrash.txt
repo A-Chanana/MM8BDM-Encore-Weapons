@@ -3,7 +3,6 @@ actor DoppelCrashWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Doppel Crash
-dropitem "DoppelCrashWep"
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4

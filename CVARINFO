@@ -1,1 +1,1 @@
-server bool enc_usemapweapons = true;
+server bool enc_sv_usemapweapons = true;

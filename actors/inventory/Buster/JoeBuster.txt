@@ -163,8 +163,3 @@ JOBS B 2
 stop
 }
 }
-
-actor JoeBusterStart : JoeBuster
-{
-dropitem ""
-}

@@ -3,7 +3,6 @@ Actor TimeBombWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Time Bomb
-dropitem "TimeBombWep"
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4

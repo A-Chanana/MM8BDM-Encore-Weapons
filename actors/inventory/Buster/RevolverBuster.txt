@@ -157,13 +157,3 @@ MMJT EFG 2
 stop
 }
 }
-
-actor RevolvingBusterStart : RevolvingBuster
-{
-dropitem ""
-}
-
-actor RevolvingBusterSkull : RevolvingBuster
-{
-dropitem "SkullBarrierWep"
-}

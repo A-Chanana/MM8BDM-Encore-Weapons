@@ -3,7 +3,6 @@ actor BulletVulcanWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Bullet Vulcan
-dropitem "BulletVulcanWep"
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2

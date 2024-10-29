@@ -3,7 +3,6 @@ Actor BrassBulletWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Brass Bullet
-dropitem "BrassBulletWep"
 Weapon.AmmoUse 3
 Weapon.AmmoGive 27
 Weapon.SlotNumber 2

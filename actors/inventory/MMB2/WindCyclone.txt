@@ -3,7 +3,6 @@ actor WindCycloneWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Wind Cyclone
-dropitem "WindCycloneWep"
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2

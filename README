@@ -1,0 +1,172 @@
+Encore weapons updated to MM8BDM V6B by MegaVile!
+Load with the Encore map pack for cool replacements and effects!
+Load with vileweps-v1ehh.pk3, or future versions to get the other weapons!
+(Or vileweps-encoreonly.pk3)
+
+Credits to the original expansion team and those who have continued this pack.
+
+=== Modder Notes ===
+Translation IDs 4240-4258 used.
+ClassBase Slot 49 used.
+
+== v2b==
+- Readded Grand Classes damage nerf. //make up your damn minds you fucking hooligans we removed these 2 updates ago - Vile
+- Barrier Wind now redirects where it's target is going when hit.
+- Added weapons to the new maps.
+
+== v2ah6 ==
+- Added script to be standalone from UIX.
+
+=== v2ah5 ===
+== Wind Cyclone ==
+- Fixed weaving not working online.
+
+== Joe Buster ==
+- Projectile color now matches weapon color.
+
+== Revolving Buster ==
+- Fixed custom bar not showing up.
+
+== Purity Meteor ==
+- Added sounds for impacting a player and running out of ammo while active.
+
+=== v2ah4 ===
+== General ==
+- Grand Classes damage nerf removed.
+
+== Bullet Vulcan ==
+- New projectile & impact sprites added, made by A-Chan.
+
+== Brass Bullet ==
+- Now shares its impact animation with Bullet Vulcan.
+
+== Flame Mixer ==
+- Starting projectiles now look visually distinct for a better look.
+
+== Time Switch ==
+- Added ElectrifyEffect to lightning.
+- New detonation sprites added, made by A-Chan.
+
+== Time Bomb ==
+- New detonation sprites added, made by A-Chan.
+
+== Barrier Wind ==
+- PropBlowerEffect added.
+- Now releases a trail after blocking a projectile.
+
+== Wind Cyclone ==
+- PropBlowerEffect added.
+- Now releases a trail after the end of its startup period.
+
+== Trailspark Needle ==
+- Projectiles now have an impact animation.
+
+== Cardinal Ring ==
+- Impact animation added.
+
+=== v2a ===
+== Doppel Crash ==
+The general problem with this weapon on release was not being able to do much
+in the way of killing people. Ran out of ammo quickly, and three hits on a
+melee weapon is absurd, even for being a pseudo-Break Dash. This should
+alleviate that by making it properly pace-fitting to kill with.
+- Added explosion to hitbox.
+- Reduced endlag on impact.
+- Damage 47 > 52.
+
+== Doppler Attack ==
+This weapon following its concept was inherently weak from the beginning, with
+hitting targets dead ahead being unlikely, for not much of any reward. These 
+changes should give it the edge it needs to be a situationally powerful weapon.
+- Damage 12/16 > 14/18. (Stationary/Launched)
+- Rate of fire increased.
+- Launched Speed 17.5 > 25.
+- Upon launch, Doppler Attack will homing dash into any nearby enemies.
+- Small explosion damage on death.
+- Fixed NoAmmo and Death bugs.
+
+== Wind Cyclone ==
+Functionally this weapon had everything it needs, but the stats were not enough
+to compare to the other weapons. Removing a limiter and increasing the stats
+should suffice.
+- No longer hits once.
+- Damage lowered from 20 > 5 to compensate.
+- Projectile wave speed increased.
+- Projectile spread tightened.
+
+=== v2 ===
+== General ==
+- Added CBM compatability.
+- Added spread functionality for weapons that lack it.
+- Updated to replace maps in Beta 5.
+- New Weapon! Doppel Crash.
+- New Weapon! Doppler Attack.
+- New Weapon! Wind Cyclone.
+
+== Time Switch ==
+- Reduced ammo regeneration on pickups.
+- Time Switch's player effects are now properly team-colored.
+
+== Time Bomb ==
+- Reduced damage.
+- Sprite now spins while thrown.
+
+== Barrier Wind ==
+- New sprites for fading away on death.
+
+== Cardinal Ring ==
+- Boomeranging function now properly chases through walls.
+
+== Joe Buster ==
+- Retooled Joe Buster, now is a burst fire.
+
+== Revolving Buster ==
+- Renamed Revolver Buster to Revolving Buster to lessen conflicts.
+
+=== v1b ===
+-
+== Time Switch ==
+- Attempt to fix a desync bug.
+
+== Barrier Wind ==
+- Reflecting method reworked.
+
+== Cardinal Ring ==
+- Changed speed values.
+- Max Ammo 6 > 7.
+- Damage 5 > 10.
+- Now a protected ripper.
+
+=== v1a ===
+- Ported to v6b.
+- Added WEPREPLACE to Encore maps.
+ 
+== Bullet Vulcan ==
+- Bullet Vulcan spread angles 35 > 20.
+ 
+== Brass Bullet ==
+- Brass Bullet now has +SCREENSEEKER on it's projectile.
+ 
+== Time Switch ==
+- Fixed Time Switch pickup message.
+ 
+== BARRIER WIND ==
+- Barrier Wind initial projectile speed increased.
+- Barrier Wind lifespan increased by 8 tics.
+- Barrier Wind now does one hit of damage on initial blocker.
+- Barrier Wind currently now spawns new bullets if a damagetype is unknown.
+- Barrier Wind reflect projectile heights 32 > 24. (Now it's centered)
+ 
+== Trailspark Needle ==
+- Trailspark Needle no longer has extra tics of delay on endlag for a more
+  smooth animation.
+- Trailspark Needle now takes more ammo the more shots are fired. 
+ 
+== Cardinal Ring ==
+- Cardinal Ring travels farther, but only in a straight line.
+ 
+== Purity Meteor
+- Justice Meteor rethemed to Purity Meteor (for Randomizer Compat)
+ 
+== Revolver Buster ==
+- Revolver Buster now has an indicator during reloading.

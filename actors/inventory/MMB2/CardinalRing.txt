@@ -3,7 +3,6 @@ Actor CardinalRingWep : BaseMM8BDMWep
 {
 //$Category MM8BDME-Weapons
 //$Title Cardinal Ring
-dropitem "CardinalRingWep"
 Weapon.AmmoUse 4
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4

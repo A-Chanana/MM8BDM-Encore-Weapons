@@ -23,12 +23,7 @@ DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_WINDCYCLONE", "DESC_WINDCYCLONE", "
 DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_TRAILSPARKNEEDLE", "DESC_TRAILSPARKNEEDLE", "CNEDA0", "TrailsparkNeedleWep");
 DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_CARDINALRING", "DESC_CARDINALRING", "CRINA0", "CardinalRingWep");
 
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_BerserkerRush", "Desc_BerserkerRush", "BZRRZ0", "BerserkerRushWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_ShieldSpiral", "Desc_ShieldSpiral", "SSPIZ0", "ShieldSpiralWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RestrictionRing", "Desc_RestrictionRing", "RRNGZ0", "RestrictionRingWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_OnslaughtGatling", "Desc_OnslaughtGatling", "ONSGZ0", "OnslaughtGatlingWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RoyalSpin", "Desc_RoyalSpin", "RYLSZ0", "RoyalSpinWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_JUSTICEMETEOR", "DESC_JUSTICEMETEOR", "PMETA0", "JUSTICEMETEORWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_PURITYMETEOR", "DESC_PURITYMETEOR", "PMETA0", "PurityMeteorWep");
 
 DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_JOEBUSTER", "DESC_JOEBUSTER", "JOBSI0", "JoeBuster");
 DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_MAESTROBUSTER", "DESC_MAESTROBUSTER", "MAEBA0", "MaestroBusterEnc");

@@ -8,14 +8,6 @@ script "DrawBar_TrailsparkNeedleWep" (void) {
 	SetOverlayBar(CheckInventory("TrailsparkNeedleCharge"), 4);
 }
 
-script "DrawBar_ShieldSpiralWep" (void) {
-	if(CheckInventory("ShieldCheck")) SetFlashingBar();
-}
-
-script "DrawBar_OnslaughtGatlingWep" (void) {
-	SetOverlayBar(CheckInventory("OnslaughtGatlingLoad"), 30);
-}
-
 script "DrawBar_MaestroBusterEnc" (void) {
     if(GetUserCvar(ConsolePlayerNumber(),"mm8bdm_usechargebars")) {
         if(CheckInventory("WeaponCharge") >= 35) {
