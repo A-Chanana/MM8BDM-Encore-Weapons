@@ -6,14 +6,14 @@
 
 script "enc_spawnfuncs" OPEN
 {
-    if(getCvar("enc_usemapweapons") > 0)
+    if(getCvar("enc_sv_usemapweapons") > 0)
     {
         AddSpawnFunc(DTADD_SFT_WEP, "enc_usemapweapons");
         AddSpawnFunc(DTADD_SFT_ITEM, "enc_usemapweapons");
     }
 }
 
-#DEFINE MAX_WEAPREPLACES 138 //152
+#DEFINE MAX_WEAPREPLACES 140 //154
 str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Guts Man
 {"MME1GUT",		"TimeSlowWep",			"TimeBombWep"},
@@ -272,6 +272,10 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Saturn
 {"MMEVSAT",		"SparkChaserWep",		"DoppelCrashWep"},
 {"MMEVSAT",		"WaterBalloonWep",		"FlameShowerWep"},
+
+//Encore Enker
+{"MMEKENK",		"MegaArmUpgrade",	"JoeUpgrade"},
+{"MMEKENK",		"MegaArmUpgradeC",	"JoeUpgrade"},
 
 //Bullet Man
 {"MMB2BUL",		"TripleBladeWep",			"BulletVulcanWep"},
