@@ -10,10 +10,10 @@ PU_MAESTROUPGRADE = "Support Item! Maestro Buster!";
 TAG_MAESTROUPGRADE = "Maestro Buster Upgrade";
 TAG_MAESTROBUSTER = "Maestro Buster";
 
-OB_REVOLVINGBUSTER = "%o put %p hands up for %k's Revolving Buster."; 
-PU_REVOLVINGUPGRADE = "Support Item! Revolving Buster!"; 
-TAG_REVOLVINGUPGRADE = "Revolving Buster Upgrade";
-TAG_REVOLVINGBUSTER = "Revolving Buster";
+OB_REVOLVERBUSTER = "%o put %p hands up for %k's Revolving Buster."; 
+PU_REVOLVERUPGRADE = "Support Item! Revolving Buster!"; 
+TAG_REVOLVERUPGRADE = "Revolving Buster Upgrade";
+TAG_REVOLVERBUSTER = "Revolving Buster";
 
 OB_JOEBUSTER = "%o was shot down by %k's Joe Buster."; 
 PU_JOEUPGRADE = "Support Item! Joe Buster!";
@@ -91,6 +91,6 @@ DESC_CARDINALRING = "Throws a spiked ring, which can spin through walls, block i
 //Buster Descs
 DESC_MAESTROBUSTER = "Maestro Buster is obtained from an inventory item. It allows you to use charge shots or spray fire with its middle charge! Use Altfire to fire uncharged shots.";
 DESC_JOEBUSTER = "Joe Buster is obtained from an inventory item. It allows you to shoot slow, powerful shots and block enemy fire with a shield!";
-DESC_REVOLVINGBUSTER = "Revolving Buster is obtained from an inventory item. It allows you to fire a barrage of fast, strong projectiles, at the cost of having to reload. Use Altfire to reload earlier.";
+DESC_REVOLVERBUSTER = "Revolver Buster is obtained from an inventory item. It allows you to fire a barrage of fast, strong projectiles, at the cost of having to reload. Use Altfire to reload earlier.";
 //Misc Descs
 DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";

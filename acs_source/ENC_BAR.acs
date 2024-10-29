@@ -31,4 +31,4 @@ script "DrawBar_MaestroBusterEnc" (void) {
     }
 }
 
-script "DrawBar_RevolvingBuster" (void) CLIENTSIDE {DrawCustomBar(49, CheckInventory("RevolvingBusterAmmo"), 30);}
+script "DrawBar_RevolverBusterEnc" (void) CLIENTSIDE {DrawCustomBar(49, CheckInventory("RevolverBusterAmmo"), 30);}

@@ -1,4 +1,4 @@
-weapon/RevolvingBusterReload FMR
+weapon/RevolverBusterReload FMR
 
 weapon/bulletvulcan BULLVUL
 	$volume weapon/bulletvulcan 1.2

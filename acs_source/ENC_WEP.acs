@@ -24,9 +24,9 @@ defineWeapon("TAG_CARDINALRING", "CardinalRingWep", "CRINA0", "CardinalRingAmmo"
 
 defineWeapon("TAG_PURITYMETEOR", "PurityMeteorWep", "PMETA0", "PurityMeteorAmmo", 0.75, DTADD_SLOT_POWER, true, false, true);
 
-DefineBusterUpgradeAndTake("Joe Buster", "JoeBuster", "Joe Buster", "JoeUpgrade", "JOBSI0", true, true, true);
+DefineBusterUpgradeAndTake("Joe Buster", "JoeBusterEnc", "Joe Buster", "JoeUpgrade", "JOBSI0", true, true, true);
 DefineBusterUpgradeAndTake("Maestro Buster", "MaestroBusterEnc", "Maestro Buster", "MaestroUpgrade", "MAEBA0", true, true, true);
-DefineBusterUpgradeAndTake("Revolving Buster", "RevolvingBuster", "Revolving Buster", "RevolvingUpgrade", "FAKEA0", true, true, true);
+DefineBusterUpgradeAndTake("Revolver Buster", "RevolverBusterEnc", "Revolver Buster", "RevolverUpgrade", "FAKEA0", true, true, true);
 
 DefinePowerAprop("TimeSwitchSpeedGiver", "TimeSwitchSpeed", APROP_Speed, 1.45, NO);
 }
