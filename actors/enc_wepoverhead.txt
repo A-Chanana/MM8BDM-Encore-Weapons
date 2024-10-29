@@ -1,0 +1,56 @@
+// Overhead weapon visuals for GC and Gondola
+actor ENC_OWV_Base : BasicGraphicEffect
+{
+    scale 2.0
+    alpha 0.6
+}
+
+actor OWV_BulletVulcanWep : ENC_OWV_Base{States{
+SpawnFrame: BVUL H 1
+stop}}
+actor OWV_BrassBulletWep : ENC_OWV_Base{States{
+SpawnFrame: BRBU I 1
+stop}}
+actor OWV_FlameShowerWep : ENC_OWV_Base{States{
+SpawnFrame: FSHW E 1
+stop}}
+actor OWV_FlameMixerWep : ENC_OWV_Base{States{
+SpawnFrame: FMIX E 1
+stop}}
+actor OWV_DoppelCrashWep : ENC_OWV_Base{States{
+SpawnFrame: DCRA Z 1
+stop}}
+actor OWV_DopplerAttackWep : ENC_OWV_Base{States{
+SpawnFrame: DATK Z 1
+stop}}
+actor OWV_TimeSwitchWep : ENC_OWV_Base{States{
+SpawnFrame: TSWI A 1
+stop}}
+actor OWV_TimeBombWep : ENC_OWV_Base{States{
+SpawnFrame: TBOM H 1
+stop}}
+actor OWV_BarrierWindWep : ENC_OWV_Base{States{
+SpawnFrame: BWIN A 1
+stop}}
+actor OWV_WindCycloneWep : ENC_OWV_Base{States{
+SpawnFrame: WCYC A 1
+stop}}
+actor OWV_TrailsparkNeedleWep : ENC_OWV_Base{States{
+SpawnFrame: CNED A 1
+stop}}
+actor OWV_CardinalRingWep : ENC_OWV_Base{States{
+SpawnFrame: CRIN A 1
+stop}}
+
+actor OWV_PurityMeteorWep : ENC_OWV_Base{States{
+SpawnFrame: PMET A 1
+stop}}
+actor OWV_JoeBuster : ENC_OWV_Base{States{
+SpawnFrame: JOBS I 1
+stop}}
+actor OWV_MaestroBusterEnc : ENC_OWV_Base{States{
+SpawnFrame: MAEB A 1
+stop}}
+actor OWV_RevolvingBuster : ENC_OWV_Base{States{
+SpawnFrame: FAKE A 1
+stop}}

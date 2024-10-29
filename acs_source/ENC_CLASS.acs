@@ -1,0 +1,22 @@
+#library "ENC_CLASS"
+#include "zcommon.acs"
+
+#include "GCADD.acs"
+
+// Potential shared functionality
+// Indicates to go to Super::Altfire
+// Gives inventory item used for subsequent checks
+// Allows for clientside jump prediction
+script "enc_class_altfire" (void) {
+    bool res = GCInPlay();
+    if(res && ActivatorTID() > 0) {
+        GiveActorInventory(ActivatorTID(), "ENC_ClassAltfire", 1);
+    }
+    SetResultValue(res);
+}
+
+script "gc_encorecopynerf_define" OPEN { //add to ENC_CLASS.acs
+    if (GCInPlay()) {
+        AddCopyNerfGC("ENC_CopyNerf_GC");
+    }
+}

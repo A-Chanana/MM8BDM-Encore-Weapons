@@ -1,0 +1,4 @@
+#include "actors/enc_root.txt"
+#include "actors/enc_wepoverhead.txt"
+
+actor IsSpecialBot : Once {}

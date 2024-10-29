@@ -1,0 +1,102 @@
+const int CLR_MAESTROBUSTER = 4240;
+const int CLR_MAESTROBUSTERCHARGE1 = 4241;
+const int CLR_MAESTROBUSTERCHARGE2 = 4242;
+const int CLR_MAESTROBUSTERCHARGE3 = 4243;
+
+const int CLR_REVOLVINGBUSTER = 4244;
+
+const int CLR_BULLETVULCAN = 4245;
+const int CLR_BRASSBULLET = 4246;
+const int CLR_FLAMESHOWER = 4247;
+const int CLR_FLAMEMIXER = 4248;
+const int CLR_DOPPELCRASH = 4249;
+const int CLR_DOPPLERATTACK = 4250;
+const int CLR_TIMESWITCH = 4251;
+const int CLR_TIMEBOMB = 4252;
+const int CLR_BARRIERWIND = 4253;
+const int CLR_WINDCYCLONE = 4254;
+const int CLR_TRAILSPARKNEEDLE = 4255;
+const int CLR_CARDINALRING = 4256;
+
+const int CLR_JUSTICEMETEOR = 4257;
+const int CLR_JMETEORCHRG = 4258;
+const int CLR_BERSERKERRUSH = 4259;
+const int CLR_SHIELDSPIRAL = 4260;
+const int CLR_RESTRICTIONRING = 4261;
+const int CLR_ONSLAUGHTGATLING = 4262;
+const int CLR_ROYALSPIN = 4263;
+
+#Include "actors/inventory/mmb2/BulletVulcan.txt"
+#Include "actors/inventory/mmb2/BrassBullet.txt"
+#Include "actors/inventory/mmb2/FlameShower.txt"
+#Include "actors/inventory/mmb2/FlameMixer.txt"
+#Include "actors/inventory/mmb2/DoppelCrash.txt"
+#Include "actors/inventory/mmb2/DopplerAttack.txt"
+#Include "actors/inventory/mmb2/TimeSwitch.txt"
+#Include "actors/inventory/mmb2/TimeBomb.txt"
+#Include "actors/inventory/mmb2/BarrierWind.txt"
+#Include "actors/inventory/mmb2/WindCyclone.txt"
+#Include "actors/inventory/mmb2/TrailsparkNeedle.txt"
+#Include "actors/inventory/mmb2/CardinalRing.txt"
+
+#Include "actors/inventory/buster/JoeBuster.txt"
+#Include "actors/inventory/buster/MaestroBuster.txt"
+#Include "actors/inventory/buster/RevolverBuster.txt"
+
+#Include "actors/inventory/misc/BerserkerRush.txt"
+#Include "actors/inventory/misc/ShieldSpiral.txt"
+#Include "actors/inventory/misc/RestrictionRing.txt"
+#Include "actors/inventory/misc/OnslaughtGatling.txt"
+#Include "actors/inventory/misc/RoyalSpin.txt"
+#Include "actors/inventory/misc/JusticeMeteor.txt"
+
+#Include "actors/inventory/enc_copynerf.txt"
+
+actor MMB2Weapons : MMWeaponGiver
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+SpawnWeapons:
+TNT1 A 0
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("BulletVulcanWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 0)
+TNT1 A 0 A_SpawnItemEx("BrassBulletWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 1)
+TNT1 A 0 A_SpawnItemEx("FlameShowerWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 2)
+TNT1 A 0 A_SpawnItemEx("FlameMixerWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 3)
+TNT1 A 0 A_SpawnItemEx("DoppelCrashWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 4)
+TNT1 A 0 A_SpawnItemEx("DopplerAttackWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 5)
+TNT1 A 0 A_SpawnItemEx("TimeSwitchWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 6)
+TNT1 A 0 A_SpawnItemEx("TimeBombWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 7)
+TNT1 A 0 A_SpawnItemEx("BarrierWindWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 8)
+TNT1 A 0 A_SpawnItemEx("WindCycloneWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 9)
+TNT1 A 0 A_SpawnItemEx("TrailsparkNeedleWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 10)
+TNT1 A 0 A_SpawnItemEx("CardinalRingWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 11)
+stop
+stop
+Use:
+TNT1 A 0 A_PlaySoundEx("item/refill","Voice")
+TNT1 A 0 A_GiveInventory("BulletVulcanWep", 1)
+TNT1 A 0 A_GiveInventory("BrassBulletWep", 1)
+TNT1 A 0 A_GiveInventory("TimeBombWep", 1)
+TNT1 A 0 A_GiveInventory("TimeSwitchWep", 1)
+TNT1 A 0 A_GiveInventory("FlameShowerWep", 1)
+TNT1 A 0 A_GiveInventory("FlameMixerWep", 1)
+TNT1 A 0 A_GiveInventory("DoppelCrashWep", 1)
+TNT1 A 0 A_GiveInventory("DopplerAttackWep", 1)
+TNT1 A 0 A_GiveInventory("BarrierWindWep", 1)
+TNT1 A 0 A_GiveInventory("WindCycloneWep", 1)
+TNT1 A 0 A_GiveInventory("TrailsparkNeedleWep", 1)
+TNT1 A 0 A_GiveInventory("CardinalRingWep", 1)
+stop
+}
+}
+
+// Given by "enc_class_altfire" script
+// Used to allow clientside prediction of class altfires
+actor ENC_ClassAltfire : Inventory
+{
+    inventory.amount 1
+    inventory.maxamount 1
+}

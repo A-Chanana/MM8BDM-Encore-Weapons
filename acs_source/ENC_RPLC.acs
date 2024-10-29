@@ -1,0 +1,329 @@
+#library "ENC_RPLC"
+#include "zcommon.acs"
+
+#include "DTADD.acs"
+#include "PICKRPLC.acs"
+
+script "enc_spawnfuncs" OPEN
+{
+    if(getCvar("enc_usemapweapons") > 0)
+    {
+        AddSpawnFunc(DTADD_SFT_WEP, "enc_usemapweapons");
+        AddSpawnFunc(DTADD_SFT_ITEM, "enc_usemapweapons");
+    }
+}
+
+#DEFINE MAX_WEAPREPLACES 138 //152
+str Wep_replacer[MAX_WEAPREPLACES][3] = {
+//Encore Guts Man
+{"MME1GUT",		"TimeSlowWep",			"TimeBombWep"},
+{"MME1GUT",		"BreakDashWep",			"DoppelCrashWep"},
+//Encore Bomb Man
+{"MME1BOM",		"AirShooterWep",		"BulletVulcanWep"},
+//{"MME1BOM",		"WaterWaveWep",		"BondingPasteWep"},
+//Encore Elec Man
+{"MME1ELE",		"SparkShockWep",		"BarrierWindWep"},
+{"MME1ELE",		"MetalBladeWep",		"TrailsparkNeedleWep"},
+//Encore Ice Man
+{"MME1ICE",		"MagnetMissileWep",		"BrassBulletWep"},
+{"MME1ICE",		"KnightCrushWep",		"WindCycloneWep"},
+//Encore Fire Man
+//{"MME1FIR",		"QuickBoomerangWep",	"KingRodWep"},
+{"MME1FIR",		"AtomicFireWep",		"FlameShowerWep"},
+//Encore Time Man
+{"MME1TIM",		"CentaurFlashWep",		"TimeSwitchWep"},
+//{"MME1TIM",		"DrillBombWep",		"ClammyHarpoonWep"},
+//Encore Oil Man
+{"MME1OIL",		"WaterBalloonWep",		"FlameShowerWep"},
+{"MME1OIL",		"ArrowBusterUpgrade",	"RevolvingUpgrade"},
+{"MME1OIL",		"ArrowBusterUpgradeC",	"RevolvingUpgrade"},
+//Encore 1 Dr. Wily 1
+{"MME1DW1",		"BlizzardAttackWep",	"TrailsparkNeedleWep"},
+//{"MME1DW1",		"MegaBallWep",			"HyperTorrentWep"},
+
+//Encore Air Man
+{"MME2AIR",		"DiveMissileWep",		"BrassBulletWep"},
+{"MME2AIR",		"ThunderBoltWep",		"WindCycloneWep"},
+//Encore Heat Man
+{"MME2HEA",		"FireStormWep",			"FlameMixerWep"},
+{"MME2HEA",		"FlashStopperWep",		"TimeBombWep"},
+//Encore Flash Man
+{"MME2FLA",		"JewelSatelliteWep",	"BarrierWindWep"},
+//{"MME2FLA",		"QuickBoomerangWep",	"BondingPasteWep"},
+//Encore Quick Man
+{"MME2QUI",		"LeafShieldWep",		"FlameMixerWep"},
+{"MME2QUI",		"ChillSpikeWep",		"DoppelCrashWep"},
+//Encore Crash Man
+{"MME2CRA",		"WaveBurnerWep",		"FlameShowerWep"},
+{"MME2CRA",		"RingBoomerangWep",		"CardinalRingWep"},
+//Encore Metal Man
+{"MME2MET",		"QuickBoomerangWep",	"FlameShowerWep"},
+{"MME2MET",		"JunkShieldWep",		"DopplerAttackWep"},
+//Encore 2 Dr. Wily 1
+{"MME2DW1",		"LightningBoltWep",		"PurityMeteorWep"},
+{"MME2DW1",		"PhotonMissileWep",		"BrassBulletWep"},
+//Encore 2 Dr. Wily 2
+//{"MME2DW2",		"QuickBoomerangWep",	"ClammyHarpoonWep"},
+//{"MME2DW2",		"GeminiLaserWep",	"BerserkerRushWep"},
+//Encore 2 Dr. Wily 3
+{"MME2DW3",		"ArrowBusterUpgrade",	"MaestroUpgrade"},
+{"MME2DW3",		"ArrowBusterUpgradeC",	"MaestroUpgrade"},
+
+//Encore Snake Man
+{"MME3SNA",		"MegaArmUpgrade",		"MaestroUpgrade"},
+{"MME3SNA",		"MegaArmUpgradeC",		"MaestroUpgrade"},
+{"MME3SNA",		"YamatoSpearWep",		"TrailsparkNeedleWep"},
+//Encore Top Man
+//{"MME3TOP",		"WaterWaveWep",		"BerserkerRushWep"},
+//Encore Needle Man
+//{"MME3NEE",		"GravityHoldWep",	"OnslaughtGatlingWep"},
+{"MME3NEE",		"RingBoomerangWep",		"CardinalRingWep"},
+//Encore Hard Man
+{"MME3HAR",		"StarCrashWep",			"FlameMixerWep"},
+{"MME3HAR",		"MegaArmUpgrade",		"RevolvingUpgrade"},
+{"MME3HAR",		"MegaArmUpgradeC",		"RevolvingUpgrade"},
+//Encore Gemini Man
+{"MME3GEM",		"LaserBusterUpgrade",	"JoeUpgrade"},
+{"MME3GEM",		"LaserBusterUpgradeC",	"JoeUpgrade"},
+//{"MME3GEM",		"ElectricShockWep",	"KingRodWep"},
+//Encore Magnet Man
+{"MME3MAG",		"TripleBladeWep",		"BulletVulcanWep"},
+{"MME3MAG",		"PhotonMissileWep",		"DopplerAttackWep"},
+//Encore Spark Man
+{"MME3SPA",		"QuickBoomerangWep",	"FlameShowerWep"},
+{"MME3SPA",		"LaserBusterUpgrade",	"JoeUpgrade"},
+{"MME3SPA",		"ArrowBusterUpgrade",	"RevolvingUpgrade"},
+{"MME3SPA",		"LaserBusterUpgradeC",	"JoeUpgrade"},
+{"MME3SPA",		"ArrowBusterUpgradeC",	"RevolvingUpgrade"},
+//Encore 3 Dr. Wily 1
+{"MME3DW1",		"ShadowBladeWep",		"CardinalRingWep"},
+{"MME3DW1",		"FireStormWep",			"WindCycloneWep"},
+//Encore 3 Dr. Wily 2
+{"MME3DW2",		"BassUpgrade",			"JoeUpgrade"},
+{"MME3DW2",		"BassBusterWepC",		"JoeUpgrade"},
+{"MME3DW2",		"NoiseCrushWep",		"BulletVulcanWep"},
+
+
+//Encore Pharaoh Man
+{"MME4PHA",		"WildCoilWep",			"DopplerAttackWep"},
+{"MME4PHA",		"HornetChaserWep",		"BrassBulletWep"},
+//Encore Dive Man
+{"MME4DIV",		"ChargeKickWep",		"DoppelCrashWep"},
+{"MME4DIV",		"WaterBalloonWep",		"BulletVulcanWep"},
+//Encore Drill Man
+//{"MME4DRI",		"CommandoBombWep",	"BondingPasteWep"},
+//{"MME4DRI",		"PowerStoneWep",	"HyperTorrentWep"},
+//Encore Toad Man
+{"MME4TOA",		"WheelCutterWep",		"TimeSwitchWep"},
+{"MME4TOA",		"SolarBlazeWep",		"BrassBulletWep"},
+//Encore Skull Man
+{"MME4SKU",		"BalladeCrackerWep",	"RevolvingUpgrade"},
+//{"MME4SKU",		"BlizzardAttackWep",	"RoyalSpinWep"},
+//Encore Dr. Cossack
+{"MME4DC1",		"BlackHoleBombWep",		"PurityMeteorWep"},
+{"MME4DC1",		"MetalBladeWep",		"CardinalRingWep"},
+
+
+//Encore Charge Man
+{"MME5CHA",		"BalladeCrackerWep",	"RevolvingUpgrade"},
+{"MME5CHA",		"StarCrashWep",			"TrailsparkNeedleWep"},
+//Encore Stone Man
+{"MME5STO",		"GyroAttackWep",		"BulletVulcanWep"},
+{"MME5STO",		"HyperBombWep",			"TimeBombWep"},
+//{"MME5STO",		"MagnetMissileWep",	"RoyalSpinWep"},
+//Encore Napalm Man
+{"MME5NAP",		"ScorchWheelWep",		"FlameMixerWep"},
+{"MME5NAP",		"SolarBlazeWep",		"RevolvingUpgrade"},
+//Encore Wave Man
+{"MME5WAV",		"TopSpinWep",			"PurityMeteorWep"},
+{"MME5WAV",		"FlameBlastWep",		"WindCycloneWep"},
+//Encore Gravity Man
+//{"MME5GRA",		"LightningBoltWep",		"OnslaughtGatlingWep"},
+//{"MME5GRA",		"ElectricShockWep",		"KingRodWep"},
+//Encore Star Man
+{"MME5STA",		"MagicCardWep",			"CardinalRingWep"},
+{"MME5STA",		"PlugBallWep",			"MaestroUpgrade"},
+//Encore Crystal Man
+//{"MME5CRY",		"ScrewCrusherWep",		"BondingPasteWep"},
+{"MME5CRY",		"MegaArmUpgrade",		"BarrierWindWep"},
+{"MME5CRY",		"MegaArmUpgradeC",		"BarrierWindWep"},
+//Encore Dark Man
+//{"MME5DAR",		"WildCoilWep",			"BerserkerRushWep"},
+//{"MME5DAR",		"StarCrashWep",			"ShieldSpiralWep"},
+//{"MME5DAR",		"GyroAttackWep",		"RestrictionRingWep"},
+//{"MME5DAR",		"AstroCrushWep",		"OnslaughtGatlingWep"},
+
+//Encore Tomahawk Man
+{"MME6TOM",		"BlizzardAttackWep",	"BulletVulcanWep"},
+{"MME6TOM",		"ProtoUpgrade",			"RevolvingUpgrade"},
+{"MME6TOM",		"ProtoBusterWepC",			"RevolvingUpgrade"},
+//Encore Knight Man
+{"MME6KNI",		"SaltWaterWep",			"JoeUpgrade"},
+//{"MME6KNI",		"RainFlushWep",			"RoyalSpinWep"},
+//Encore Blizzard Man
+{"MME6BLI",		"DiveMissileWep",		"BrassBulletWep"},
+{"MME6BLI",		"BubbleLeadWep",		"FlameShowerWep"},
+
+//Encore Plant Man
+//{"MME6PLA",		"ChillSpikeWep",		"RestrictionRingWep"},
+//{"MME6PLA",		"GeminiLaserWep",		"ClammyHarpoonWep"},
+//Encore Yamato Man
+{"MME6YAM",		"SparkChaserWep",		"PurityMeteorWep"},
+//{"MME6YAM",		"ShadowBladeWep",		"RoyalSpinWep"},
+{"MME6YAM",		"SlashClawWep",		"DoppelCrashWep"},
+//Encore Mr. X
+{"MME6MRX",		"RingBoomerangWep",		"CardinalRingWep"},
+{"MME6MRX",		"YamatoSpearWep",		"BarrierWindWep"},
+
+//Encore Freeze Man
+{"MME7FRE",		"MirrorBusterWep",		"BarrierWindWep"},
+{"MME7FRE",		"ScorchWheelWep",		"TimeSwitchWep"},
+//Encore Junk Man
+//{"MME7JUN",		"SparkShockWep",		"RestrictionRingWep"},
+//{"MME7JUN",		"FreezeCrackerWep",		"RoyalSpinWep"},
+//Encore Cloud Man
+{"MME7CLO",		"BlackHoleWep",			"PurityMeteorWep"},
+{"MME7CLO",		"SpreadDrillWep",		"BrassBulletWep"},
+//Encore Shade Man
+//{"MME7SHA",		"DrillBombWep",		"BerserkerRushWep"},
+{"MME7SHA",		"BassUpgrade",	"MaestroUpgrade"},
+//Encore Spring Man
+{"MME7SPR",		"ThunderBoltWep",		"BulletVulcanWep"},
+{"MME7SPR",		"ConcreteShotWep",		"TimeBombWep"},
+//Encore Slash Man
+{"MME7SLA",		"HornetChaserWep",		"BrassBulletWep"},
+{"MME7SLA",		"ScorchWheelWep",		"TimeSwitchWep"},
+//Encore Freeze Man
+{"MME7FRE",		"MirrorBusterWep",		"BarrierWindWep"},
+{"MME7FRE",		"ScorchWheelWep",		"TimeSwitchWep"},
+//Encore Turbo Man
+//{"MME7TUR",		"QuickBoomerangWep",	"BerserkerRushWep"},
+{"MME7TUR",		"NoiseCrushWep",	"FlameMixerWep"},
+
+//Encore Astro Man
+//{"MME8AST",		"BlackHoleWep",			"ShieldSpiralWep"},
+{"MME8AST",		"GrabBusterWep",		"JoeUpgrade"},
+//Encore Sword Man
+{"MME8SWO",		"IceWaveWep",			"TrailsparkNeedleWep"},
+{"MME8SWO",		"BreakDashWep",			"DoppelCrashWep"},
+
+//Encore Ground Man
+{"MMEBGRO",		"FlameSwordWep",		"FlameMixerWep"},
+//{"MMEBGRO",		"PlantBarrierWep",		"OnslaughtGatlingWep"},
+//Encore Magic Man
+{"MMEBMAG",		"TimeSlowWep",		"TimeSwitchWep"},
+//{"MMEBMAG",		"AstroCrushWep",		"OnslaughtGatlingWep"},
+
+//Encore Wily Tower 1 
+//{"MMEWTDW1",		"ThunderBeamWep",	"KingRodWep"},
+//{"MMEWTDW1",		"BubbleLeadWep",	"ClammyHarpoonWep"},
+//{"MMEWTDW1",		"SuperArmWep",		"HyperTorrentWep"},
+//Encore Wily Tower 2
+//{"MMEWTDW2",		"IceSlasherWep",		"KingRodWep"},
+//{"MMEWTDW2",		"NeedleCannonWep",		"ClammyHarpoonWep"},
+//{"MMEWTDW2",		"AtomicFireWep",		"HyperTorrentWep"},
+
+//Encore Concrete Man
+{"MME9CON",		"FreezeCrackerWep",			"WindCycloneWep"},
+{"MME9CON",		"BlackHoleBombWep",			"TimeBombWep"},
+//Encore Tornado Man
+{"MME9TOR",		"ShadowBladeWep",			"TrailsparkNeedleWep"},
+{"MME9TOR",		"PlugBallWep",				"DopplerAttackWep"},
+//Encore Splash Woman
+{"MME9SPL",		"TopSpinWep",			"TimeSwitchWep"},
+{"MME9SPL",		"TenguBladeWep",			"DoppelCrashWep"},
+//Encore Magma Man
+{"MME9MAG",		"ChargeKickWep",		"TimeSwitchWep"},
+{"MME9MAG",		"BubbleLeadWep",		"FlameShowerWep"},
+//Encore Jewel Man
+{"MME9JEW",		"ElectricShockWep",		"FlameMixerWep"},
+{"MME9JEW",		"CrystalEyeWep",		"DoppelCrashWep"},
+//Encore Galaxy Man
+{"MME9GAL",		"TopSpinWep",			"PurityMeteorWep"},
+//{"MME9GAL",		"BlackHoleWep",			"ShieldSpiralWep"},
+//Encore Dr. Wily 3
+{"MME9DW3",		"BlackHoleBombWep",		"PurityMeteorWep"},
+{"MME9DW3",		"SuperArmWep",			"WindCycloneWep"},
+
+//Encore Chill Man
+{"MME10CHI",	"SolarBlazeWep",		"WindCycloneWep"},
+//{"MME10CHI",	"LightningBoltWep",		"OnslaughtGatlingWep"},
+//Encore Sheep Man
+//{"MME10SHE",	"ElectricShockWep",		"HyperTorrentWep"},
+//{"MME10SHE",	"PlugBallWep",			"RestrictionRingWep"},
+//Encore Strike Man
+{"MME10STR",	"TripleBladeWep",		"BulletVulcanWep"},
+{"MME10STR",	"SilverTomahawkWep",	"FlameMixerWep"},
+//Encore Solar Man
+//{"MME10SOL",	"WaterShieldWep",		"ShieldSpiralWep"},
+//{"MME10SOL",	"RemoteMineWep",		"RoyalSpinWep"},
+{"MME10SOL",	"ProtoUpgrade",	"MaestroUpgrade"},
+//Encore Wily Station 1
+{"MME10DW1",	"FlameBlastWep",		"FlameMixerWep"},
+//{"MME10DW1",	"DeepDiggerWep",	"ShieldSpiralWep"},
+
+//Encore Uranus
+{"MMEVURA",		"RingBoomerangWep",		"CardinalRingWep"},
+{"MMEVURA",		"SpreadDrillWep",		"BarrierWindWep"},
+//Encore Venus
+{"MMEVVEN",		"SaltWaterWep",			"FlameShowerWep"},
+{"MMEVVEN",		"TripleBladeWep",		"WindCycloneWep"},
+{"MMEVVEN",		"SparkShockWep",		"TrailsparkNeedleWep"},
+//Encore Saturn
+{"MMEVSAT",		"SparkChaserWep",		"DoppelCrashWep"},
+{"MMEVSAT",		"WaterBalloonWep",		"FlameShowerWep"},
+
+//Bullet Man
+{"MMB2BUL",		"TripleBladeWep",			"BulletVulcanWep"},
+{"MMB2BUL",		"DiveMissileWep",			"BrassBulletWep"},
+{"MMB2BUL",		"MirrorBusterWep",			"BarrierWindWep"},
+//Komuso Man
+{"MMB2KOM",		"TimeSlowWep",			"TimeBombWep"},
+{"MMB2KOM",		"BreakDashWep",			"DoppelCrashWep"},
+{"MMB2KOM",		"CopyVisionWep",		"DopplerAttackWep"},
+//Clock Man
+//{"MMB2CLO",		"StarCrashWep",			"ShieldSpiralWep"},
+{"MMB2CLO",		"TimeSlowWep",			"TimeBombWep"},
+{"MMB2CLO",		"CentaurFlashWep",		"TimeSwitchWep"},
+//Stove Man
+{"MMB2STO",		"PowerStoneWep",			"FlameMixerWep"},
+{"MMB2STO",		"WaterBalloonWep",			"FlameShowerWep"},
+{"MMB2STO",		"BubbleBombWep",			"WindCycloneWep"},
+//Aircon Man
+{"MMB2AIR",		"AirShooterWep",			"BarrierWindWep"},
+{"MMB2AIR",		"WindStormWep",				"WindCycloneWep"},
+{"MMB2AIR",		"WaveBurnerWep",			"FlameShowerWep"},
+
+
+
+//Auto //keep this in im porting eaut to the funny shpack
+{"MMEAUT",		"GrabBusterWep",		"RoyalSpinWep"},
+//{"MMEAUT",		"BalladeCrackerWep",	"BerserkerRushWep"},
+//Proto Man
+{"MMEPRO",		"AstroCrushWep",		"PurityMeteorWep"},
+//{"MMEPRO",		"LightningBoltWep",		"OnslaughtGatlingWep"},
+// Bond Man
+//{"MMEBON",		"WaterBalloonWep",		"BondingPasteWep"},
+
+};
+
+function str getWepReplaceMap(int i) { return Wep_replacer[i][0]; }
+function str getWepReplaceBase(int i) { return Wep_replacer[i][1]; }
+function str getWepReplaceDest(int i) { return Wep_replacer[i][2]; }
+
+script "enc_usemapweapons" (void)
+{
+    if(Timer() >= 3) { terminate; }
+    Delay(4); // 4 is here and not 3, because core randomization happens at 3 
+    if(CheckFlag(0,"NOBLOCKMAP")) {terminate;} 
+
+    str map = StrParam(n:PRINTNAME_LEVEL);
+    str me = GetActorClass(0);
+
+    for(int i = 0; i < MAX_WEAPREPLACES; i++) {
+        if(StrIcmp(map, getWepReplaceMap(i)) == 0 && StrIcmp(me, getWepReplaceBase(i)) == 0) {
+            SpawnNewWepFunc(getWepReplaceDest(i));
+			break;
+		}
+    }
+}

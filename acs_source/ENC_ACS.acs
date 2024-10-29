@@ -1,0 +1,72 @@
+#library "ENC_ACS"
+#include "zcommon.acs"
+
+// Barrier Wind script
+script "enc_barrierwinddeflect" (int evt, int dmg, int dmgtype) EVENT
+{
+if(evt == GAMEEVENT_ACTOR_DAMAGED)
+	{
+	if(stricmp(GetActorClass(0),"BarrierWindBlocker")==0)
+		{
+		int BarrierOwner = GetActorProperty(0,APROP_TargetTID);
+		bool redir = SetActivator(0, AAPTR_DAMAGE_INFLICTOR);
+		if(redir && !CheckFlag(0, "DONTREFLECT"))
+			{
+			SetActorProperty(0, APROP_Species, "BarrierWindBlocker");
+			SetPointer(AAPTR_MASTER, BarrierOwner);
+			SetPointer(AAPTR_TRACER, 0, AAPTR_DAMAGE_SOURCE);
+			delay(1);
+			if(ClassifyActor(0)==ACTOR_MISSILE)
+				{
+				GiveInventory("BarrierWindDeflect",1);
+				}
+			}
+		}
+	}
+}
+
+
+//State change
+script "enc_StateChange" (int state)
+{
+if(GetActorProperty(0,APROP_HEALTH)>0){
+switch(state)
+{
+case 1:
+SetActorState (0, "See");
+break;
+case 2:
+SetActorState (0, "Missile");
+break;
+}
+}
+}
+
+//Checks if the target is stunned/frozen
+script "enc_StunCheck" (int type)
+{
+Switch(type)
+	{
+	Case 0:
+	if(CheckInventory("TrainingBotPermaStop") ||
+	CheckInventory("PowerShock") ||
+	CheckInventory("ChillFreezeTimer") ||
+	CheckInventory("TimeStoppedCounter"))
+	{
+	//printbold(s:"stunned");
+	SetResultValue(1);
+	}
+	else{SetResultValue(0);}
+	break;
+	Case 1:
+	if(CheckInventory("TrainingBotPermaStop") ||
+	CheckInventory("ChillFreezeTimer") ||
+	CheckInventory("TimeStoppedCounter"))
+	{
+	//printbold(s:"frozen");
+	SetResultValue(1);
+	}
+	else{SetResultValue(0);}
+	break;
+	}
+}

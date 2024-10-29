@@ -1,0 +1,304 @@
+actor CardinalRingWep_NormalBar : NormalBar{args 200, 79}
+Actor CardinalRingWep : BaseMM8BDMWep
+{
+//$Category MM8BDME-Weapons
+//$Title Cardinal Ring
+dropitem "CardinalRingWep"
+Weapon.AmmoUse 4
+Weapon.AmmoGive 30
+Weapon.SlotNumber 4
+Obituary "$OB_CARDINALRING"
+Tag "$TAG_CARDINALRING"
+Inventory.Pickupmessage "$PU_CARDINALRING"
+weapon.ammotype "CardinalRingAmmo"
+inventory.icon "CRINICON"
+States
+{
+SpawnLoop:
+CRIN A -1
+loop
+Ready:
+CRIH O 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_CARDINALRING)
+CRIH OO 1 A_WeaponReady
+Goto Ready+1
+ReadyC:
+Goto Ready+1
+Deselect:
+CRIH O 0
+goto DeselectSwap
+Select:
+CRIH O 0
+goto SelectSwap
+Fire:
+CRIH O 0 A_JumpIfNoAmmo("NoAmmo")
+CRIH O 0 A_JumpIfInventory("Isbot",1,"Botfire")
+CRIH O 0 A_PlaySoundEx("weapon/deepdiggerthrow","Weapon")
+CRIH O 0 A_GiveInventory("CardinalRing_Fire_P",1)
+CRIH MLKIJNNNN 2
+CRIH QP 2
+CRIH O 8
+Goto Ready+1
+Botfire:
+CRIH O 0 A_JumpIfNoAmmo("NoAmmo")
+CRIH O 0 A_LookEX(LOF_NOJUMP,0,0,0,360)
+CRIH O 0 A_PlaySoundEx("weapon/deepdiggerthrow","Weapon")
+CRIH O 0 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+CRIH O 0 A_GiveInventory("CardinalRing_Fire_P",1)
+CRIH MLKIJNNNN 2
+CRIH QP 2
+CRIH O 8
+CRIH O 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 500, 0)>0, "Botfire")
+Goto Ready+1
+NoAmmo:
+CRIH O 1 ACS_NamedExecute("core_noammo",0)
+Goto Ready+1
+}
+}
+
+Actor CardinalRingAmmo : Ammo
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 30
+	+INVENTORY.IGNORESKILL
+}
+
+
+
+actor CardinalRing_Fire_P : CustomInventory
+{
+    States
+    {
+    Pickup:
+		TNT1 O 0 A_TakeInventory("CardinalRingAmmo",4,TIF_NOTAKEINFINITE)
+        TNT1 A 0 A_SpawnItemEx("CardinalRingProj",0,8,32,cos(pitch)*30,0,sin(-pitch)*25,0)
+        TNT1 A 0 A_JumpIfInventory("PowerSpreadRune", 1, "PickupSpread")
+        stop
+    PickupSpread:
+        TNT1 A 0 A_SpawnItemEx("CardinalRingProj",0,8,32,cos(pitch)*30,0,sin(-pitch)*25,-15)
+        TNT1 A 0 A_SpawnItemEx("CardinalRingProj",0,8,32,cos(pitch)*30,0,sin(-pitch)*25,15)
+        stop
+    }
+}
+
+actor CardinalRingProj : BasicProjectile
+{
+PROJECTILE
+damagetype "CardinalRing"
+Obituary "$OB_CARDINALRING"
++RIPPER
++NOINTERACTION
++THRUGHOST
+Species "CardinalRing"
+damage (0)
+Radius 4
+Height 4
+speed 60
+scale 2.0
+States
+{
+Spawn:
+CRIN B 0
+CRIN B 0 A_PlaySoundEx("weapon/junkshieldloop", "Auto", true)
+Spawn2:
+//CRIN BBCCBBDD 1 A_ChangeVelocity(0,0.5,0,CVF_RELATIVE)
+CRIN B 0 
+CRIN BBCCBBCC 1 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+Spawn3:
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-1.5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-2,0,0,CVF_RELATIVE)
+Spawn4:
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+Spawn5:
+
+//CRIN BBCCBBDD 1 A_ChangeVelocity(-2,-0.25,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-3,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-5,0,0,CVF_RELATIVE)
+CRIN B 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 1 A_ChangeVelocity(-5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-5,0,0,CVF_RELATIVE)
+CRIN C 0 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 1 A_ChangeVelocity(-5,0,0,CVF_RELATIVE)
+//CRIN B 0 A_JumpIfInventory("WeaponCharge",1,"Kill")
+//CRIN B 0 A_GiveInventory("WeaponCharge",1)
+//Loop
+
+Kill:
+CRIN C 0 A_CustomMissile("ReturningCardinal1",0,0,0,0)
+stop
+//boomerang
+Death:
+SACM B 0 A_PlaySoundEx("weapon/deepdiggerbreak","Body")
+SACM B 0 A_SpawnItemEx("CardinalRingEndFX", 0, 0, 0, Random(-8,8), Random(-8,8), Random(-8,8), 0, SXF_TRANSFERPOINTERS)
+Stop
+}
+}
+
+
+
+actor CardinalRingDamager : BasicProjectile
+{
+PROJECTILE
+Height 24
+health 9999
+Painchance 999
++NOBLOOD
+Radius 24
+Damage (0)
++SHOOTABLE
+-NOBLOCKMAP
++DONTREFLECT
++GHOST
++THRUSPECIES
+Species "CardinalRing"
++RIPPER
+-ACTIVATEMCROSS
+-ACTIVATEPCROSS
+-CANUSEWALLS
+-ACTIVATEIMPACT
++DONTSPLASH
++NOTRIGGER
+Damagefactor "CardinalRing", 0.0
+damagetype "CardinalRing"
+Obituary "$OB_CARDINALRING"
+Speed 5
+scale 3.0
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_Explode(CallACS("enc_cbm_damage",14),40,0,0,40)
+TNT1 A 4 A_Stop
+stop
+Pain:
+TNT1 A 0 A_PlaySound("item/protoreflect")
+TNT1 A 1 A_SpawnItemEx("CardinalRingShieldFX",0,0,-10)
+stop
+}
+}
+
+actor CardinalRingProtection : PowerProtection
+{
+Powerup.Duration 3
+DamageFactor "CardinalRing", 0.0
+}
+
+actor ReturningCardinal1 : CardinalRingProj
+{
+radius 0
+height 0
+speed 20
+Species "CardinalRing"
+damagetype "CardinalRing"
+damage 0
++DONTSPLASH
++NOCLIP
++NOINTERACTION
+States
+{
+Spawn:
+CRIN B 0
+CRIN B 0 A_PlaySoundEx("weapon/junkshieldloop", "Auto", true)
+CRIN B 0 A_FaceTarget
+CRIN B 0 A_JumpIfCloser(60,"Return")
+CRIN BB 1 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN B 0 A_CustomMissile("ReturningCardinal2",0,0,0,0)
+stop
+Return:
+TNT1 A 0
+Stop
+}
+}
+
+actor ReturningCardinal2 : ReturningCardinal1
+{
+States
+{
+Spawn:
+CRIN C 0
+CRIN B 0 A_PlaySoundEx("weapon/junkshieldloop", "Auto", true)
+CRIN C 0 A_FaceTarget
+CRIN C 0 A_JumpIfCloser(60,"Return")
+CRIN CC 1 A_SpawnItemEx("CardinalRingDamager",0,0,0,2,0,0,0,SXF_NOCHECKPOSITION)
+CRIN C 0 A_CustomMissile("ReturningCardinal1",0,0,0,0)
+stop
+}
+}
+
+actor CardinalRingShieldFX : BasicGraphicEffect
+{
+scale 2.5
++NOINTERACTION
++CLIENTSIDEONLY
+alpha 0.9
+renderstyle add
++BRIGHT
+states
+{
+SpawnFrame:
+CRIN D 0 A_SetScale(scaleX + 0.2, 3.0) 
+CRIN D 1 A_FadeOut(0.1)
+loop
+}
+}
+
+actor CardinalRingEndFX //: BasicGraphicEffect
+{
+-NOGRAVITY
++THRUACTORS
++THRUGHOST
++CLIENTSIDEONLY
+Damage (0)
+Height 0
+Radius 0
+Scale 2.5
+states
+{
+Spawn:
+TNT1 AA 0 A_GiveInventory("MM8BDMProjSpawnFuncClient", 1)
+CRIN B 1 A_CheckFloor("Death")
+TNT1 A 1 A_CheckFloor("Death")
+CRIN C 1 A_CheckFloor("Death")
+TNT1 A 1 A_CheckFloor("Death")
+goto Spawn+2
+Death:
+TNT1 A 0 A_SpawnItemEx("ExplosionEffect1",0,0,0,0,0,0,0,1)
+Stop
+}}

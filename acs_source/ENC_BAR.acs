@@ -1,0 +1,42 @@
+#library "enc_bar"
+#include "zcommon.acs"
+
+#include "DTADD.acs"
+#include "BARLIB.acs"
+
+script "DrawBar_TrailsparkNeedleWep" (void) {
+	SetOverlayBar(CheckInventory("TrailsparkNeedleCharge"), 4);
+}
+
+script "DrawBar_ShieldSpiralWep" (void) {
+	if(CheckInventory("ShieldCheck")) SetFlashingBar();
+}
+
+script "DrawBar_OnslaughtGatlingWep" (void) {
+	SetOverlayBar(CheckInventory("OnslaughtGatlingLoad"), 30);
+}
+
+script "DrawBar_MaestroBusterEnc" (void) {
+    if(GetUserCvar(ConsolePlayerNumber(),"mm8bdm_usechargebars")) {
+        if(CheckInventory("WeaponCharge") >= 35) {
+            if(Timer() % 2 == 1) {
+                SetMugshotColorGlow(229,128,104);
+            } else if (Timer() % 2 == 0) {
+                SetMugshotColor(229,128);
+            }
+        } else if(CheckInventory("WeaponCharge") >= 18) {
+            if (Timer() % 2 == 1) {
+                SetMugshotColorGlow(229,128,4);
+            } else {
+                SetMugshotColor(229,128);
+            }
+        } else {
+            SetMugshotColor(229,128);
+        }
+    } else {
+        SetMugshotColor(229,128);
+        if(CheckInventory("WeaponCharge") >= 35) SetFlashingBar();
+    }
+}
+
+script "DrawBar_RevolvingBuster" (void) CLIENTSIDE {DrawCustomBar(49, CheckInventory("RevolvingBusterAmmo"), 30);}

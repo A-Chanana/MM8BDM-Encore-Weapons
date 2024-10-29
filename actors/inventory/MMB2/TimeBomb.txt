@@ -1,0 +1,117 @@
+actor TimeBombWep_NormalBar : NormalBar{args 136, 45}
+Actor TimeBombWep : BaseMM8BDMWep
+{
+//$Category MM8BDME-Weapons
+//$Title Time Bomb
+dropitem "TimeBombWep"
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 4
+Obituary "$OB_TIMEBOMB"
+Tag "$TAG_TIMEBOMB"
+Inventory.Pickupmessage "$PU_TIMEBOMB"
+weapon.ammotype "TimeBombAmmo"
+inventory.icon "TBOMICON"
+States
+{
+SpawnLoop:
+TBOM H -1
+loop
+Ready:
+TBOM A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_TIMEBOMB)
+TBOM OO 1 A_WeaponReady
+Goto Ready+1
+ReadyC:
+Goto Ready+1
+Deselect:
+TBOM O 0
+goto DeselectSwap
+Select:
+TBOM O 0
+goto SelectSwap
+Fire:
+TBOM O 0 A_JumpIfNoAmmo("NoAmmo")
+TBOM O 0 A_PlaySoundEx("weapon/deepdiggerthrow","Weapon")
+TBOM E 0 A_JumpIfInventory("IsSpecialBot", 1 ,"ClockManCheck")
+TBOM A 0 A_JumpIfInventory("IsBot", 1, "BotCheck")
+RangedFire:
+TBOM O 0 A_FireCustomMissile("TimeBomb",0,1,8,0)
+TBOM IJKLMN 2
+TBOM QP 2
+TBOM O 14
+Goto Ready+1
+NoAmmo:
+TBOM O 1 ACS_NamedExecute("core_noammo",0)
+Goto Ready+1
+BotCheck:
+TBOM A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 300, 0)>0, "RangedFire")
+TBOM A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 600, 0)>0, 2)
+TBOM A 0 A_FireCustomMissile("TimeBomb",0,1,0,10,0,20)
+Goto RangedFire+1
+TBOM A 0 A_FireCustomMissile("TimeBomb",0,1,0,10,0,10)
+Goto RangedFire+1
+ClockManCheck:
+TBOM O 0 A_JumpIfInventory("TimeSwitchSpeed", 1, 2)
+TBOM O 1 A_GiveInventory("TimeSwitchWep",1)
+TBOM O 1 A_SelectWeapon("TimeSwitchWep")
+Goto Fire+3
+}
+}
+
+Actor TimeBombAmmo : Ammo
+{
+	Inventory.Amount 1
+	Inventory.MaxAmount 30
+	+INVENTORY.IGNORESKILL
+}
+
+actor TimeBomb : BasicProjectile
+{
+PROJECTILE
+-NOGRAVITY
+Gravity 1.0
+DamageType "TimeBomb"
+Obituary "$OB_TIMEBOMB"
+Speed 35
+Damage (CallACS("enc_cbm_damage",14))
+radius 16
+height 16
+scale 2.5
++BOUNCEONWALLS
++BOUNCEONCEILINGS
+BounceCount 20
+States
+{
+Spawn:
+TBOM ARST 2
+loop
+XDeath:
+TBOM A 0
+stop
+Crash:
+Death:
+TBOM A 0 A_Stop
+TBOM A 0 A_SpawnItemEx("TimeBombExplosion")
+stop
+}
+}
+
+actor TimeBombExplosion : TimeBomb
+{
+PROJECTILE
+damagetype "TimeBombExplosion"
++NOCLIP
+damage (0)
+radius 16
+height 16
+Scale 2.5
+States
+{
+Spawn:
+TNT1 E 0
+TBOM A 0 A_PlaySoundEx("weapon/timebomb", "Weapon")
+TNT1 A 0 A_Explode(CallACS("enc_cbm_damage",11),120,0,0,22) //This is really the only important part of this.
+3TBM EFGHIKLM 1
+stop
+}
+}

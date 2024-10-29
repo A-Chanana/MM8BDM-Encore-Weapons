@@ -1,0 +1,36 @@
+#library "enc_train"
+#include "zcommon.acs"
+
+#include "DTADD.acs"
+
+script "enc_trainingdef" OPEN
+{
+RegisterTrainingDef("enc_definetraining");
+}
+
+script "enc_definetraining" (void)
+{
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_BULLETVULCAN", "DESC_BULLETVULCAN", "BVULH0", "BulletVulcanWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_BRASSBULLET", "DESC_BRASSBULLET", "BRBUI0", "BrassBulletWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_FLAMESHOWER", "DESC_FLAMESHOWER", "FSHWE0", "FlameShowerWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_FLAMEMIXER", "DESC_FLAMEMIXER", "FMIXE0", "FlameMixerWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_TIMEBOMB", "DESC_TIMEBOMB", "TBOMH0", "TimeBombWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_TIMESWITCH", "DESC_TIMESWITCH", "TSWIA0", "TimeSwitchWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_DOPPELCRASH", "DESC_DOPPELCRASH", "DCRAZ0", "DoppelCrashWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_DOPPLERATTACK", "DESC_DOPPLERATTACK", "DATKZ0", "DopplerAttackWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_BARRIERWIND", "DESC_BARRIERWIND", "BWINA0", "BarrierWindWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_WINDCYCLONE", "DESC_WINDCYCLONE", "WCYCA0", "WindCycloneWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_TRAILSPARKNEEDLE", "DESC_TRAILSPARKNEEDLE", "CNEDA0", "TrailsparkNeedleWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_CARDINALRING", "DESC_CARDINALRING", "CRINA0", "CardinalRingWep");
+
+DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_BerserkerRush", "Desc_BerserkerRush", "BZRRZ0", "BerserkerRushWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_ShieldSpiral", "Desc_ShieldSpiral", "SSPIZ0", "ShieldSpiralWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RestrictionRing", "Desc_RestrictionRing", "RRNGZ0", "RestrictionRingWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_OnslaughtGatling", "Desc_OnslaughtGatling", "ONSGZ0", "OnslaughtGatlingWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RoyalSpin", "Desc_RoyalSpin", "RYLSZ0", "RoyalSpinWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_JUSTICEMETEOR", "DESC_JUSTICEMETEOR", "PMETA0", "JUSTICEMETEORWep");
+
+DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_JOEBUSTER", "DESC_JOEBUSTER", "JOBSI0", "JoeBuster");
+DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_MAESTROBUSTER", "DESC_MAESTROBUSTER", "MAEBA0", "MaestroBusterEnc");
+DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_REVOLVINGBUSTER", "DESC_REVOLVINGBUSTER", "FAKEA0", "RevolvingBuster");
+}

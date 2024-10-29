@@ -1,0 +1,46 @@
+#library "ENC_WEP"
+#include "zcommon.acs"
+
+#include "DTADD.acs"
+
+Script "enc_items" OPEN
+{
+// (str wepTag, str wepActor, str wepIcon, str wepAmmo, int wepMult, int wepSlot, int wepMap, int wepLms, int wepEddie)
+
+if(GetCvar("enc_sv_usemapweapons")==1){
+//MMB2 Weps
+defineWeapon("TAG_BULLETVULCAN", "BulletVulcanWep", "BVULH0", "BulletVulcanAmmo", 1.0, DTADD_SLOT_RANGED, true, true, true);
+defineWeapon("TAG_BRASSBULLET", "BrassBulletWep", "BRBUI0", "BrassBulletAmmo", 1.0, DTADD_SLOT_RANGED, true, true, true);
+defineWeapon("TAG_FLAMESHOWER", "FlameShowerWep", "FSHWE0", "FlameShowerAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
+defineWeapon("TAG_FLAMEMIXER", "FlameMixerWep", "FMIXE0", "FlameMixerAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+defineWeapon("TAG_TIMESWITCH", "TimeSwitchWep", "TSWIA0", "TimeSwitchAmmo", 0.5, DTADD_SLOT_CLOSE, true, false, true);
+defineWeapon("TAG_TIMEBOMB", "TimeBombWep", "TBOMH0", "TimeBombAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+defineWeapon("TAG_DOPPELCRASH", "DoppelCrashWep", "DCRAZ0", "DoppelCrashAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+defineWeapon("TAG_DOPPLERATTACK", "DopplerAttackWep", "DATKZ0", "DopplerAttackAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
+defineWeapon("TAG_BARRIERWIND", "BarrierWindWep", "BWINA0", "BarrierWindAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
+defineWeapon("TAG_WINDCYCLONE", "WindCycloneWep", "WCYCA0", "WindCycloneAmmo", 1.0, DTADD_SLOT_RANGED, true, true, true);
+defineWeapon("TAG_TRAILSPARKNEEDLE", "TrailSparkNeedleWep", "CNEDA0", "TrailSparkNeedleAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
+defineWeapon("TAG_CARDINALRING", "CardinalRingWep", "CRINA0", "CardinalRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+
+defineWeapon("TAG_BERSERKERRUSH", "BerserkerRushWep", "BZRRZ0", "BerserkerRushAmmo", 1.0, DTADD_SLOT_POWER, true, true, true);
+defineWeapon("TAG_SHIELDSPIRAL", "ShieldSpiralWep", "SSPIZ0", "ShieldSpiralAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
+defineWeapon("TAG_RESTRICTIONRING", "RestrictionRingWep", "RRNGZ0", "RestrictionRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+defineWeapon("TAG_ONSLAUGHTGATLING", "OnslaughtGatlingWep", "ONSGZ0", "OnslaughtGatlingAmmo", 0.25, DTADD_SLOT_AOE, true, true, true);
+DefineWeapon("TAG_ROYALSPIN", "RoyalSpinWep", "RYLSZ0", "RoyalSpinAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+defineWeapon("TAG_JUSTICEMETEOR", "PurityMeteorWep", "PMETA0", "PurityMeteorAmmo", 0.75, DTADD_SLOT_POWER, true, false, true);
+
+DefineBusterUpgradeAndTake("Joe Buster", "JoeBuster", "Joe Buster", "JoeUpgrade", "JOBSI0", true, true, true);
+DefineBusterUpgradeAndTake("Maestro Buster", "MaestroBusterEnc", "Maestro Buster", "MaestroUpgrade", "MAEBA0", true, true, true);
+DefineBusterUpgradeAndTake("Revolving Buster", "RevolvingBuster", "Revolving Buster", "RevolvingUpgrade", "FAKEA0", true, true, true);
+
+DefinePowerAprop("TimeSwitchSpeedGiver", "TimeSwitchSpeed", APROP_Speed, 1.45, NO);
+}
+}
+
+Script "enc_items_CLIENT" OPEN CLIENTSIDE
+{
+If(IsNetworkGame()) 
+	{
+	ACS_NamedExecuteWithResult("enc_items");
+	}
+}

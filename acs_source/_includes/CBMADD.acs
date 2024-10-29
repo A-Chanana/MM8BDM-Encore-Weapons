@@ -1,0 +1,121 @@
+// Function to use to check if CBM and CBM with beef are loaded
+global int 30: cbmTrue;
+global int 31: cbmBeef;
+
+function bool CBMInPlay(void) {
+	if(cbmTrue == 0) {
+		cbmTrue = SpawnForced("CBMModderSupport_H", 0, 0, 0, 0, 0) + 1;
+	}
+	return cbmTrue - 1;
+}
+
+function bool CBMBeefInPlay(void) {
+	if(cbmBeef == 0) {
+		cbmBeef = SpawnForced("Beef_CBMModderSupport_H", 0, 0, 0, 0, 0) + 1;
+	}
+	return cbmBeef - 1;
+}
+
+
+// CBM definition for PowerDamage actors that Copy Classes obtain to lower their damage
+// String:  Nerf	- Actor name of the PowerDamage actor (Ex. CBM_CopyNerf)
+// 
+
+function bool AddCopyNerf(str Nerf)
+{
+	SetCvarString("_7cbm_copynerf", Nerf);
+	return ACS_NamedExecuteWithResult("cbm_DefineCopyNerf_S");
+}
+
+// CBM definitions for weapons so Rock/DocRobot/Evilrobot can adapt to them =======================
+// String:  Actor   - The weapon's class name. (Ex. "RollingCutterWep")
+// Int:		Rock	- The slot that Rock should obtain (Ex. CBMADD_FIRE)
+// Int:		Health	- The health that Doc should have (Ex. 1000)
+// Int:		Jump	- Jump percentage modifier (Ex. 125)
+// Int:		Speed	- Speed percentage modifier (Ex. 120)
+// Int:		ER		- The slot that Evil Robot should obtain (Ex. CBMADD_GFS)
+
+#DEFINE CBMADD_NONE 0
+
+#DEFINE CBMADD_CUT 1
+#DEFINE CBMADD_TIME 2
+#DEFINE CBMADD_FIRE 3
+#DEFINE CBMADD_ELEC 4
+#DEFINE CBMADD_GUTS 5
+#DEFINE CBMADD_ICE 6
+#DEFINE CBMADD_BOMB 7
+#DEFINE CBMADD_OIL 8
+
+#DEFINE CBMADD_GTH 1//TornadoHold
+#DEFINE CBMADD_GAS 2//AstroCrush
+#DEFINE CBMADD_GFS 3//FlameSword
+#DEFINE CBMADD_GTC 4//ThunderClaw
+#DEFINE CBMADD_GHS 5//HomingSniper
+#DEFINE CBMADD_GIW 6//IceWave
+#DEFINE CBMADD_GFB 7//FlashBomb
+#DEFINE CBMADD_GWB 8//WaterBalloon
+
+function bool AddCBMWepInfo(str wepActor, int rockER, int docHP, int docJump, int docSpeed)
+{
+	return AddCBMWepInfoEX(wepActor, rockER, docHP, docJump, docSpeed, rockER);
+}
+
+function bool AddCBMWepInfoEX(str wepActor, int rock, int docHP, int docJump, int docSpeed, int ER)
+{
+	SetCvarString("_7cbm_i_wepActor", wepActor);
+	SetCvar("_7cbm_i_rock", rock);
+	SetCvar("_7cbm_i_docHP", docHP);
+	SetCvar("_7cbm_i_docJump", docJump);
+	SetCvar("_7cbm_i_docSpeed", docSpeed);
+	SetCvar("_7cbm_i_ER", ER);
+	return ACS_NamedExecuteWithResult("cbm_DefineWepInfo_S");
+}
+
+
+// CBM definitions for classes so DocRobot/DocScannerWep can give specific weapons per Class ==
+// String:  Class   - The name of the PlayerClass (Ex. "Tenguman" or "RollClass")
+// String:  Name   - The name of the Class (Ex. "Tenguman" or "Roll" )
+// String:	Wep1	- The Weapon given when scanned (Ex. "TornadoHoldWep" or "RollSweepWep")
+// String:	Wep2	- A secondary weapon that can be obtained (Ex. "TenguBladeWep" or "")
+// Int:		Chance	- Percent chance of Wep2 being given instead of Wep1 (Ex. 50 or 0)
+
+function bool AddCBMClassScan(str class, str wep1)
+{
+	return AddCBMClassScanEX2(class, class, wep1, "", 0);
+}
+function bool AddCBMClassScan2(str class, str name, str wep1)
+{
+	return AddCBMClassScanEX2(class, name, wep1, "", 0);
+}
+
+function bool AddCBMClassScanCopy(str class)
+{
+	return AddCBMClassScanEX2(class, class, "CopyWep", "", 0);
+}
+function bool AddCBMClassScanCopy2(str class, str name)
+{
+	return AddCBMClassScanEX2(class, name, "CopyWep", "", 0);
+}
+
+function bool AddCBMClassScanNull(str class)
+{
+	return AddCBMClassScanEX2(class, class, "Null", "", 0);
+}
+function bool AddCBMClassScanNull2(str class, str name)
+{
+	return AddCBMClassScanEX2(class, name, "Null", "", 0);
+}
+
+function bool AddCBMClassScanEX(str class, str wep1, str wep2, int chance)
+{
+	return AddCBMClassScanEX2(class, class, wep1, wep2, chance);
+}
+function bool AddCBMClassScanEX2(str class, str name, str wep1, str wep2, int chance)
+{
+	SetCvarString("_7cbm_d_scanClass", class);
+	SetCvarString("_7cbm_d_scanName", name);
+	SetCvarString("_7cbm_d_scanWep1", wep1);
+	SetCvarString("_7cbm_d_scanWep2", wep2);
+	SetCvar("_7cbm_d_scanChance", chance);
+	return ACS_NamedExecuteWithResult("cbm_DefineDocScan_S");
+}

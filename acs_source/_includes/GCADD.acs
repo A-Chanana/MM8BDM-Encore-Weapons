@@ -1,0 +1,110 @@
+// Function to use to check if GC is loaded
+global int 32: gcTrue;
+
+function bool GCInPlay(void) {
+    if(gcTrue == 0) {
+        gcTrue = SpawnForced("GCModderSupport_H", 0, 0, 0, 0, 0) + 1;
+    }
+    return gcTrue - 1;
+}
+// Archvile revive script define
+#LIBDEFINE MAX_ARCHREVIVE_GLOBAL_LIMIT 2000
+Int MAX_ARCHREVIVE_GLOBAL = 0;
+Str Archvile_Revive_Script_Table[MAX_ARCHREVIVE_GLOBAL_LIMIT];
+function int defineArchvileReviveEvent(str scr)
+{
+    SetCVarString("archrevive_temp_script", scr);
+    return ACS_NamedExecuteWithResult("archrevive_define_s");
+}
+
+// [Bin] Functions for replacing weapons.
+#LIBDEFINE MAX_WEAPONREPL_GLOBAL_LIMIT 2000
+Int MAX_WEAPONREPL_GLOBAL = 0;
+// 0 map 1 weapon 2 weaponReplace
+Str Weapon_Replace_Table[MAX_WEAPONREPL_GLOBAL_LIMIT][3];
+
+function int defineReplacementWeapon(str map, str wep, str wepReplace)
+{
+    SetCVarString("wprlc_temp_map", map);
+    SetCVarString("wprlc_temp_wep", wep);
+    SetCVarString("wprlc_temp_wepReplace", wepReplace);
+    return ACS_NamedExecuteWithResult("wprlc_define_s");
+}
+
+// [Bin] Functions for defining Afterburns.
+#LIBDEFINE MAX_AFTERBURN_GLOBAL_LIMIT 255
+Int MAX_AFTERBURN_GLOBAL = 0;
+Str ModularBurn_Table[MAX_AFTERBURN_GLOBAL_LIMIT][4];
+
+#LIBDEFINE BURN_COLOR_DEFAULT 0
+#LIBDEFINE BURN_COLOR_GREEN 1
+#LIBDEFINE BURN_COLOR_PURPLE 2
+#LIBDEFINE BURN_COLOR_BLUE 3
+#LIBDEFINE BURN_COLOR_YELLOW 4 //suffer
+
+function int defineAfterburn(int slot, str damageType, int damage)
+{
+	return defineAfterburnCol(slot, damageType, damage, BURN_COLOR_DEFAULT);
+}
+function int defineAfterburnCol(int slot, str damageType, int damage, int col)
+{
+	SetCVar("gc_temp_afterburn_st", slot);
+	SetCVarString("gc_temp_afterburn_dt", damageType);
+	SetCVar("gc_temp_afterburn_dm", damage);
+	SetCVar("gc_temp_afterburn_cl", col);
+	return ACS_NamedExecuteWithResult("gc_defineafterburn_s");
+}
+
+// [Bin] Functions for defining Class Guides and selecting them in-game.
+#LIBDEFINE MAX_CLASS_GLOBAL_LIMIT 1000
+Int MAX_CLASS_GLOBAL = 0;
+Str GCClass_Table[MAX_CLASS_GLOBAL_LIMIT][12];
+
+Function Int Define_ClassGuide(str actor, str name, str desc, str main, str alt, str item, bool reloadBool, str user1, str user2, str passive, int wallJumps, int airJumps)
+{
+	SetCVarString("gc_temp_classguide_actor", actor);
+	SetCVarString("gc_temp_classguide_name", name);
+	SetCVarString("gc_temp_classguide_desc", desc);
+	SetCVarString("gc_temp_classguide_main", main);
+	SetCVarString("gc_temp_classguide_alt", alt);
+	SetCVarString("gc_temp_classguide_item", item);
+	SetCVarString("gc_temp_classguide_user1", user1);
+	SetCVarString("gc_temp_classguide_user2", user2);
+	SetCVarString("gc_temp_classguide_passive", passive);
+	
+	SetCVar("gc_temp_classguide_wallJumps", wallJumps);
+	SetCVar("gc_temp_classguide_airJumps", airJumps);
+	SetCVar("gc_temp_classguide_reloadbool", reloadBool);
+	return ACS_NamedExecuteWithResult("gc_defineclassguide_s");
+}
+
+// [Bin] Copywep nerf, essentially same as CBM with a diff name
+#LIBDEFINE MAX_GC_COPYNERF_GLOBAL_LIMIT 100
+int MAX_GC_COPYNERF_GLOBAL = 0;
+Str GC_CopyNerf_Table[MAX_GC_COPYNERF_GLOBAL_LIMIT];
+
+Function Int AddCopyNerfGC(str name) {
+	SetCVarString("gc_temp_wepnerf_name", name);
+	return ACS_NamedExecuteWithResult("gc_definewepnerf_s");
+}
+
+// Modular Achievement system
+Function Int DefineAchievement(int slot, str name) {
+	SetCVarString("GC_Temp_AchieveName", name);
+	return ACS_NamedExecuteWithResult("GC_DefineAchieve", slot);
+}
+Function Str GetAchievementName(int slot) {
+	ACS_NamedExecuteWithResult("GC_GetAchieveName", slot);
+	Return GetCVarString("GC_Temp_AchieveName_0");
+}
+Function Void GiveAchievement(int player, int slot) {
+	If(CheckAchievement(player, slot) != 1)
+		ACS_NamedExecuteWithResult("GC_AchievementGotten", player, slot);
+}
+Function Int CheckAchievement(int pNum, int slot)
+{
+	int Result;
+	str achievement = StrParam(s:"GC_achievement_", i:slot);
+	Result = GetUserCVar(pNum,achievement);
+	return Result;
+}

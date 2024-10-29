@@ -1,0 +1,95 @@
+actor RestrictionRingWep_NormalBar : NormalBar{args 33, 60}
+actor RestrictionRingWep : BaseMM8BDMWep
+{
+dropitem "RestrictionRingWep"
+Weapon.AmmoUse 3
+Weapon.AmmoGive 30
+Weapon.SlotNumber 4
+Inventory.Pickupmessage "$PU_RESTRICTIONRING"
+Obituary "$OB_RESTRICTIONRING"
+Tag "$TAG_RESTRICTIONRING"
+weapon.ammotype "RestrictionRingAmmo"
+inventory.icon "RRNGICON"
+States
+{
+SpawnLoop:
+RRNG Z -1
+loop
+Ready:
+RRNG A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_RESTRICTIONRING)
+RRNG A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+RRNG A 0 
+goto DeselectSwap
+Select:
+RRNG A 0
+goto SelectSwap
+Fire:
+RRNG A 0 A_JumpIfNoAmmo("NoAmmo")
+RRNG G 0 A_PlaySoundEx("misc/sparkzap","Weapon")
+RRNG G 0 A_FireCustomMissile("RestrictionRing",0,1,8,0)
+RRNG G 0 A_FireCustomMissile("RestrictionRing",12,0,8,0)
+RRNG G 0 A_FireCustomMissile("RestrictionRing",-12,0,8,0)
+RRNG B 2
+RRNG C 12
+RRNG BBBBAAAAAAAAAAAAAA 1 A_WeaponReady(WRF_NOFIRE)
+RRNG A 2 A_WeaponReady
+Goto Ready+1
+NoAmmo:
+RRNG A 1 ACS_NamedExecuteAlways("core_noammo",0)
+Goto Ready+1
+}
+}
+
+actor RestrictionRing : BasicProjectile
+{
+PROJECTILE
+scale 2.5
+Height 16
+Radius 16
+Damage (CallACS("enc_cbm_damage",9))
+Speed 42
+damagetype "RestrictionRing"
+Obituary "$OB_RESTRICTIONRING"
+states
+{
+Spawn:
+DARS DEFDEF 3 A_ScaleVelocity(0.75)
+DARS DEF 3 A_ScaleVelocity(0.45)
+stop
+Crash:
+DARS D 0 A_SpawnItemEx("ElectrifyEffect")
+stop
+}
+}
+
+actor RestrictionRingAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
++INVENTORY.IGNORESKILL
+}
+
+
+actor RestRingShocked : PowerupGiver
+{
+inventory.maxamount 0
+powerup.duration 17
+powerup.color "00 00 00", 0.0
+powerup.type "PowerShockNFX"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Spawn:
+TNT1 A 6
+loop
+}
+}
+
+actor PowerShockNFX : PowerSpeed
+{
++POWERSPEED.NOTRAIL
+Speed 0.0
+}

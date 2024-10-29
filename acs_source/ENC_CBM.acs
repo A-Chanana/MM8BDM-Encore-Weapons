@@ -1,0 +1,56 @@
+#library "ENC-CBM"
+#include "zcommon.acs"
+#include "CBMADD.acs"
+#include "GCADD.acs"
+
+/*
+// CBM definitions for weapons so Rock/DocRobot/Evilrobot can adapt to them =======================
+// String:  Actor   - The weapon's class name. (Ex. "RollingCutterWep")
+// Int:		Rock	- The slot that Rock should obtain (Ex. CBMADD_FIRE)
+// Int:		Health	- The health that Doc should have (Ex. 1000)
+// Int:		Jump	- Jump percentage modifier (Ex. 125)
+// Int:		Speed	- Speed percentage modifier (Ex. 120)
+// Int:		ER		- The slot that Evil Robot should obtain (Ex. CBMADD_GFS)
+
+#DEFINE CBMADD_NONE 0
+#DEFINE CBMADD_CUT 1		#DEFINE CBMADD_TIME 2
+#DEFINE CBMADD_FIRE 3		#DEFINE CBMADD_ELEC 4
+#DEFINE CBMADD_GUTS 5 		#DEFINE CBMADD_ICE 6
+#DEFINE CBMADD_BOMB 7		#DEFINE CBMADD_OIL 8
+
+#DEFINE CBMADD_GTH 1//TornadoHold	#DEFINE CBMADD_GAS 2//AstroCrush
+#DEFINE CBMADD_GFS 3//FlameSword	#DEFINE CBMADD_GTC 4//ThunderClaw
+#DEFINE CBMADD_GHS 5//HomingSniper	#DEFINE CBMADD_GIW 6//IceWave
+#DEFINE CBMADD_GFB 7//FlashBomb		#DEFINE CBMADD_GWB 8//WaterBalloon
+*/
+script "enc_cbm_defines" OPEN {
+    if (CBMInPlay()) {
+        AddCopyNerf("ENC_CopyNerf");
+
+        AddCBMWepInfo("BulletVulcanWep", CBMADD_GHS, 1000, 100, 100);
+        AddCBMWepInfo("BrassBulletWep", CBMADD_GHS, 1000, 100, 100);
+        AddCBMWepInfo("FlameShowerWep", CBMADD_GFS, 1000, 90, 120);
+        AddCBMWepInfo("FlameMixerWep", CBMADD_GFS, 1000, 90, 120);
+        AddCBMWepInfo("DoppelCrashWep", CBMADD_GTC, 900, 115, 100);
+        AddCBMWepInfo("DopplerAttackWep", CBMADD_GTC, 900, 115, 100);
+        AddCBMWepInfo("TimeSwitchWep", CBMADD_GFB, 850, 100, 110);
+        AddCBMWepInfo("TimeBombWep", CBMADD_GFB, 850, 100, 110);
+        AddCBMWepInfo("BarrierWindWep", CBMADD_GTH, 1150, 100, 120);
+        AddCBMWepInfo("WindCycloneWep", CBMADD_GTH, 1150, 100, 120);
+        AddCBMWepInfo("TrailsparkNeedleWep", CBMADD_GTC, 1000, 110, 110);
+        AddCBMWepInfo("CardinalRingWep", CBMADD_GTC, 1000, 110, 110);
+		
+		AddCBMWepInfo("PurityMeteorWep", CBMADD_GAS, 1250, 115, 80);
+
+        AddCBMWepInfo("JoeBuster", CBMADD_NONE, 1000, 100, 100);
+        AddCBMWepInfo("RevolvingBuster", CBMADD_NONE, 1000, 100, 115);
+        AddCBMWepInfo("MaestroBusterEnc", CBMADD_NONE, 1000, 100, 100);
+    }
+}
+
+script "enc_cbm_damage" (int dmg) {
+    if (CBMBeefInPlay()) {
+        dmg *= 10;
+    }
+    SetResultValue(dmg);
+}

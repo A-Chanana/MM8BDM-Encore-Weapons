@@ -1,0 +1,155 @@
+actor BulletVulcanWep_NormalBar : NormalBar{args 64, 70}
+actor BulletVulcanWep : BaseMM8BDMWep
+{
+//$Category MM8BDME-Weapons
+//$Title Bullet Vulcan
+dropitem "BulletVulcanWep"
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "$PU_BULLETVULCAN"
+Obituary "$OB_BULLETVULCAN"
+Tag "$TAG_BULLETVULCAN"
+weapon.ammotype "BulletVulcanAmmo"
+inventory.icon "BVULICON"
+States
+{
+SpawnLoop:
+BVUL H -1
+loop
+Ready:
+BVUL C 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_BULLETVULCAN)
+BVUL C 1 A_WeaponReady
+Goto Ready+1
+ReadyC:
+Goto Ready+1
+Deselect:
+BVUL C 0 A_JumpIfInventory("GyroFlag",1,1)
+Goto DeselectSwap
+BVUL C 0 A_TakeInventory("GyroFlag",999)
+BVUL F 3
+BVUL C 7
+Goto DeselectSwap
+Select:
+BVUL A 0
+goto SelectSwap
+Altfire:
+BVUL C 0 A_JumpIfInventory("ENC_ClassAltfire", 1, "ClassAltfire")
+BVUL C 0 A_JumpIf(CallACS("Enc_class_altfire"), "ClassAltfire")
+BVUL C 1 A_JumpIfInventory("MM8BDMPlayer", 1, 1)
+wait
+BVUL C 0
+BVUL C 0 A_JumpIfInventory("GyroFlag",1,"Change")
+BVUL C 0 A_JumpIfNoAmmo("NoAmmo")
+BVUL C 0 A_PlaySoundEx("weapon/bulletvulcan","Weapon")
+BVUL C 0 A_FireCustomMissile("VulcanBullet",0,1,8,0)
+BVUL C 0 A_JumpIfInventory("GyroFlag",1,2)
+BVUL C 0 //A_GiveInventory("GyroFlag",1)
+BVUL D 4
+BVUL E 4
+BVUL C 18
+Goto Ready+1
+Fire:
+BVUL E 0 A_JumpIfInventory("IsSpecialBot", 1 ,"BulletManCheck")
+BVUL C 0 A_JumpIfInventory("GyroFlag",1,"Change")
+BVUL C 0 A_JumpIfNoAmmo("NoAmmo")
+BVUL C 0 A_PlaySoundEx("weapon/bulletvulcan","Weapon")
+BVUL C 0 A_FireCustomMissile("VulcanBullet",0,1,8,0)
+BVUL C 0 A_GiveInventory("GyroFlag",1)
+BVUL D 2
+BVUL E 2
+BVUL C 2
+FlagLoop:
+BVUL C 0 A_JumpIfInventory("GyroFlag",1,"ChangeReady")
+BVUL C 20
+Goto Ready+1
+ChangeReady:
+BVUL C 1 A_WeaponReady
+Goto FlagLoop
+Change:
+BVUL F 4 A_GiveInventory("GyroFlag",1)
+BVUL C 17
+BVUL C 0 A_TakeInventory("GyroFlag",999)
+Goto Ready+1
+NoAmmo:
+BVUL C 1 ACS_NamedExecuteAlways("core_noammo",0)
+Goto Ready+1
+BulletManCheck:
+BVUL A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 800, 0)>0, 3)
+BVUL B 1 A_GiveInventory("BrassBulletWep",1)
+BVUL B 1 A_SelectWeapon("BrassBulletWep")
+Goto Fire+1
+BVUL A 0
+Goto Fire+1
+ClassAltfire:
+BVUL C 0 
+goto Super::Altfire
+}
+}
+
+actor BulletVulcanAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}
+
+actor VulcanBullet : BasicProjectile
+{
+PROJECTILE
+Radius 15
+Height 8
+scale 2.5
+damage (CallACS("enc_cbm_damage",36))
+damagetype "BulletVulcan"
+Obituary "$OB_BULLETVULCAN"
+speed 35
++HITTRACER
+var int user_TranslateWhiteColors;
+States
+{
+Spawn:
+BVUL A 0
+BVUL A 1 A_JumpIfInTargetInventory("GyroFlag",2,"Up")
+loop
+Up:
+BVUL A 0 A_SpawnItemEx("BulletVulcanPuff")
+BVUL A 0 A_CustomMissile("VulcanBullet2",0,0,20,2,0)
+BVUL A 0 A_CustomMissile("VulcanBullet2",0,0,0,2,0)
+BVUL A 0 A_CustomMissile("VulcanBullet2",0,0,-20,2,0)
+BVUL A 0 A_Changeflag("NOINTERACTION",1)
+TNT1 A 1
+stop
+Death:
+BVUL A 0 A_TakeFromTarget("GyroFlag", 999)
+BVUL IJKLM 1
+stop
+}
+}
+
+actor VulcanBullet2 : VulcanBullet
+{
+damage (CallACS("enc_cbm_damage",24))
+speed 25
+States
+{
+Spawn:
+BVUL B 4
+BVUL A 2
+goto spawn+1
+Death:
+BVUL IJKLM 1
+stop
+}
+}
+
+actor BulletVulcanPuff : BasicExplosion
+{
+    States
+    {
+    Spawn:
+        BVUL A 0
+        BVUL A 0 A_PlaySoundEx("weapon/bulletsplit","Weapon")
+        stop
+    }
+}

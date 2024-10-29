@@ -1,0 +1,41 @@
+// Damage nerf designed for Megaman and friends in CBM
+actor ENC_CopyNerf : PowerDamage
+{
+    +INVENTORY.ALWAYSPICKUP
+    Powerup.Duration 0x7FFFFFFC
+
+    damagefactor "BulletVulcan", 0.901
+    damagefactor "BrassBullet", 0.901
+    damagefactor "FlameShower", 0.901
+    damagefactor "FlameMixer", 0.901
+    damagefactor "DoppelCrash", 0.901
+    damagefactor "DopplerAttack", 0.901
+    damagefactor "TimeSwitch", 0.901
+    damagefactor "TimeBomb", 0.901
+    damagefactor "BarrierWind", 0.901
+    damagefactor "WindCyclone", 0.901
+    damagefactor "TrailsparkNeedle", 0.901
+    damagefactor "CardinalRing", 0.901
+    damagefactor "PurityMeteor", 1.000
+}
+
+actor ENC_CopyNerf_GC : PowerDamage
+{
+    +INVENTORY.ALWAYSPICKUP
+    Powerup.Duration 0x7FFFFFFC
+
+
+    damagefactor "BulletVulcan", 0.50
+    damagefactor "BrassBullet", 0.50
+    damagefactor "FlameShower", 0.50
+    damagefactor "FlameMixer", 0.50
+    damagefactor "DoppelCrash", 0.50
+    damagefactor "DopplerAttack", 0.50
+    damagefactor "TimeSwitch", 0.50
+    damagefactor "TimeBomb", 0.50
+    damagefactor "BarrierWind", 0.50
+    damagefactor "WindCyclone", 0.50
+    damagefactor "TrailsparkNeedle", 0.50
+    damagefactor "CardinalRing", 0.50
+    damagefactor "PurityMeteor", 0.50
+}

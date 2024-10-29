@@ -1,0 +1,137 @@
+[enu default]
+
+OB_PROTOSTRIKE = "%o was utterly destroyed by %k's Proto Strike.";
+PU_PROTOSTRIKE =  "You feel powerful...";
+TAG_PROTOSTRIKE = "Proto Strike";
+
+//Busters
+OB_MAESTROBUSTER = "%o was decrypted by %k's Maestro Buster.";
+PU_MAESTROUPGRADE = "Support Item! Maestro Buster!";
+TAG_MAESTROUPGRADE = "Maestro Buster Upgrade";
+TAG_MAESTROBUSTER = "Maestro Buster";
+
+OB_REVOLVINGBUSTER = "%o put %p hands up for %k's Revolving Buster."; 
+PU_REVOLVINGUPGRADE = "Support Item! Revolving Buster!"; 
+TAG_REVOLVINGUPGRADE = "Revolving Buster Upgrade";
+TAG_REVOLVINGBUSTER = "Revolving Buster";
+
+OB_JOEBUSTER = "%o was shot down by %k's Joe Buster."; 
+PU_JOEUPGRADE = "Support Item! Joe Buster!";
+TAG_JOEUPGRADE = "Joe Buster Upgrade";
+TAG_JOEBUSTER = "Joe Buster";
+
+//MMB2
+OB_BULLETVULCAN = "%o was perforated by %k's Bullet Vulcan.";
+PU_BULLETVULCAN = "Power up! Bullet Vulcan!";
+TAG_BULLETVULCAN = "Bullet Vulcan";
+
+OB_BRASSBULLET = "%o was pumped full of lead by %k's Brass Bullet.";
+PU_BRASSBULLET = "Power up! Brass Bullet!";
+TAG_BRASSBULLET = "Brass Bullet";
+
+OB_FLAMESHOWER = "%o was grilled by %k's Flame Shower.";
+PU_FLAMESHOWER = "Power up! Flame Shower!";
+TAG_FLAMESHOWER = "Flame Shower";
+
+OB_FLAMEMIXER = "%o was done well by %k's Flame Mixer.";
+PU_FLAMEMIXER = "Power up! Flame Mixer!";
+TAG_FLAMEMIXER = "Flame Mixer";
+
+OB_DOPPELCRASH = "%o was darkened by %k's Doppel Crash.";
+PU_DOPPELCRASH = "Power up! Doppel Crash!";
+TAG_DOPPELCRASH = "Doppel Crash";
+
+OB_DOPPLERATTACK = "%o was duped by %k's Doppler Attack.";
+PU_DOPPLERATTACK = "Power up! Doppler Attack!";
+TAG_DOPPLERATTACK = "Doppler attack";
+
+OB_TIMESWITCH = "%o died infinite times to %k's Time Switch.";
+PU_TIMESWITCH = "Power up! Time Switch!";
+TAG_TIMESWITCH = "Time Switch";
+
+OB_TIMEBOMB = "%o bit the dust of %k's Time Bomb.";
+PU_TIMEBOMB = "Power up! Time Bomb!";
+TAG_TIMEBOMB = "Time Bomb";
+
+OB_BARRIERWIND = "%o was repelled by %k's Barrier Wind.";
+PU_BARRIERWIND = "Power up! Barrier Wind!";
+TAG_BARRIERWIND = "Barrier Wind";
+
+OB_WINDCYCLONE = "%o was repelled by %k's Wind Cyclone.";
+PU_WINDCYCLONE = "Power up! Wind Cyclone!";
+TAG_WINDCYCLONE = "Wind Cyclone";
+
+OB_TRAILSPARKNEEDLE = "%o was revealed by %k's Trailspark Needle.";
+PU_TRAILSPARKNEEDLE = "Power up! Trailspark Needle!";
+TAG_TRAILSPARKNEEDLE = "Trailspark Needle";
+
+OB_CARDINALRING = "%o was rung around by %k's Cardinal Ring.";
+PU_CARDINALRING = "Power up! Cardinal Ring!";
+TAG_CARDINALRING = "Cardinal Ring";
+
+//Misc
+OB_BERSERKERRUSH = "%o was rushed down by %k's Berserker Rush.";
+PU_BERSERKERRUSH = "Power up! Berserker Rush!";
+TAG_BERSERKERRUSH = "Berserker Rush";
+
+OB_SHIELDSPIRAL = "%o became static to %k's Shield Spiral.";
+TAG_SHIELDSPIRAL = "Shield Spiral";
+PU_SHIELDSPIRAL = "Power up! Shield Spiral!";
+
+OB_RESTRICTIONRING = "%o was petrified by %k's Restriction Ring.";
+PU_RESTRICTIONRING = "Power up! Restriction Ring!";
+TAG_RESTRICTIONRING = "Restriction Ring";
+
+OB_ONSLAUGHTGATLING = "%o was retaliated by %k's Onslaught Gatling.";
+PU_ONSLAUGHTGATLING = "Power up! Onslaught Gatling!";
+TAG_ONSLAUGHTGATLING = "Onslaught Gatling";
+
+OB_ROYALSPIN = "%o bent %p knee to %k's Royal Spin.";
+PU_ROYALSPIN = "Power up! Royal Spin!";
+TAG_ROYALSPIN = "Royal Spin";
+
+OB_JUSTICEMETEOR = "%o was purified by %k's Justice Meteor.";
+PU_JUSTICEMETEOR = "Power up! Justice Meteor!";
+TAG_JUSTICEMETEOR = "Justice Meteor";
+
+OB_KINGROD = "%o was monkey'd out by %k's King Rod.";
+PU_KINGROD = "Power up! King Rod!";
+TAG_KINGROD = "King Rod";
+
+OB_CLAMMYHARPOON = "%o was geysered by %k's Clammy Harpoon.";
+PU_CLAMMYHARPOON = "Power up! Clammy Harpoon!";
+TAG_CLAMMYHARPOON = "Clammy Harpoon";
+
+OB_HYPERTORRENT = "%o was huffed out by %k's Hyper Torrent.";
+PU_HYPERTORRENT = "Power up! Hyper Torrent!";
+TAG_HYPERTORRENT = "Hyper Torrent";
+
+//Encore Descs
+DESC_BULLETVULCAN = "Bullet Vulcan shoots a metallic bullet that can split into weaker copies of itself.";
+DESC_BRASSBULLET = "Brass Bullet is a weak, very accurate homing projectile that greatly increases in damage over distance.";
+DESC_FLAMESHOWER = "Flame Shower is a spray of weak lingering flames that have greater hitstun if they're stepped on.";
+DESC_FLAMEMIXER = "Flame Mixer centrifuges powerful high-heat flames, which return to the user after finishing their orbit, dealing damage on the way out and back.";
+DESC_DOPPELCRASH = "Doppel Crash is a grounded dash that travels fast, hits hard, and knocks both parties back, but is stuck to the ground.";
+DESC_DOPPLERATTACK = "Doppler Attack creates doppels that hold in place until released, where they all fly in the direction they were originally aimed at.";
+DESC_TIMEBOMB = "Time Bomb lobs a clock that slows down enemies in a small radius, dealing decent damage if it hits directly.";
+DESC_TIMESWITCH = "Time Switch summons a clock that electrically charges the ground to increase the user's speed. Anything caught between it and the ground will suffer an electrifying demise. Use it in mid-air for an extra thrust!";
+DESC_BARRIERWIND = "Creates a powerful gust of wind, which can blow away enemy projectiles, increasing its duration with every successful deflection.";
+DESC_WINDCYCLONE = "Wind Cyclone blows two gusts of wind that swerve in between each other, blowing back enemies hit by it.";
+DESC_TRAILSPARKNEEDLE = "Spins two electric needles around the user, and shoots sparks forward and back. The electricity builds up on consecutive uses, increasing the amount of sparks shot per attack!";
+DESC_CARDINALRING = "Throws a spiked ring, which can spin through walls, block incoming fire and deal decent damage.";
+
+//Buster Descs
+DESC_MAESTROBUSTER = "Maestro Buster is obtained from an inventory item. It allows you to use charge shots or spray fire with its middle charge! Use Altfire to fire uncharged shots.";
+DESC_JOEBUSTER = "Joe Buster is obtained from an inventory item. It allows you to shoot slow, powerful shots and block enemy fire with a shield!";
+DESC_REVOLVINGBUSTER = "Revolving Buster is obtained from an inventory item. It allows you to fire a barrage of fast, strong projectiles, at the cost of having to reload. Use Altfire to reload earlier.";
+
+//Misc Descs
+DESC_BERSERKERRUSH = "Berserker Rush is a weapon that gets stronger and faster the lower the user's health is, at it's strongest below 10.";
+DESC_SHIELDSPIRAL = "Shield Spiral summons a ring of shields that circle around the user, blocking projectiles and harming anyone hit, though rapidly draining ammo while in use.";
+DESC_RESTRICTIONRING = "Restriction Ring fires a triad of rings that momentarily stun an enemy, and pushes them back.";
+DESC_ONSLAUGHTGATLING = "Onslaught Gatling loads bullets into the clip rapidly, before unleashing them in a deadly barrage! Though, ammo is harder to obtain with this.";
+DESC_ROYALSPIN = "Royal Spin rapidly moves the user forth when held, dealing damage to those in their path.";
+DESC_JUSTICEMETEOR = "Charges up and releases an immensely powerful meteor dash attack! Use Altfire to fire energy fists.";
+DESC_KINGROD = "King Rod extends a piercing rod that travels through surfaces and deals strong damage at the tip.";
+DESC_CLAMMYHARPOON = "Clammy Harpoon fires a drenched harpoon that spawns a water spout wherever the harpoon lands on the ground.";
+DESC_HYPERTORRENT = "Hyper Torrent gusts out a short ranged cloud of air that throws enemies backwards. The user can also jump and bounce off of the projectile into the air.";
