@@ -35,8 +35,8 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //{"MME1TIM",		"DrillBombWep",		"ClammyHarpoonWep"},
 //Encore Oil Man
 {"MME1OIL",		"WaterBalloonWep",		"FlameShowerWep"},
-{"MME1OIL",		"ArrowBusterUpgrade",	"RevolvingUpgrade"},
-{"MME1OIL",		"ArrowBusterUpgradeC",	"RevolvingUpgrade"},
+{"MME1OIL",		"ArrowBusterUpgrade",	"RevolverUpgrade"},
+{"MME1OIL",		"ArrowBusterUpgradeC",	"RevolverUpgrade"},
 //Encore 1 Dr. Wily 1
 {"MME1DW1",		"BlizzardAttackWep",	"TrailsparkNeedleWep"},
 //{"MME1DW1",		"MegaBallWep",			"HyperTorrentWep"},
@@ -80,8 +80,8 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME3NEE",		"RingBoomerangWep",		"CardinalRingWep"},
 //Encore Hard Man
 {"MME3HAR",		"StarCrashWep",			"FlameMixerWep"},
-{"MME3HAR",		"MegaArmUpgrade",		"RevolvingUpgrade"},
-{"MME3HAR",		"MegaArmUpgradeC",		"RevolvingUpgrade"},
+{"MME3HAR",		"MegaArmUpgrade",		"RevolverUpgrade"},
+{"MME3HAR",		"MegaArmUpgradeC",		"RevolverUpgrade"},
 //Encore Gemini Man
 {"MME3GEM",		"LaserBusterUpgrade",	"JoeUpgrade"},
 {"MME3GEM",		"LaserBusterUpgradeC",	"JoeUpgrade"},
@@ -92,9 +92,9 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Spark Man
 {"MME3SPA",		"QuickBoomerangWep",	"FlameShowerWep"},
 {"MME3SPA",		"LaserBusterUpgrade",	"JoeUpgrade"},
-{"MME3SPA",		"ArrowBusterUpgrade",	"RevolvingUpgrade"},
+{"MME3SPA",		"ArrowBusterUpgrade",	"RevolverUpgrade"},
 {"MME3SPA",		"LaserBusterUpgradeC",	"JoeUpgrade"},
-{"MME3SPA",		"ArrowBusterUpgradeC",	"RevolvingUpgrade"},
+{"MME3SPA",		"ArrowBusterUpgradeC",	"RevolverUpgrade"},
 //Encore 3 Dr. Wily 1
 {"MME3DW1",		"ShadowBladeWep",		"CardinalRingWep"},
 {"MME3DW1",		"FireStormWep",			"WindCycloneWep"},
@@ -117,7 +117,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME4TOA",		"WheelCutterWep",		"TimeSwitchWep"},
 {"MME4TOA",		"SolarBlazeWep",		"BrassBulletWep"},
 //Encore Skull Man
-{"MME4SKU",		"BalladeCrackerWep",	"RevolvingUpgrade"},
+{"MME4SKU",		"BalladeCrackerWep",	"RevolverUpgrade"},
 //{"MME4SKU",		"BlizzardAttackWep",	"RoyalSpinWep"},
 //Encore Dr. Cossack
 {"MME4DC1",		"BlackHoleBombWep",		"PurityMeteorWep"},
@@ -125,7 +125,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 
 
 //Encore Charge Man
-{"MME5CHA",		"BalladeCrackerWep",	"RevolvingUpgrade"},
+{"MME5CHA",		"BalladeCrackerWep",	"RevolverUpgrade"},
 {"MME5CHA",		"StarCrashWep",			"TrailsparkNeedleWep"},
 //Encore Stone Man
 {"MME5STO",		"GyroAttackWep",		"BulletVulcanWep"},
@@ -133,7 +133,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //{"MME5STO",		"MagnetMissileWep",	"RoyalSpinWep"},
 //Encore Napalm Man
 {"MME5NAP",		"ScorchWheelWep",		"FlameMixerWep"},
-{"MME5NAP",		"SolarBlazeWep",		"RevolvingUpgrade"},
+{"MME5NAP",		"SolarBlazeWep",		"RevolverUpgrade"},
 //Encore Wave Man
 {"MME5WAV",		"TopSpinWep",			"PurityMeteorWep"},
 {"MME5WAV",		"FlameBlastWep",		"WindCycloneWep"},
@@ -155,8 +155,8 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 
 //Encore Tomahawk Man
 {"MME6TOM",		"BlizzardAttackWep",	"BulletVulcanWep"},
-{"MME6TOM",		"ProtoUpgrade",			"RevolvingUpgrade"},
-{"MME6TOM",		"ProtoBusterWepC",			"RevolvingUpgrade"},
+{"MME6TOM",		"ProtoUpgrade",			"RevolverUpgrade"},
+{"MME6TOM",		"ProtoBusterWepC",			"RevolverUpgrade"},
 //Encore Knight Man
 {"MME6KNI",		"SaltWaterWep",			"JoeUpgrade"},
 //{"MME6KNI",		"RainFlushWep",			"RoyalSpinWep"},

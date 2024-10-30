@@ -45,12 +45,12 @@ stop}}
 actor OWV_PurityMeteorWep : ENC_OWV_Base{States{
 SpawnFrame: PMET A 1
 stop}}
-actor OWV_JoeBuster : ENC_OWV_Base{States{
+actor OWV_JoeBusterEnc : ENC_OWV_Base{States{
 SpawnFrame: JOBS I 1
 stop}}
 actor OWV_MaestroBusterEnc : ENC_OWV_Base{States{
 SpawnFrame: MAEB A 1
 stop}}
-actor OWV_RevolvingBuster : ENC_OWV_Base{States{
+actor OWV_RevolverBusterEnc : ENC_OWV_Base{States{
 SpawnFrame: FAKE A 1
 stop}}

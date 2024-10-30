@@ -7,6 +7,7 @@ actor ENC_CopyNerf : PowerDamage
     damagefactor "BulletVulcan", 0.901
     damagefactor "BrassBullet", 0.901
     damagefactor "FlameShower", 0.901
+	damagefactor "FlameShowerFloor", 0.901
     damagefactor "FlameMixer", 0.901
     damagefactor "DoppelCrash", 0.901
     damagefactor "DopplerAttack", 0.901
@@ -28,6 +29,7 @@ actor ENC_CopyNerf_GC : PowerDamage
     damagefactor "BulletVulcan", 0.50
     damagefactor "BrassBullet", 0.50
     damagefactor "FlameShower", 0.50
+	damagefactor "FlameShowerFloor", 0.50
     damagefactor "FlameMixer", 0.50
     damagefactor "DoppelCrash", 0.50
     damagefactor "DopplerAttack", 0.50
