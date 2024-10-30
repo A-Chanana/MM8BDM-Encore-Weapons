@@ -301,10 +301,10 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 
 
 //Auto //keep this in im porting eaut to the funny shpack
-{"MMEAUT",		"GrabBusterWep",		"RoyalSpinWep"},
+//{"MMEAUT",		"GrabBusterWep",		"RoyalSpinWep"},
 //{"MMEAUT",		"BalladeCrackerWep",	"BerserkerRushWep"},
 //Proto Man
-{"MMEPRO",		"AstroCrushWep",		"PurityMeteorWep"},
+{"MMEPRO",		"AstroCrushWep",		"PurityMeteorWep"}//,
 //{"MMEPRO",		"LightningBoltWep",		"OnslaughtGatlingWep"},
 // Bond Man
 //{"MMEBON",		"WaterBalloonWep",		"BondingPasteWep"},
