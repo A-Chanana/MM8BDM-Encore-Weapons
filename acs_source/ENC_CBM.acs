@@ -42,8 +42,8 @@ script "enc_cbm_defines" OPEN {
 		
 		AddCBMWepInfo("PurityMeteorWep", CBMADD_GAS, 1250, 115, 80);
 
-        AddCBMWepInfo("JoeBuster", CBMADD_NONE, 1000, 100, 100);
-        AddCBMWepInfo("RevolvingBuster", CBMADD_NONE, 1000, 100, 115);
+        AddCBMWepInfo("JoeBusterEnc", CBMADD_NONE, 1000, 100, 100);
+        AddCBMWepInfo("RevolverBusterEnc", CBMADD_NONE, 1000, 100, 115);
         AddCBMWepInfo("MaestroBusterEnc", CBMADD_NONE, 1000, 100, 100);
     }
 }

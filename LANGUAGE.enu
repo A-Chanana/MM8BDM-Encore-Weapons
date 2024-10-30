@@ -10,10 +10,10 @@ PU_MAESTROUPGRADE = "Support Item! Maestro Buster!";
 TAG_MAESTROUPGRADE = "Maestro Buster Upgrade";
 TAG_MAESTROBUSTER = "Maestro Buster";
 
-OB_REVOLVERBUSTER = "%o put %p hands up for %k's Revolving Buster."; 
-PU_REVOLVERUPGRADE = "Support Item! Revolving Buster!"; 
-TAG_REVOLVERUPGRADE = "Revolving Buster Upgrade";
-TAG_REVOLVERBUSTER = "Revolving Buster";
+OB_REVOLVERBUSTER = "%o put %p hands up for %k's Revolver Buster."; 
+PU_REVOLVERUPGRADE = "Support Item! Revolver Buster!"; 
+TAG_REVOLVERUPGRADE = "Revolver Buster Upgrade";
+TAG_REVOLVERBUSTER = "Revolver Buster";
 
 OB_JOEBUSTER = "%o was shot down by %k's Joe Buster."; 
 PU_JOEUPGRADE = "Support Item! Joe Buster!";
