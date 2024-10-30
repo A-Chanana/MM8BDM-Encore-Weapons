@@ -61,7 +61,7 @@ actor BondingPasteShot : BasicProjectile
 translation "198:198=92:92", "192:192=86:86"
 PROJECTILE
 +FORCEXYBILLBOARD
-Damage (CallACS("vile_cbm_damage",9))
+Damage (CallACS("enc_cbm_damage",9))
 damagetype "BondingPaste"
 Obituary "$OB_BONDINGPASTE"
 Height 8

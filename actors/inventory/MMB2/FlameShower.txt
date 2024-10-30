@@ -102,7 +102,7 @@ actor FlameShowerFloor : BasicProjectile
 PROJECTILE
 +DONTBLAST
 +BRIGHT
-DamageType "FlameShower"
+DamageType "FlameShowerFloor"
 Obituary "$OB_FLAMESHOWER"
 Scale 2.5
 Speed 0

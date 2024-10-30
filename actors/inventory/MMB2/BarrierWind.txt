@@ -29,12 +29,21 @@ Select:
 BWIN I 0
 goto SelectSwap
 Fire:
+BWIN I 0 A_JumpIfInventory("IsSpecialBot", 1 ,"AirconManCheck")
 BWIN I 0 A_JumpIfNoAmmo("NoAmmo")
 BWIN I 0 A_PlaySoundEx("weapon/bwindjet", "weapon")
 BWIN J 4 A_FireCustomMissile("BarrierWindBlocker",0,1,0,-20)
 BWIN JJKK 4
 BWIN I 18
 Goto Ready+1
+
+AirconManCheck:
+BWIN A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiuspull", 0, 400, 0)>0, 3)
+BWIN A 1 A_GiveInventory("WindCycloneWep",1)
+BWIN A 1 A_SelectWeapon("WindCycloneWep")
+BWIN A 1 
+Goto Fire+1
+
 NoAmmo:
 BWIN I 1 ACS_NamedExecute("core_noammo",0)
 Goto Ready+1
