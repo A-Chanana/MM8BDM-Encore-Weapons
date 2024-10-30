@@ -41,6 +41,12 @@ script "enc_cbm_defines" OPEN {
         AddCBMWepInfo("CardinalRingWep", CBMADD_GTC, 1000, 110, 110);
 		
 		AddCBMWepInfo("PurityMeteorWep", CBMADD_GAS, 1250, 115, 80);
+		AddCBMWepInfo("BerserkerRushWep", CBMADD_GHS, 1250, 110, 80);
+        AddCBMWepInfo("ShieldSpiralWep", CBMADD_GTC, 950, 90, 120);
+        AddCBMWepInfo("RestrictionRingWep", CBMADD_GTC, 1150, 130, 100);
+        AddCBMWepInfo("OnslaughtGatlingWep", CBMADD_GAS, 1450, 120, 90);
+		AddCBMWepInfo("RoyalSpinWep", CBMADD_GFS, 1000, 90, 100);
+		AddCBMWepInfo("BondingPasteWep", CBMADD_GIW, 1000, 120, 100);
 
         AddCBMWepInfo("JoeBusterEnc", CBMADD_NONE, 1000, 100, 100);
         AddCBMWepInfo("RevolverBusterEnc", CBMADD_NONE, 1000, 100, 115);
