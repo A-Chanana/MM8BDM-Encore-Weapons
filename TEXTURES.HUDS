@@ -78,6 +78,40 @@ sprite CRIHO0, 148, 80 {Offset -202, -103 Patch HSPRA0, 0, 0 {Translation "192:1
 sprite CRIHP0, 148, 80 {Offset -202, -119 Patch HSPRA0, 0, 0 {Translation "192:192=200:200", "198:198=79:79"}}
 sprite CRIHQ0, 148, 80 {Offset -202, -135 Patch HSPRA0, 0, 0 {Translation "192:192=200:200", "198:198=79:79"}}
 
+//Berserker Rush
+sprite BZRRA0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=84:84","198:198=110:110"}}
+sprite BZRRB0,124,96{Offset -184,-98 Patch BUSTC0,0,0 {Translation"192:192=84:84","198:198=110:110"}}
+sprite BZRRC0,128,92{Offset -187,-102 Patch BUSTD0,0,0{Translation"192:192=84:84","198:198=110:110"}}
+
+//Shield Spiral
+sprite SSPII0, 148, 80 {Offset -202, -103 Patch HSPRE0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIJ0, 148, 80 {Offset -202, -135 Patch HSPRM0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIK0, 148, 80 {Offset -202, -119 Patch HSPRL0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIL0, 427, 40 {Offset 52, -145 Patch HSPRN0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIM0, 427, 52 {Offset 53, -133 Patch HSPRO0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIN0, 427, 104 {Offset 53, -81 Patch HSPRP0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIO0, 427, 112 {Offset 53, -73 Patch HSPRQ0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIP0, 427, 128 {Offset 53, -57 Patch HSPRR0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIQ0, 115, 96 {Offset -210, -96 Patch HSPRB0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIR0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+sprite SSPIS0, 128, 128 {Offset -177, -50 Patch HSPRD0, 0, 0 {Translation "192:192=4:4", "198:198=93:93"}}
+
+//Restriction Ring
+sprite RRNGA0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
+sprite RRNGB0,124,96{Offset -184,-98 Patch BUSTC0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
+sprite RRNGC0,128,92{Offset -187,-102 Patch BUSTD0,0,0{Translation"192:192=33:33","198:198=60:60"}}
+
+//Onslaught Gatling
+sprite ONSGA0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=87:87","198:198=178:178"}}
+sprite ONSGB0,124,96{Offset -184,-98 Patch BUSTC0,0,0 {Translation"192:192=87:87","198:198=178:178"}}
+sprite ONSGC0,128,92{Offset -187,-102 Patch BUSTD0,0,0{Translation"192:192=87:87","198:198=178:178"}}
+
+//Royal Spin
+sprite RYLSA0,148, 80{Offset -202, -103 Patch HSPRE0,0,0{Translation "192:192=160:160","198:198=229:229"}}
+sprite RYLSB0,115, 96{Offset -202, -103 Patch HSPRB0,0,0{Translation "192:192=160:160","198:198=229:229"}} 
+sprite RYLSC0,300,300{Offset -82,  56  Patch RYLHA0,0,0{Translation"192:192=160:160","198:198=229:229"}}
+sprite RYLSD0,300,300{Offset -78,  56 Patch RYLHB0,0,0{Translation"192:192=160:160","198:198=229:229"}}
+
 //Purity Meteor
 Sprite PMETB0, 148, 80 {Offset -202, -103 Patch HSPRE0, 0, 0 {Translation "192:192=192:192", "198:198=195:195"}}
 Sprite PMETC0, 148, 80 {Offset -202, -135 Patch HSPRM0, 0, 0 {Translation "192:192=192:192", "198:198=195:195"}}
@@ -91,3 +125,8 @@ Sprite PMETJ0, 115, 96 {Offset -210, -96 Patch HSPRB0, 0, 0{Translation "192:192
 Sprite PMETK0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0{Translation "192:192=192:192", "198:198=195:195"}}
 Sprite PMETL0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0{Translation "192:192=4:4", "198:198=192:192", "0:0=195:195" }}
 Sprite PMETM0, 427, 128 {Offset 53, -57 Patch HSPRR0, 0, 0{Translation "192:192=4:4", "198:198=192:192", "0:0=195:195"}}
+
+//Bonding Paste
+sprite BPSTA0, 116, 96 {Offset -184, -94  Patch BUSTB0, 0, 0 {Translation "192:192=4:4", "198:198=92:92"}}
+sprite BPSTB0, 124, 96 {Offset -184, -98  Patch BUSTC0, 0, 0 {Translation "192:192=4:4", "198:198=92:92"}}
+sprite BPSTC0, 128, 92 {Offset -188, -102 Patch BUSTD0, 0, 0 {Translation "192:192=4:4", "198:198=92:92"}}

@@ -70,6 +70,26 @@ PU_CARDINALRING = "Power up! Cardinal Ring!";
 TAG_CARDINALRING = "Cardinal Ring";
 
 //Misc
+OB_BERSERKERRUSH = "%o was rushed down by %k's Berserker Rush.";
+PU_BERSERKERRUSH = "Power up! Berserker Rush!";
+TAG_BERSERKERRUSH = "Berserker Rush";
+
+OB_SHIELDSPIRAL = "%o became static to %k's Shield Spiral.";
+PU_SHIELDSPIRAL = "Power up! Shield Spiral!";
+TAG_SHIELDSPIRAL = "Shield Spiral";
+
+OB_RESTRICTIONRING = "%o was petrified by %k's Restriction Ring.";
+PU_RESTRICTIONRING = "Power up! Restriction Ring!";
+TAG_RESTRICTIONRING = "Restriction Ring";
+
+OB_ONSLAUGHTGATLING = "%o was retaliated by %k's Onslaught Gatling.";
+PU_ONSLAUGHTGATLING = "Power up! Onslaught Gatling!";
+TAG_ONSLAUGHTGATLING = "Onslaught Gatling";
+
+OB_ROYALSPIN = "%o bent %p knee to %k's Royal Spin.";
+PU_ROYALSPIN = "Power up! Royal Spin!";
+TAG_ROYALSPIN = "Royal Spin";
+
 OB_PURITYMETEOR = "%o was purified by %k's Purity Meteor.";
 PU_PURITYMETEOR = "Power up! Purity Meteor!";
 TAG_PURITYMETEOR = "Purity Meteor";
@@ -92,5 +112,11 @@ DESC_CARDINALRING = "Throws a spiked ring, which can spin through walls, block i
 DESC_MAESTROBUSTER = "Maestro Buster is obtained from an inventory item. It allows you to use charge shots or spray fire with its middle charge! Use Altfire to fire uncharged shots.";
 DESC_JOEBUSTER = "Joe Buster is obtained from an inventory item. It allows you to shoot slow, powerful shots and block enemy fire with a shield!";
 DESC_REVOLVERBUSTER = "Revolver Buster is obtained from an inventory item. It allows you to fire a barrage of fast, strong projectiles, at the cost of having to reload. Use Altfire to reload earlier.";
+
 //Misc Descs
+DESC_BERSERKERRUSH = "Berserker Rush is a weapon that gets stronger and faster the lower the user's health is, at it's strongest below 10.";
+DESC_SHIELDSPIRAL = "Shield Spiral summons a ring of shields that circle around the user, blocking projectiles and harming anyone hit, though rapidly draining ammo while in use.";
+DESC_RESTRICTIONRING = "Restriction Ring fires a triad of rings that momentarily stun an enemy, and pushes them back.";
+DESC_ONSLAUGHTGATLING = "Onslaught Gatling loads bullets into the clip rapidly, before unleashing them in a deadly barrage! Though, ammo is harder to obtain with this.";
+DESC_ROYALSPIN = "Royal Spin rapidly moves the user forth when held, dealing damage to those in their path.";
 DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";

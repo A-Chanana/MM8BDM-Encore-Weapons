@@ -25,5 +25,13 @@ graphic CNEDICON, 30, 30{XScale 2.0 YScale 2.0 Patch CNEDA0, 0, 0}
 graphic CRINICON, 30, 30{XScale 2.0 YScale 2.0 Patch CRINA0, 0, 0}
 
 //Misc Weps
+graphic BZRRICON, 30, 30 { XScale 2.0 YScale 2.0 Patch BZRRZ0, 0, 0 }
+graphic SSPIICON, 30, 30 { XScale 2.0 YScale 2.0 Patch SSPIZ0, 0, 0 }
+graphic RRNGICON, 30, 30 { XScale 2.0 YScale 2.0 Patch RRNGZ0, 0, 0 }
+graphic ONSGICON, 30, 30 { XScale 2.0 YScale 2.0 Patch ONSGZ0, 0, 0 }
+
+graphic RYLSICON, 30, 30 { XScale 2.0 YScale 2.0 Patch RYLSZ0, 0, 0 }
 graphic PMETICON, 30, 30{XScale 2.0 YScale 2.0 Patch PMETA0, 0, 0}
 //graphic NVBMICON, 30, 30{XScale 2.0 YScale 2.0 Patch NVBMA0, 0, 0}
+
+graphic BPSTICON, 30, 30 { XScale 2.0 YScale 2.0 Patch BPSTZ0, 0, 0 }
