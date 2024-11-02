@@ -2,6 +2,7 @@
 #include "zcommon.acs"
 
 #include "DTADD.acs"
+#include "GCADD.acs"
 
 Script "enc_items" OPEN
 {
@@ -22,11 +23,15 @@ defineWeapon("TAG_WINDCYCLONE", "WindCycloneWep", "WCYCA0", "WindCycloneAmmo", 1
 defineWeapon("TAG_TRAILSPARKNEEDLE", "TrailSparkNeedleWep", "CNEDA0", "TrailSparkNeedleAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
 defineWeapon("TAG_CARDINALRING", "CardinalRingWep", "CRINA0", "CardinalRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
 
-defineWeapon("TAG_BERSERKERRUSH", "BerserkerRushWep", "BZRRZ0", "BerserkerRushAmmo", 1.0, DTADD_SLOT_POWER, true, true, true);
-defineWeapon("TAG_SHIELDSPIRAL", "ShieldSpiralWep", "SSPIZ0", "ShieldSpiralAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
-defineWeapon("TAG_RESTRICTIONRING", "RestrictionRingWep", "RRNGZ0", "RestrictionRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
-defineWeapon("TAG_ONSLAUGHTGATLING", "OnslaughtGatlingWep", "ONSGZ0", "OnslaughtGatlingAmmo", 0.25, DTADD_SLOT_AOE, true, true, true);
+if (!GCInPlay())
+{
+	defineWeapon("TAG_BERSERKERRUSH", "BerserkerRushWep", "BZRRZ0", "BerserkerRushAmmo", 1.0, DTADD_SLOT_POWER, true, true, true);
+	defineWeapon("TAG_SHIELDSPIRAL", "ShieldSpiralWep", "SSPIZ0", "ShieldSpiralAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
+	defineWeapon("TAG_RESTRICTIONRING", "RestrictionRingWep", "RRNGZ0", "RestrictionRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+	defineWeapon("TAG_ONSLAUGHTGATLING", "OnslaughtGatlingWep", "ONSGZ0", "OnslaughtGatlingAmmo", 0.25, DTADD_SLOT_AOE, true, true, true);
+}
 DefineWeapon("TAG_ROYALSPIN", "RoyalSpinWep", "RYLSZ0", "RoyalSpinAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+DefineWeapon("TAG_BONDINGPASTE", "BondingPasteWep", "BPSTZ0", "BondingPasteAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
 defineWeapon("TAG_PURITYMETEOR", "PurityMeteorWep", "PMETA0", "PurityMeteorAmmo", 0.75, DTADD_SLOT_POWER, true, false, true);
 
 DefineBusterUpgradeAndTake("TAG_JOEBUSTER", "JoeBusterEnc", "TAG_JOEUPGRADE", "JoeUpgrade", "JOBSI0", true, true, true);

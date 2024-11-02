@@ -90,6 +90,10 @@ OB_ROYALSPIN = "%o bent %p knee to %k's Royal Spin.";
 PU_ROYALSPIN = "Power up! Royal Spin!";
 TAG_ROYALSPIN = "Royal Spin";
 
+OB_BONDINGPASTE = "%o was plastered by %k's Bonding Paste.";
+PU_BONDINGPASTE = "Power up! Bonding Paste!";
+TAG_BONDINGPASTE = "Bonding Paste";
+
 OB_PURITYMETEOR = "%o was purified by %k's Purity Meteor.";
 PU_PURITYMETEOR = "Power up! Purity Meteor!";
 TAG_PURITYMETEOR = "Purity Meteor";
@@ -119,4 +123,5 @@ DESC_SHIELDSPIRAL = "Shield Spiral summons a ring of shields that circle around 
 DESC_RESTRICTIONRING = "Restriction Ring fires a triad of rings that momentarily stun an enemy, and pushes them back.";
 DESC_ONSLAUGHTGATLING = "Onslaught Gatling loads bullets into the clip rapidly, before unleashing them in a deadly barrage! Though, ammo is harder to obtain with this.";
 DESC_ROYALSPIN = "Royal Spin rapidly moves the user forth when held, dealing damage to those in their path.";
+DESC_BONDINGPASTE = "Bonding Paste sprays an adhesive substance which can catch under the feet of enemies, greatly decreasing their speed!";
 DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";

@@ -2,6 +2,7 @@
 #include "zcommon.acs"
 
 #include "DTADD.acs"
+#include "GCADD.acs"
 #include "PICKRPLC.acs"
 
 script "enc_spawnfuncs" OPEN
@@ -326,6 +327,9 @@ script "enc_usemapweapons" (void)
 
     for(int i = 0; i < MAX_WEAPREPLACES; i++) {
         if(StrIcmp(map, getWepReplaceMap(i)) == 0 && StrIcmp(me, getWepReplaceBase(i)) == 0) {
+		
+			if ((stricmp(getWepReplaceDest(i),"BerserkerRushWep")==0 || stricmp(getWepReplaceDest(i),"ShieldSpiralWep")==0 || stricmp(getWepReplaceDest(i),"RestrictionRingWep")==0 || stricmp(getWepReplaceDest(i),"OnslaughtGatlingWep")==0) && (GCInPlay())) {break;}
+			
             SpawnNewWepFunc(getWepReplaceDest(i));
 			break;
 		}

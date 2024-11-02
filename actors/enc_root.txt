@@ -20,11 +20,11 @@ const int CLR_CARDINALRING = 4256;
 
 const int CLR_PURITYMETEOR = 4257;
 const int CLR_PMETEORCHRG = 4258;
-const int CLR_BERSERKERRUSH = 4259;
-const int CLR_SHIELDSPIRAL = 4260;
-const int CLR_RESTRICTIONRING = 4261;
-const int CLR_ONSLAUGHTGATLING = 4262;
-const int CLR_ROYALSPIN = 4263;
+const int CLR_BERSERKERRUSH = 4260;
+const int CLR_SHIELDSPIRAL = 4261;
+const int CLR_RESTRICTIONRING = 4262;
+const int CLR_ONSLAUGHTGATLING = 4263;
+const int CLR_ROYALSPIN = 4259;
 const int CLR_BONDINGPASTE = 4264;
 
 #Include "actors/inventory/mmb2/BulletVulcan.txt"

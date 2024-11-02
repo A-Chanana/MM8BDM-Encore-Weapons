@@ -100,6 +100,9 @@ sprite SSPIS0, 128, 128 {Offset -177, -50 Patch HSPRD0, 0, 0 {Translation "192:1
 sprite RRNGA0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
 sprite RRNGB0,124,96{Offset -184,-98 Patch BUSTC0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
 sprite RRNGC0,128,92{Offset -187,-102 Patch BUSTD0,0,0{Translation"192:192=33:33","198:198=60:60"}}
+sprite RRNGG0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
+sprite RRNGK0,124,96{Offset -184,-98 Patch BUSTC0,0,0 {Translation"192:192=33:33","198:198=60:60"}}
+sprite RRNGL0,128,92{Offset -187,-102 Patch BUSTD0,0,0{Translation"192:192=33:33","198:198=60:60"}}
 
 //Onslaught Gatling
 sprite ONSGA0,116,96{Offset -184,-94 Patch BUSTB0,0,0 {Translation"192:192=87:87","198:198=178:178"}}
