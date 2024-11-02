@@ -26,7 +26,6 @@ weapon/timeswitchdissipate TSLIGHT
 
 weapon/puritymeteorcharge PMTRCHRG
 weapon/puritymeteorlaunch PMTRLNCH
-weapon/puritymeteorbounce PMTRBNCE
 weapon/puritymeteorcancel PMTRCANC
 weapon/puritymeteorimpact PMTRIPCT
 
