@@ -1,0 +1,116 @@
+
+//
+// Main functions that scripts from different classifications are gonna need
+//
+function int HealthPercent(void) {
+	int health = GetActorProperty(0,APROP_Health);
+	int maxHealth = GetActorProperty(0,APROP_SpawnHealth);
+	if(maxHealth==0) maxHealth = 100;
+	return (100*health/maxHealth);
+}
+
+function bool PlayersShareTeam(int Player1, int Player2) {
+	if(IsCoop()){return true;}
+	
+	int team = GetPlayerInfo(Player1,PLAYERINFO_TEAM);
+	if(team != GetPlayerInfo(Player2,PLAYERINFO_TEAM) || team > 3 && Player1 != Player2){
+		return false;
+		}
+	return true;
+}
+
+function bool IsCoop(void) {
+	if(GetCvar("cooperative")==1){return true;}
+	if(GetCvar("survival")==1){return true;}
+	if(GetCvar("invasion")==1){return true;}
+	return false;
+}
+
+#DEFINE KB_Radial 1
+#DEFINE KB_Halt 2
+function void KnockbackFunc(int tid, int thrust, int flags)
+{
+If(CheckActorInventory(tid,"GalaxyM_BHBProtect")){return;}
+if(CheckActorInventory(tid,"IsInvunFlag")){return;}
+int forcemul = 1;
+int forcediv = 1;
+If(CheckActorInventory(tid,"StunArmor")){forcediv = 4;}
+If(CheckActorInventory(tid,"SemiStunArmor")){forcediv = 2; forcediv = 3; }
+
+GiveActorInventory(tid,"TempPitProtect_P",1);
+
+if(flags & KB_Halt){Thing_Stop(tid);}
+
+if(flags & KB_Radial){
+	int a = VectorAngle(GetActorX(tid) - GetActorX(0),GetActorY(tid) - GetActorY(0)) >> 8;
+	Thing_Stop(tid);
+	ThrustThing(a,(thrust*forcemul)/forcediv,true,tid);}
+else{
+	ThrustThing(GetActorAngle(0) >> 8,thrust,true,tid);
+	}
+	
+return;
+}
+
+function bool cubeDistance(int TID1, int TID2, int distance){
+	
+	int result;
+	
+	result = _abs((GetActorX(TID1) - GetActorX(TID2)) >> 16);
+	if(result > distance){return false;}
+	
+	result = _abs((GetActorY(TID1) - GetActorY(TID2)) >> 16);
+    if(result > distance){return false;}
+	
+	result = _abs((GetActorZ(TID1) - GetActorZ(TID2)) >> 16);
+    if(result > distance){return false;}
+	
+	return true;
+}
+
+
+function bool ConicAreaCheck (int tid1, int tid2, int angleRange)
+{
+	int Direction = VectorAngle(GetActorX(tid2) - GetActorX(tid1),GetActorY(tid2) - GetActorY(tid1));
+	int Diff = WrapAngleAround(GetActorAngle(tid1)-Direction);
+	
+	return (_abs(Diff)<(angleRange<<8));
+}
+
+function int WrapAngleAround(int i)
+{
+	if(i<-0.5) return i+1.0;
+	if(i>0.5) return i-1.0;
+	return i;
+}
+
+#DEFINE II_Sight 1
+#DEFINE II_Seek 2
+function bool IsPlayerInteractable(int player, int flags)
+{
+if(!PlayerInGame(player)) return false;
+if(!isTIDUsed(player+1000)) return false;
+if(GetActorProperty(player+1000,APROP_Health)<1) return false;
+if(flags & II_Seek){
+	if(CheckFlag(player+1000,"CANTSEEK")) return false;
+	}
+if(flags & II_Sight){
+	if(!CheckSight(0,player+1000,0)) return false;
+	}
+return true;
+}
+
+function bool IsActorInteractable(int tid, int flags)
+{
+if(!isTIDUsed(tid)) return false;
+if(GetActorProperty(tid,APROP_Health)<1) return false;
+if(flags & II_Seek){if(CheckFlag(tid,"CANTSEEK")) return false;}
+if(flags & II_Sight){if(!CheckSight(0,tid,0)) return false;}
+return true;
+}
+
+
+function int _abs (int i){
+	if(i < 0){return -i;}
+	return i;
+}

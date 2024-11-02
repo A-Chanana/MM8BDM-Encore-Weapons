@@ -1,5 +1,6 @@
 #library "ENC_ACS"
 #include "zcommon.acs"
+#include "primo.acs"
 
 // Barrier Wind script
 script "enc_barrierwinddeflect" (int evt, int dmg, int dmgtype) EVENT
@@ -68,5 +69,28 @@ Switch(type)
 	}
 	else{SetResultValue(0);}
 	break;
+	}
+}
+
+
+script "enc_RadiusSlow" (int radius)
+{
+int TID = ActivatorTID();
+if(PlayerNumber() < 0){TID = ACS_NamedExecuteWithResult("core_gettarget");}
+
+radius += 24; //24 is the player radius
+
+while(GetActorProperty(0,APROP_Health)>0){
+	for(int i = 0; i < 64; i++){
+		if(!IsPlayerInteractable(i,0)){continue;}
+		if(!PlayersShareTeam(TID-1000,i)){
+			
+			if(cubeDistance(0,i+1000,radius)){
+				GiveActorInventory(i+1000,"BondingPasteSlow",1);
+				PrintBold(s:"given to player ",i:i);
+				}
+			}
+		}
+	delay(1);
 	}
 }
