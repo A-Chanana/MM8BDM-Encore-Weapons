@@ -17,6 +17,7 @@ RYLS Z 1
 loop
 Ready:
 RYLS A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_ROYALSPIN)
+ReadyC:
 RYLS A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

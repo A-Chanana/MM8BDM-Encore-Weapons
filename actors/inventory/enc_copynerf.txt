@@ -18,6 +18,8 @@ actor ENC_CopyNerf : PowerDamage
     damagefactor "TrailsparkNeedle", 0.901
     damagefactor "CardinalRing", 0.901
     damagefactor "PurityMeteor", 1.000
+	damagefactor "BondingPaste", 0.901
+	damagefactor "RoyalSpin", 0.901
 }
 
 actor ENC_CopyNerf_GC : PowerDamage
@@ -40,4 +42,6 @@ actor ENC_CopyNerf_GC : PowerDamage
     damagefactor "TrailsparkNeedle", 0.50
     damagefactor "CardinalRing", 0.50
     damagefactor "PurityMeteor", 0.50
+	damagefactor "BondingPaste", 0.50
+	damagefactor "RoyalSpin", 0.50
 }

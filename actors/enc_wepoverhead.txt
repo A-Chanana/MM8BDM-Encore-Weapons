@@ -54,3 +54,9 @@ stop}}
 actor OWV_RevolverBusterEnc : ENC_OWV_Base{States{
 SpawnFrame: FAKE A 1
 stop}}
+actor OWV_BondingPasteWep : ENC_OWV_Base{States{
+SpawnFrame: BPST Z 1
+stop}}
+actor OWV_RoyalSpinWep : ENC_OWV_Base{States{
+SpawnFrame: RYLS Z 1
+stop}}

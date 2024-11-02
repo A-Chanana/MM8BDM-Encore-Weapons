@@ -16,7 +16,8 @@ SpawnLoop:
 BPST Z -1
 loop
 Ready:
-BPST A 0 ACS_ExecuteAlways(998,0,CLR_BONDINGPASTE)
+BPST A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_BONDINGPASTE)
+ReadyC:
 BPST A 1 A_WeaponReady
 Goto Ready+1
 Deselect:
