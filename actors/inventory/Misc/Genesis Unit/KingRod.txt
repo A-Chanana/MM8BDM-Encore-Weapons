@@ -160,3 +160,9 @@ actor KingRodProtect : PowerProtection
 Powerup.Duration 3
 DamageFactor "KingRod", 0.0
 }
+
+actor KingRodKnockback : EncoreKnockbackHelper
+{
+Mass -36
+Meleerange 3
+}

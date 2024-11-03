@@ -164,3 +164,9 @@ actor BarrierWindSmoke : BasicGraphicEffect
 }
 
 actor BarrierWindProtect : PowerProtection {damagefactor "BarrierWind", 0.0 powerup.duration 60}
+
+actor BarrierWindKnockback : EncoreKnockbackHelper
+{
+Mass 12
+Accuracy 10
+}

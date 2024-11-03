@@ -123,6 +123,8 @@ Script "enc_shieldwarper_tidal" (void) CLIENTSIDE
 // Knockback script
 Script "enc_knockback" (int tid, int thrust, int flags)
 {
-	int owner = ACS_NamedExecuteWithResult("core_gettarget",0);
-	KnockbackFunc(owner, tid, thrust, flags);
+int owner = ACS_NamedExecuteWithResult("core_gettarget",0);
+
+//PrintBold(s:"Owner: ",i:owner,s:", TID: ",i:tid,s:", thrust: ",i:thrust,s:", flags: ",i:flags);
+KnockbackFunc(owner, tid, thrust, flags);
 }
