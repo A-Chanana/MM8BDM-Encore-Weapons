@@ -1,0 +1,7 @@
+texture BRSLT048
+pic NOBAR tics 4
+pic BRSLT048 tics 4
+
+texture VRSLT048
+pic VNOBAR tics 4
+pic VRSLT048 tics 4

@@ -16,7 +16,7 @@ script "DrawBar_OnslaughtGatlingWep" (void) {
 }
 
 script "DrawBar_TidalBulwarkWep" (void) {
-	//PrintBold(i:CheckInventory("TidalBulwarkCheck"));
+	DrawCustomBar(48, CheckInventory("TidalBulwarkCheck"), 130);
 	SetOverlayBar(CheckInventory("TidalBulwarkCheck"), 4);
 }
 
@@ -43,4 +43,6 @@ script "DrawBar_MaestroBusterEnc" (void) {
     }
 }
 
-script "DrawBar_RevolverBusterEnc" (void) CLIENTSIDE {DrawCustomBar(49, CheckInventory("RevolverBusterAmmo"), 30);}
+script "DrawBar_RevolverBusterEnc" (void) CLIENTSIDE {
+	DrawCustomBar(49, CheckInventory("RevolverBusterAmmo"), 30);
+}

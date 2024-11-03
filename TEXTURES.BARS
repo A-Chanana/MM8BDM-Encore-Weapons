@@ -1,5 +1,11 @@
-texture BRSLT049, 8, 56{offset -16,-8 patch BARENER6, 0, 0{Translation "198:198=76:76", "192:192=71:71"}}
-texture BRSLB049, 8, 56{offset -16,-8 patch BAREMPTY, 0, 0}
+//Tidal Bulwark
+texture BRSLT048,8,56{offset -24,-8 patch BARENERG,0,0{Translation "192:192=196:196","198:198=117:117"}}
+texture BRSLB048,8,56{offset -24,-8 patch NOBAR,0,0}
+texture VRSLT048,56,8{offset -130,-184 patch VARENERG,0,0{Translation "192:192=196:196","198:198=117:117"}}
+texture VRSLB048,56,8{offset -130,-184 patch VNOBAR,0,0}
 
-texture VRSLT049, 56, 8{offset -58,-184 patch BRSLT049, 0, 0{Rotate 90}}
-texture VRSLB049, 56, 8{offset -58,-184 patch VAREMPTY, 0, 0}
+//Revolver Buster
+texture BRSLT049,8,56{offset -16,-8 patch BARENER6,0,0{Translation "198:198=76:76","192:192=71:71"}}
+texture BRSLB049,8,56{offset -16,-8 patch BAREMPTY,0,0}
+texture VRSLT049,56,8{offset -58,-184 patch BRSLT049,0,0{Rotate 90}}
+texture VRSLB049,56,8{offset -58,-184 patch VAREMPTY,0,0}

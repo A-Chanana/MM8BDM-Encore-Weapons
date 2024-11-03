@@ -107,6 +107,7 @@ Spawn:
 TNT1 A 0
 TNT1 AA 1
 TNT1 A 0 A_TakeFromTarget("TidalBulwarkCheck",1)
+TNT1 A 0 A_JumpIfInTargetInventory("ShieldCheck", 1, "Death")
 TNT1 A 0 A_JumpIfInTargetInventory("TidalBulwarkCheck",1,"Spawn")
 Goto Death
 Death:
