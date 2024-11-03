@@ -87,7 +87,7 @@ while(GetActorProperty(0,APROP_Health)>0){
 			
 			if(cubeDistance(0,i+1000,radius)){
 				GiveActorInventory(i+1000,"BondingPasteSlow",1);
-				PrintBold(s:"given to player ",i:i);
+				//PrintBold(s:"given to player ",i:i);
 				}
 			}
 		}
