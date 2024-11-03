@@ -41,16 +41,15 @@ if(evt == GAMEEVENT_ACTOR_DAMAGED)
 script "enc_StateChange" (int state)
 {
 if(GetActorProperty(0,APROP_HEALTH)>0){
-switch(state)
-{
-case 1:
-SetActorState (0, "See");
-break;
-case 2:
-SetActorState (0, "Missile");
-break;
-}
-}
+	switch(state){
+		case 1:
+		SetActorState (0, "See");
+		break;
+		case 2:
+		SetActorState (0, "Missile");
+		break;
+		}
+	}
 }
 
 //Checks if the target is stunned/frozen
@@ -119,4 +118,11 @@ Script "enc_shieldwarper_tidal" (void) CLIENTSIDE
 	
 	// Remove
 	Thing_Remove(0);
+}
+
+// Knockback script
+Script "enc_knockback" (int tid, int thrust, int flags)
+{
+	int owner = ACS_NamedExecuteWithResult("core_gettarget",0);
+	KnockbackFunc(owner, tid, thrust, flags);
 }

@@ -32,9 +32,9 @@
 #DEFINE CLR_ONSLAUGHTGATLING 4263
 #DEFINE CLR_BONDINGPASTE 4264
 
-//#DEFINE CLR_KINGSROD 4265
+#DEFINE CLR_KINGROD 4265
 #DEFINE CLR_TIDALBULWARK 4266
-//#DEFINE CLR_HYPERTORRENT 4267
+#DEFINE CLR_HYPERTORRENT 4267
 
 
 Script "encore_translations" OPEN CLIENTSIDE {
@@ -68,7 +68,7 @@ Script "encore_translations" OPEN CLIENTSIDE {
 	CreatePlayerTranslation (CLR_ONSLAUGHTGATLING,87,178);
 	CreatePlayerTranslation (CLR_BONDINGPASTE,4,92);
 
-	//CreatePlayerTranslation (CLR_KINGSROD,?,?);
+	CreatePlayerTranslation (CLR_KINGROD,212,221);
 	CreatePlayerTranslation (CLR_TIDALBULWARK,196,117);
-	//CreatePlayerTranslation (CLR_HYPERTORRENT,?,?);
+	CreatePlayerTranslation (CLR_HYPERTORRENT,82,76);
 }

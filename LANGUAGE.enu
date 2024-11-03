@@ -69,7 +69,7 @@ OB_CARDINALRING = "%o was rung around by %k's Cardinal Ring.";
 PU_CARDINALRING = "Power up! Cardinal Ring!";
 TAG_CARDINALRING = "Cardinal Ring";
 
-//Misc
+//Misc - Darkmen
 OB_BERSERKERRUSH = "%o was rushed down by %k's Berserker Rush.";
 PU_BERSERKERRUSH = "Power up! Berserker Rush!";
 TAG_BERSERKERRUSH = "Berserker Rush";
@@ -86,6 +86,20 @@ OB_ONSLAUGHTGATLING = "%o was retaliated by %k's Onslaught Gatling.";
 PU_ONSLAUGHTGATLING = "Power up! Onslaught Gatling!";
 TAG_ONSLAUGHTGATLING = "Onslaught Gatling";
 
+//Misc - Genesis Unit
+OB_KINGROD = "%o was monkey'd out by %k's King Rod.";
+PU_KINGROD = "Power up! King Rod!";
+TAG_KINGROD = "King Rod\n";
+
+OB_TIDALBULWARK = "%o was gushed out by %k's Tidal Bulwark.";
+PU_TIDALBULWARK = "Power up! Tidal Bulwark!";
+TAG_TIDALBULWARK = "Tidal Bulwark";
+
+OB_HYPERTORRENT = "%o was huffed out by %k's Hyper Torrent.";
+PU_HYPERTORRENT = "Power up! Hyper Torrent!";
+TAG_HYPERTORRENT = "Hyper Torrent\n";
+
+//Misc - Other
 OB_ROYALSPIN = "%o bent %p knee to %k's Royal Spin.";
 PU_ROYALSPIN = "Power up! Royal Spin!";
 TAG_ROYALSPIN = "Royal Spin";
@@ -94,13 +108,10 @@ OB_BONDINGPASTE = "%o was plastered by %k's Bonding Paste.";
 PU_BONDINGPASTE = "Power up! Bonding Paste!";
 TAG_BONDINGPASTE = "Bonding Paste";
 
-OB_TIDALBULWARK = "%o was gushed out by %k's Tidal Bulwark.";
-PU_TIDALBULWARK = "Power up! Tidal Bulwark!";
-TAG_TIDALBULWARK = "Tidal Bulwark";
-
 OB_PURITYMETEOR = "%o was purified by %k's Purity Meteor.";
 PU_PURITYMETEOR = "Power up! Purity Meteor!";
 TAG_PURITYMETEOR = "Purity Meteor";
+
 
 //Encore Descs
 DESC_BULLETVULCAN = "Bullet Vulcan shoots a metallic bullet that can split into weaker copies of itself.";
@@ -126,7 +137,8 @@ DESC_BERSERKERRUSH = "Berserker Rush is a weapon that gets stronger and faster t
 DESC_SHIELDSPIRAL = "Shield Spiral summons a ring of shields that circle around the user, blocking projectiles and harming anyone hit, though rapidly draining ammo while in use.";
 DESC_RESTRICTIONRING = "Restriction Ring fires a triad of rings that momentarily stun an enemy, and pushes them back.";
 DESC_ONSLAUGHTGATLING = "Onslaught Gatling loads bullets into the clip rapidly, before unleashing them in a deadly barrage! Though, ammo is harder to obtain with this.";
+DESC_KINGROD = "King Rod extends a piercing rod that travels through surfaces and deals strong damage at the tip.";
+DESC_TIDALBULWARK = "Surrounds you with a retaliating water barrier, allowing you to switch weapons and attack normally while it does its thing. Time it right to parry incoming damage!";
 DESC_ROYALSPIN = "Royal Spin rapidly moves the user forth when held, dealing damage to those in their path.";
 DESC_BONDINGPASTE = "Bonding Paste sprays an adhesive substance which can catch under the feet of enemies, greatly decreasing their speed!";
-DESC_TIDALBULWARK = "Creates a barrier that retaliates against opponents by itself, allowing you to attack normally whilst using it. Time it right to parry incoming damage!";
 DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";

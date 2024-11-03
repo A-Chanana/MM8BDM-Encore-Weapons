@@ -27,9 +27,9 @@ const int CLR_ONSLAUGHTGATLING = 4263;
 const int CLR_ROYALSPIN = 4259;
 const int CLR_BONDINGPASTE = 4264;
 
-//const int CLR_KINGSROD = 4265;
+const int CLR_KINGROD = 4265;
 const int CLR_TIDALBULWARK = 4266;
-//const int CLR_HYPERTORRENT = 4267;
+const int CLR_HYPERTORRENT = 4267;
 
 #Include "actors/inventory/mmb2/BulletVulcan.txt"
 #Include "actors/inventory/mmb2/BrassBullet.txt"
@@ -48,12 +48,16 @@ const int CLR_TIDALBULWARK = 4266;
 #Include "actors/inventory/buster/MaestroBuster.txt"
 #Include "actors/inventory/buster/RevolverBuster.txt"
 
-#Include "actors/inventory/misc/BerserkerRush.txt"
-#Include "actors/inventory/misc/ShieldSpiral.txt"
-#Include "actors/inventory/misc/RestrictionRing.txt"
-#Include "actors/inventory/misc/OnslaughtGatling.txt"
+#Include "actors/inventory/misc/darkmen/BerserkerRush.txt"
+#Include "actors/inventory/misc/darkmen/ShieldSpiral.txt"
+#Include "actors/inventory/misc/darkmen/RestrictionRing.txt"
+#Include "actors/inventory/misc/darkmen/OnslaughtGatling.txt"
+
+#Include "actors/inventory/misc/genesis unit/KingRod.txt"
+#Include "actors/inventory/misc/genesis unit/TidalBulwark.txt"
+#Include "actors/inventory/misc/genesis unit/HyperTorrent.txt"
+
 #Include "actors/inventory/misc/RoyalSpin.txt"
-#Include "actors/inventory/misc/TidalBulwark.txt"
 #Include "actors/inventory/misc/PurityMeteor.txt"
 #Include "actors/inventory/misc/BondingPaste.txt"
 

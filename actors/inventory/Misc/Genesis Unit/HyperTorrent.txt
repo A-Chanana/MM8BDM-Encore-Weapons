@@ -1,0 +1,107 @@
+actor HyperTorrentWep_NormalBar : NormalBar{args 82,76}
+actor HyperTorrentWep : BaseMM8BDMWep //by MegaVile
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 4
+Inventory.Pickupmessage "$PU_HYPERTORRENT"
+Obituary "$OB_HYPERTORRENT"
+Tag "$TAG_HYPERTORRENT"
+weapon.ammotype "HyperTorrentAmmo"
+inventory.icon "HTRNICON"
+States
+{
+SpawnLoop:
+HTRN Z -1
+loop
+Ready:
+HTRN A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_HYPERTORRENT)
+HTRN A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+HTRN A 0 
+goto DeselectSwap
+Select:
+HTRN A 0 
+goto SelectSwap
+Fire:
+HTRN A 0 A_JumpIfNoAmmo("NoAmmo")
+HTRN A 2 
+HTRN A 0 A_PlaySoundEx("weapon/hypertorrent","Weapon")
+HTRN G 0 A_FireCustomMissile("HyperTorrent",0,1,8,0)
+HTRN BC 3
+HTRN A 12
+HTRN B 0 A_Refire
+Goto Ready+1
+NoAmmo:
+HTRN A 1 ACS_NamedExecuteAlways("core_noammo",0)
+Goto Ready+1
+}
+}
+
+actor HyperTorrentAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}
+
+actor HyperTorrent : BasicProjectile
+{
+PROJECTILE
++RIPPER
++FORCEXYBILLBOARD
++HEXENBOUNCE
+bouncefactor 0.7
+var int user_PierceRipper;
+Radius 32
+Height 32
+obituary "$OB_HYPERTORRENT"
+damagetype "HyperTorrent"
+scale 3.5
+damage (CallACS("enc_cbm_damage",44))
+speed 52
+States
+{
+Spawn:
+HYTO A 0
+HYTO A 2 A_ScaleVelocity(0.55)
+HYTO A 2 A_JumpIfCloser(32,"CheckThing")
+HYTO B 2 A_ScaleVelocity(0.55)
+HYTO B 2 A_JumpIfCloser(32,"CheckThing")
+HYTO C 2 A_ScaleVelocity(0.55)
+HYTO C 2 A_JumpIfCloser(32,"CheckThing")
+HYTO D 2 A_ScaleVelocity(0.55)
+HYTO D 2 A_JumpIfCloser(32,"CheckThing")
+HYTO C 2 A_ScaleVelocity(0.55)
+HYTO C 2 A_JumpIfCloser(32,"CheckThing")
+HYTO D 2 A_ScaleVelocity(0.55)
+HYTO D 2 A_JumpIfCloser(32,"CheckThing")
+HYTO C 2 A_ScaleVelocity(0.55)
+HYTO C 2 A_JumpIfCloser(32,"CheckThing")
+HYTO D 2 A_ScaleVelocity(0.55)
+HYTO D 2 A_JumpIfCloser(32,"CheckThing")
+HYTO B 2 A_ScaleVelocity(0.55)
+HYTO B 2 A_JumpIfCloser(32,"CheckThing")
+HYTO A 2 A_ScaleVelocity(0.55)
+HYTO A 2 A_JumpIfCloser(32,"CheckThing")
+stop
+CheckThing:
+HYTO D 0 A_GiveToTarget("TorrentBounce",1)
+HYTO D 0 A_SpawnItemEx("ExplosionEffect1")
+stop
+}
+}
+
+actor TorrentBounce : CustomInventory
+{
+States
+{
+Pickup:
+TNT1 A 0
+TNT1 A 0 A_PlaySoundEx("weapons/mm8/megaballbounce","Voice")
+TNT1 A 1 ThrustThingZ(0,60,0,0)
+TNT1 A 1 A_TakeInventory("JumpCancler",1)
+stop
+}
+}

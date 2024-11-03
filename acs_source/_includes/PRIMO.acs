@@ -28,25 +28,16 @@ function bool IsCoop(void) {
 
 #DEFINE KB_Radial 1
 #DEFINE KB_Halt 2
-function void KnockbackFunc(int tid, int thrust, int flags)
+function void KnockbackFunc(int owner, int tid, int thrust, int flags)
 {
-If(CheckActorInventory(tid,"GalaxyM_BHBProtect")){return;}
-if(CheckActorInventory(tid,"IsInvunFlag")){return;}
-int forcemul = 1;
-int forcediv = 1;
-If(CheckActorInventory(tid,"StunArmor")){forcediv = 4;}
-If(CheckActorInventory(tid,"SemiStunArmor")){forcediv = 2; forcediv = 3; }
-
-GiveActorInventory(tid,"TempPitProtect_P",1);
-
 if(flags & KB_Halt){Thing_Stop(tid);}
 
 if(flags & KB_Radial){
-	int a = VectorAngle(GetActorX(tid) - GetActorX(0),GetActorY(tid) - GetActorY(0)) >> 8;
+	int a = VectorAngle(GetActorX(tid) - GetActorX(owner),GetActorY(tid) - GetActorY(owner)) >> 8;
 	Thing_Stop(tid);
-	ThrustThing(a,(thrust*forcemul)/forcediv,true,tid);}
+	ThrustThing(a,thrust,true,tid);}
 else{
-	ThrustThing(GetActorAngle(0) >> 8,thrust,true,tid);
+	ThrustThing(GetActorAngle(owner) >> 8,thrust,true,tid);
 	}
 	
 return;

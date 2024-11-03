@@ -14,7 +14,7 @@ inventory.icon "TBULICON"
 States
 {
 SpawnLoop:
-WEA2 O -1
+TBUL Z -1
 loop
 Ready:
 TBUH A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_TIDALBULWARK)
