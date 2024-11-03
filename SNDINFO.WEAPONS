@@ -24,6 +24,11 @@ weapon/bwindjet PUMPJET
 weapon/timeswitch TSWITCH
 weapon/timeswitchdissipate TSLIGHT
 
+weapon/tidalbulwarkspawn TBULUP
+weapon/tidalbulwarkloop WTRSLID
+weapon/tidalbulwarkpop TBULPOP
+weapon/tidalbulwarkwave TBULWAVE
+
 weapon/puritymeteorcharge PMTRCHRG
 weapon/puritymeteorlaunch PMTRLNCH
 weapon/puritymeteorbounce PMTRBNCE

@@ -15,6 +15,11 @@ script "DrawBar_OnslaughtGatlingWep" (void) {
 	SetOverlayBar(CheckInventory("OnslaughtGatlingLoad"), 30);
 }
 
+script "DrawBar_TidalBulwarkWep" (void) {
+	//PrintBold(i:CheckInventory("TidalBulwarkCheck"));
+	SetOverlayBar(CheckInventory("TidalBulwarkCheck"), 4);
+}
+
 script "DrawBar_MaestroBusterEnc" (void) {
     if(GetUserCvar(ConsolePlayerNumber(),"mm8bdm_usechargebars")) {
         if(CheckInventory("WeaponCharge") >= 35) {

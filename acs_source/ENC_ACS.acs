@@ -2,11 +2,20 @@
 #include "zcommon.acs"
 #include "primo.acs"
 
-// Barrier Wind script
-script "enc_barrierwinddeflect" (int evt, int dmg, int dmgtype) EVENT
+// Barrier Wind and Tidal Bulwark script
+script "enc_damageeventscript" (int evt, int dmg, int dmgtype) EVENT
 {
 if(evt == GAMEEVENT_ACTOR_DAMAGED)
 	{
+	if(CheckInventory("TidalBulwarkCheck") > 0){
+		GiveInventory("TidalBulwarkBlaster_P", 1);
+		
+		if(CheckInventory("TidalBulwarkParry") > 0){
+			GiveInventory("TidalBulwarkBoost", 1);
+			SetResultValue(0);
+			}
+		}
+	
 	if(stricmp(GetActorClass(0),"BarrierWindBlocker")==0)
 		{
 		int BarrierOwner = GetActorProperty(0,APROP_TargetTID);
@@ -23,6 +32,7 @@ if(evt == GAMEEVENT_ACTOR_DAMAGED)
 				}
 			}
 		}
+		
 	}
 }
 
@@ -93,4 +103,20 @@ while(GetActorProperty(0,APROP_Health)>0){
 		}
 	delay(1);
 	}
+}
+
+// Script called by Tidal Bulwark
+Script "enc_shieldwarper_tidal" (void) CLIENTSIDE
+{
+	int Player = ACS_NamedExecuteWithResult("core_gettarget",0);
+	
+	// Loop if shield is active
+	while(GetActorProperty(Player, APROP_HEALTH)>0
+	&& CheckActorInventory(Player, "TidalBulwarkCheck") > 0
+	){
+		Delay(1);
+	}
+	
+	// Remove
+	Thing_Remove(0);
 }

@@ -115,6 +115,12 @@ sprite RYLSB0,115, 96{Offset -202, -103 Patch HSPRB0,0,0{Translation "192:192=16
 sprite RYLSC0,300,300{Offset -82,  56  Patch RYLHA0,0,0{Translation"192:192=160:160","198:198=229:229"}}
 sprite RYLSD0,300,300{Offset -78,  56 Patch RYLHB0,0,0{Translation"192:192=160:160","198:198=229:229"}}
 
+//Tidal Bulwark
+sprite TBUHA0, 148, 80 {Offset -202, -103 Patch HSPRE0, 0, 0 {Translation "192:192=196:196", "198:198=117:117"}}
+sprite TBUHI0, 115, 96 {Offset -210, -96 Patch HSPRB0, 0, 0 {Translation "192:192=196:196", "198:198=117:117"}}
+sprite TBUHJ0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0 {Translation "192:192=196:196", "198:198=117:117"}}
+sprite TBUHK0, 128, 128 {Offset -177, -50 Patch HSPRD0, 0, 0 {Translation "192:192=196:196", "198:198=117:117"}}
+
 //Purity Meteor
 Sprite PMETB0, 148, 80 {Offset -202, -103 Patch HSPRE0, 0, 0 {Translation "192:192=192:192", "198:198=195:195"}}
 Sprite PMETC0, 148, 80 {Offset -202, -135 Patch HSPRM0, 0, 0 {Translation "192:192=192:192", "198:198=195:195"}}

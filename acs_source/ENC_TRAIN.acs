@@ -26,13 +26,14 @@ DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_CARDINALRING", "DESC_CARDINALRING",
 
 if (!GCInPlay())
 {
-	DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_BerserkerRush", "Desc_BerserkerRush", "BZRRZ0", "BerserkerRushWep");
-	DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_ShieldSpiral", "Desc_ShieldSpiral", "SSPIZ0", "ShieldSpiralWep");
-	DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RestrictionRing", "Desc_RestrictionRing", "RRNGZ0", "RestrictionRingWep");
-	DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_OnslaughtGatling", "Desc_OnslaughtGatling", "ONSGZ0", "OnslaughtGatlingWep");
+	DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_BERSERKERRUSH", "DESC_BERSERKERRUSH", "BZRRZ0", "BerserkerRushWep");
+	DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_SHIELDSPIRAL", "DESC_SHIELDSPIRAL", "SSPIZ0", "ShieldSpiralWep");
+	DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_RESTRICTIONRING", "DESC_RESTRICTIONRING", "RRNGZ0", "RestrictionRingWep");
+	DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_ONSLAUGHTGATLING", "DESC_ONSLAUGHTGATLING", "ONSGZ0", "OnslaughtGatlingWep");
 }
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_BONDINGPASTE", "Desc_BONDINGPASTE", "BPSTZ0", "BondingPasteWep");
-DefineTrainingEntry(DTADD_TRAINING_WEP, "Tag_RoyalSpin", "Desc_RoyalSpin", "RYLSZ0", "RoyalSpinWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_BONDINGPASTE", "DESC_BONDINGPASTE", "BPSTZ0", "BondingPasteWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_ROYALSPIN", "DESC_ROYALSPIN", "RYLSZ0", "RoyalSpinWep");
+DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_TIDALBULWARK", "DESC_TIDALBULWARK", "TBULZ0", "TidalBulwarkWep");
 DefineTrainingEntry(DTADD_TRAINING_WEP, "TAG_PURITYMETEOR", "DESC_PURITYMETEOR", "PMETA0", "PurityMeteorWep");
 
 DefineTrainingEntry(DTADD_TRAINING_BUSTER, "TAG_JOEBUSTER", "DESC_JOEBUSTER", "JOBSI0", "JoeBusterEnc");

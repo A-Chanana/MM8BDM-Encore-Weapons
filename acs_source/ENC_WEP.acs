@@ -30,9 +30,11 @@ if (!GCInPlay())
 	defineWeapon("TAG_RESTRICTIONRING", "RestrictionRingWep", "RRNGZ0", "RestrictionRingAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
 	defineWeapon("TAG_ONSLAUGHTGATLING", "OnslaughtGatlingWep", "ONSGZ0", "OnslaughtGatlingAmmo", 0.25, DTADD_SLOT_AOE, true, true, true);
 }
+
 DefineWeapon("TAG_ROYALSPIN", "RoyalSpinWep", "RYLSZ0", "RoyalSpinAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
-DefineWeapon("TAG_BONDINGPASTE", "BondingPasteWep", "BPSTZ0", "BondingPasteAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
+DefineWeapon("TAG_TIDALBULWARK", "TidalBulwarkWep", "TBULZ0", "TidalBulwarkAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
 defineWeapon("TAG_PURITYMETEOR", "PurityMeteorWep", "PMETA0", "PurityMeteorAmmo", 0.75, DTADD_SLOT_POWER, true, false, true);
+DefineWeapon("TAG_BONDINGPASTE", "BondingPasteWep", "BPSTZ0", "BondingPasteAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
 
 DefineBusterUpgradeAndTake("TAG_JOEBUSTER", "JoeBusterEnc", "TAG_JOEUPGRADE", "JoeUpgrade", "JOBSI0", true, true, true);
 DefineBusterUpgradeAndTake("TAG_MAESTROBUSTER", "MaestroBusterEnc", "TAG_MAESTROUPGRADE", "MaestroUpgrade", "MAEBA0", true, true, true);
