@@ -20,6 +20,9 @@ actor ENC_CopyNerf : PowerDamage
     damagefactor "PurityMeteor", 1.000
 	damagefactor "BondingPaste", 0.901
 	damagefactor "RoyalSpin", 0.901
+	damagefactor "KingRod", 0.901
+	damagefactor "TidalBulwark", 0.901
+	damagefactor "HyperTorrent", 0.901
 }
 
 actor ENC_CopyNerf_GC : PowerDamage
@@ -44,4 +47,7 @@ actor ENC_CopyNerf_GC : PowerDamage
     damagefactor "PurityMeteor", 0.50
 	damagefactor "BondingPaste", 0.50
 	damagefactor "RoyalSpin", 0.50
+	damagefactor "KingRod", 0.50
+	damagefactor "TidalBulwark", 0.50
+	damagefactor "HyperTorrent", 0.50
 }

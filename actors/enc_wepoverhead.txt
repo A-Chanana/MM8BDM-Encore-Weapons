@@ -60,3 +60,12 @@ stop}}
 actor OWV_RoyalSpinWep : ENC_OWV_Base{States{
 SpawnFrame: RYLS Z 1
 stop}}
+actor OWV_KingRodWep : ENC_OWV_Base{States{
+SpawnFrame: KROD Z 1
+stop}}
+actor OWV_TidalBulwarkWep : ENC_OWV_Base{States{
+SpawnFrame: TBUL Z 1
+stop}}
+actor OWV_HyperTorrentWep : ENC_OWV_Base{States{
+SpawnFrame: HTRN Z 1
+stop}}

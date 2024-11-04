@@ -16,6 +16,7 @@ KROD Z 1
 loop
 Ready:
 KROD A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_KINGROD)
+ReadyC:
 KROD A 1 A_WeaponReady
 Goto Ready+1
 Deselect:
@@ -27,7 +28,7 @@ goto SelectSwap
 Fire:
 KROD A 0 A_JumpIfNoAmmo("NoAmmo")
 KROD A 0 A_TakeInventory("KingRodAmmo",2,1)
-KROD A 0 A_PlaySoundEx("misc/brgstaff","Weapon")
+KROD A 0 A_PlaySoundEx("weapons/busters/megaarmfire3","Weapon")
 KROD A 0 A_TakeInventory("KingRodRecallFlag",1)
 KROD A 0 A_TakeInventory("KingRodReturnedFlag",1)
 KROD A 0 A_FireCustomMissile("KingRod",0,1,8,0)
@@ -63,7 +64,7 @@ actor KingRodReturnedFlag : Once {}
 actor KingRod : BasicProjectile
 {
 +SKYEXPLODE
-Damage (15)
+Damage (CallACS("enc_cbm_damage",15))
 Speed 45
 Radius 20
 Height 20
@@ -133,7 +134,7 @@ damagetype "KingRod"
 Obituary "$OB_KINGROD"
 radius 20
 height 20
-Damage (8)
+Damage (CallACS("enc_cbm_damage",8))
 States
 {
 Spawn:
