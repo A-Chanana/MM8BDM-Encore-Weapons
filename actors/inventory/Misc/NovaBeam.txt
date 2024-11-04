@@ -10,10 +10,11 @@ Weapon.SlotNumber 1
 Obituary "$OB_NOVABEAM"
 Inventory.Pickupmessage "$PU_NOVABEAM"
 weapon.ammotype "NovaBeamAmmo"
+inventory.icon "NVBMICON"
 States
 {
 SpawnLoop:
-NVBM Z 1
+NVBM Z -1
 loop
 Ready:
 NVBM A 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_NOVABEAM)
