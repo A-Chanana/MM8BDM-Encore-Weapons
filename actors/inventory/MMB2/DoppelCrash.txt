@@ -170,3 +170,10 @@ actor DoppelCrashRecoil : Powerup
 {
     powerup.duration 10
 }
+
+actor DoppelCrashKnockback : EncoreKnockbackHelper
+{
+Mass 15
+Accuracy 15
+Meleerange 3
+}

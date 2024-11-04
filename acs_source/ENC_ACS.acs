@@ -16,26 +16,28 @@ if(evt == GAMEEVENT_ACTOR_DAMAGED)
 			}
 		}
 	
-	if(stricmp(GetActorClass(0),"BarrierWindBlocker")==0)
+	if(CheckInventory("ImABarrierWindBlocker")>0)
 		{
 		int BarrierOwner = GetActorProperty(0,APROP_TargetTID);
 		bool redir = SetActivator(0, AAPTR_DAMAGE_INFLICTOR);
 		if(redir && !CheckFlag(0, "DONTREFLECT"))
 			{
-			SetActorProperty(0, APROP_Species, "BarrierWindBlocker");
-			SetPointer(AAPTR_MASTER, BarrierOwner);
 			SetPointer(AAPTR_TRACER, 0, AAPTR_DAMAGE_SOURCE);
-			delay(1);
-			if(ClassifyActor(0)==ACTOR_MISSILE)
-				{
-				GiveInventory("BarrierWindDeflect",1);
-				}
+			ACS_NamedExecuteAlways("enc_BarrierWindDeflect",0,BarrierOwner);
 			}
 		}
 		
 	}
 }
 
+script "enc_BarrierWindDeflect" (int BarrierOwner)
+{
+if(ClassifyActor(0) & ACTOR_Missile){
+	SetActorProperty(0, APROP_Species, "BarrierWindBlocker");
+	SetPointer(AAPTR_MASTER, BarrierOwner);
+	GiveInventory("BarrierWindDeflect",1);
+	}
+}
 
 //State change
 script "enc_StateChange" (int state)
