@@ -51,6 +51,7 @@ script "enc_cbm_defines" OPEN {
 		
 		AddCBMWepInfo("RoyalSpinWep", CBMADD_GFS, 1000, 90, 100);
 		AddCBMWepInfo("PurityMeteorWep", CBMADD_GAS, 1250, 115, 80);
+		AddCBMWepInfo("NovaBeamWep", CBMADD_GFS, 1250, 115, 80);
 		AddCBMWepInfo("BondingPasteWep", CBMADD_GIW, 1000, 120, 100);
 
         AddCBMWepInfo("JoeBusterEnc", CBMADD_NONE, 1000, 100, 100);

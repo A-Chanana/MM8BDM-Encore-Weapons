@@ -37,6 +37,7 @@ DefineWeapon("TAG_HYPERTORRENT", "HyperTorrentWep", "HTRNZ0", "HyperTorrentAmmo"
 
 DefineWeapon("TAG_ROYALSPIN", "RoyalSpinWep", "RYLSZ0", "RoyalSpinAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
 DefineWeapon("TAG_PURITYMETEOR", "PurityMeteorWep", "PMETA0", "PurityMeteorAmmo", 0.75, DTADD_SLOT_POWER, true, false, true);
+DefineWeapon("TAG_NOVABEAM", "NovaBeamWep", "NVBMZ0", "NovaBeamAmmo", 0.75, DTADD_SLOT_RANGED, true, false, true);
 DefineWeapon("TAG_BONDINGPASTE", "BondingPasteWep", "BPSTZ0", "BondingPasteAmmo", 1.0, DTADD_SLOT_RAPID, true, true, true);
 
 DefineBusterUpgradeAndTake("TAG_JOEBUSTER", "JoeBusterEnc", "TAG_JOEUPGRADE", "JoeUpgrade", "JOBSI0", true, true, true);

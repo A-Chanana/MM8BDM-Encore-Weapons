@@ -1,35 +1,3 @@
-const int CLR_MAESTROBUSTER = 4240;
-const int CLR_MAESTROBUSTERCHARGE1 = 4241;
-const int CLR_MAESTROBUSTERCHARGE2 = 4242;
-const int CLR_MAESTROBUSTERCHARGE3 = 4243;
-
-const int CLR_REVOLVERBUSTER = 4244;
-
-const int CLR_BULLETVULCAN = 4245;
-const int CLR_BRASSBULLET = 4246;
-const int CLR_FLAMESHOWER = 4247;
-const int CLR_FLAMEMIXER = 4248;
-const int CLR_DOPPELCRASH = 4249;
-const int CLR_DOPPLERATTACK = 4250;
-const int CLR_TIMESWITCH = 4251;
-const int CLR_TIMEBOMB = 4252;
-const int CLR_BARRIERWIND = 4253;
-const int CLR_WINDCYCLONE = 4254;
-const int CLR_TRAILSPARKNEEDLE = 4255;
-const int CLR_CARDINALRING = 4256;
-
-const int CLR_PURITYMETEOR = 4257;
-const int CLR_PMETEORCHRG = 4258;
-const int CLR_BERSERKERRUSH = 4260;
-const int CLR_SHIELDSPIRAL = 4261;
-const int CLR_RESTRICTIONRING = 4262;
-const int CLR_ONSLAUGHTGATLING = 4263;
-const int CLR_ROYALSPIN = 4259;
-const int CLR_BONDINGPASTE = 4264;
-
-const int CLR_KINGROD = 4265;
-const int CLR_TIDALBULWARK = 4266;
-const int CLR_HYPERTORRENT = 4267;
 
 // Knockback actors should inherit from this
 actor EncoreKnockbackHelper
@@ -54,37 +22,33 @@ stop
 }
 }
 
-#Include "actors/inventory/mmb2/BulletVulcan.txt"
-#Include "actors/inventory/mmb2/BrassBullet.txt"
-#Include "actors/inventory/mmb2/FlameShower.txt"
-#Include "actors/inventory/mmb2/FlameMixer.txt"
-#Include "actors/inventory/mmb2/DoppelCrash.txt"
-#Include "actors/inventory/mmb2/DopplerAttack.txt"
-#Include "actors/inventory/mmb2/TimeSwitch.txt"
-#Include "actors/inventory/mmb2/TimeBomb.txt"
-#Include "actors/inventory/mmb2/BarrierWind.txt"
-#Include "actors/inventory/mmb2/WindCyclone.txt"
-#Include "actors/inventory/mmb2/TrailsparkNeedle.txt"
-#Include "actors/inventory/mmb2/CardinalRing.txt"
+const int BT_ATTACK	= 1;
+const int BT_JUMP = 4;
+const int BT_ALTATTACK = 32;
+// A_JumpIfInventory doesn't desync on high pings, unlike CallACS
+actor Enc_ButtonCheckSync_P : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",BT_ATTACK,0,192),"Firing")
+TNT1 A 0 A_TakeInventory("BTFireFlag")
+AltfireCheck:
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",BT_ALTATTACK,0,192),"Altfiring")
+TNT1 A 0 A_TakeInventory("BTAltfireFlag")
+stop
+Firing:
+TNT1 A 0 A_GiveInventory("BTFireFlag")
+goto AltfireCheck
+Altfiring:
+TNT1 A 0 A_GiveInventory("BTAltfireFlag")
+stop
+}
+}
+actor BTFireFlag : Once {}
+actor BTAltfireFlag : Once {}
+actor BTJumpFlag : Once {}
 
-#Include "actors/inventory/buster/JoeBuster.txt"
-#Include "actors/inventory/buster/MaestroBuster.txt"
-#Include "actors/inventory/buster/RevolverBuster.txt"
-
-#Include "actors/inventory/misc/darkmen/BerserkerRush.txt"
-#Include "actors/inventory/misc/darkmen/ShieldSpiral.txt"
-#Include "actors/inventory/misc/darkmen/RestrictionRing.txt"
-#Include "actors/inventory/misc/darkmen/OnslaughtGatling.txt"
-
-#Include "actors/inventory/misc/genesis unit/KingRod.txt"
-#Include "actors/inventory/misc/genesis unit/TidalBulwark.txt"
-#Include "actors/inventory/misc/genesis unit/HyperTorrent.txt"
-
-#Include "actors/inventory/misc/RoyalSpin.txt"
-#Include "actors/inventory/misc/PurityMeteor.txt"
-#Include "actors/inventory/misc/BondingPaste.txt"
-
-#Include "actors/inventory/enc_copynerf.txt"
 
 actor MMB2Weapons : MMWeaponGiver
 {
@@ -107,7 +71,6 @@ TNT1 A 0 A_SpawnItemEx("BarrierWindWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 8)
 TNT1 A 0 A_SpawnItemEx("WindCycloneWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 9)
 TNT1 A 0 A_SpawnItemEx("TrailsparkNeedleWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 10)
 TNT1 A 0 A_SpawnItemEx("CardinalRingWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 11)
-stop
 stop
 Use:
 TNT1 A 0 A_PlaySoundEx("item/refill","Voice")
@@ -140,10 +103,10 @@ TNT1 A 0 A_SpawnItemEx("ShieldSpiralWep",32,0,0,0,0,0,90)
 TNT1 A 0 A_SpawnItemEx("RestrictionRingWep",32,0,0,0,0,0,135)
 TNT1 A 0 A_SpawnItemEx("OnslaughtGatlingWep",32,0,0,0,0,0,180)
 TNT1 A 0 A_SpawnItemEx("RoyalSpinWep",32,0,0,0,0,0,225)
-//TNT1 A 0 A_SpawnItemEx("",32,0,0,0,0,0,270)
-//TNT1 A 0 A_SpawnItemEx("",32,0,0,0,0,0,315)
-//TNT1 A 0 A_SpawnItemEx("",64)
-//TNT1 A 0 A_SpawnItemEx("",64,0,0,0,0,0,90)
+TNT1 A 0 A_SpawnItemEx("KingRodWep",32,0,0,0,0,0,270)
+TNT1 A 0 A_SpawnItemEx("TidalBulwarkWep",32,0,0,0,0,0,315)
+TNT1 A 0 A_SpawnItemEx("HyperTorrentWep",64)
+TNT1 A 0 A_SpawnItemEx("NovaBeamWep",64,0,0,0,0,0,90)
 //TNT1 A 0 A_SpawnItemEx("",32,0,0,0,0,0,180)
 stop
 Use:
@@ -155,6 +118,10 @@ TNT1 A 0 A_GiveInventory("ShieldSpiralWep",1)
 TNT1 A 0 A_GiveInventory("RestrictionRingWep",1)
 TNT1 A 0 A_GiveInventory("OnslaughtGatlingWep",1)
 TNT1 A 0 A_GiveInventory("RoyalSpinWep",1)
+TNT1 A 0 A_GiveInventory("KingRodWep",1)
+TNT1 A 0 A_GiveInventory("TidalBulwarkWep",1)
+TNT1 A 0 A_GiveInventory("HyperTorrentWep",1)
+TNT1 A 0 A_GiveInventory("NovaBeamWep",1)
 stop
 }
 }

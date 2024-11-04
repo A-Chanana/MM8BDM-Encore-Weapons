@@ -145,6 +145,12 @@ Sprite PMETK0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0{Translation "192:192
 Sprite PMETL0, 115, 96 {Offset -190, -82 Patch HSPRC0, 0, 0{Translation "192:192=4:4", "198:198=192:192", "0:0=195:195" }}
 Sprite PMETM0, 427, 128 {Offset 53, -57 Patch HSPRR0, 0, 0{Translation "192:192=4:4", "198:198=192:192", "0:0=195:195"}}
 
+//Nova Beam
+sprite NVBMA0, 116, 96 {Offset -184, -94  Patch BUSTB0, 0, 0 {Translation "192:192=248:248", "198:198=227:227"}}
+sprite NVBMB0, 124, 96 {Offset -184, -98  Patch BUSTC0, 0, 0 {Translation "192:192=248:248", "198:198=227:227"}}
+sprite NVBMC0, 128, 92 {Offset -188, -102 Patch BUSTD0, 0, 0 {Translation "192:192=248:248", "198:198=227:227"}}
+sprite NVBMD0, 128, 92 {Offset -188, -102 Patch BUSTD0, 0, 0 {Translation "192:192=4:4", "198:198=248:248"}}
+
 //Bonding Paste
 sprite BPSTA0, 116, 96 {Offset -184, -94  Patch BUSTB0, 0, 0 {Translation "192:192=4:4", "198:198=92:92"}}
 sprite BPSTB0, 124, 96 {Offset -184, -98  Patch BUSTC0, 0, 0 {Translation "192:192=4:4", "198:198=92:92"}}

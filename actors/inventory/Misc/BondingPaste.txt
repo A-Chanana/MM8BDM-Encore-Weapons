@@ -29,7 +29,7 @@ goto SelectSwap
 Fire:
 BPST A 0 A_JumpIfNoAmmo("NoAmmo")
 BPST A 0 A_PlaySoundEx("weapon/bondingpaste","Weapon")
-GUTA A 0 A_JumpIfInventory("IsBot",1,"BotCheck")
+BPST A 0 A_JumpIfInventory("IsBot",1,"BotCheck")
 BPST A 0 A_FireCustomMissile("BondingPasteShot",frandom(-3,3),1,8,0)
 RangedFire:
 BPST BC 2

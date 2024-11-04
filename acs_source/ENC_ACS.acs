@@ -44,12 +44,15 @@ script "enc_StateChange" (int state)
 {
 if(GetActorProperty(0,APROP_HEALTH)>0){
 	switch(state){
+		default:
+			PrintBold(s:"Invalid state change");
+			break;
 		case 1:
-		SetActorState (0, "See");
-		break;
+			SetActorState (0, "See");
+			break;
 		case 2:
-		SetActorState (0, "Missile");
-		break;
+			SetActorState (0, "Missile");
+			break;
 		}
 	}
 }
@@ -129,4 +132,14 @@ int owner = ACS_NamedExecuteWithResult("core_gettarget",0);
 
 //PrintBold(s:"Owner: ",i:owner,s:", TID: ",i:tid,s:", thrust: ",i:thrust,s:", flags: ",i:flags);
 KnockbackFunc(owner, tid, thrust, flags);
+}
+
+// Checks if button is pressed
+Script "Enc_ButtonCheck" (int theButton, int TID, int BotChance)
+{
+if(TID != 0){SetActivator(TID,0);}
+int Player = PlayerNumber();
+
+if(PlayerIsBot(Player) && BotChance > random(0,255)){SetResultValue(true); terminate;}
+SetResultValue((GetPlayerInput(Player, INPUT_BUTTONS) & theButton) > 0);
 }
