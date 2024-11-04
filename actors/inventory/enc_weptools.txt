@@ -22,19 +22,19 @@ stop
 }
 }
 
-const int BT_ATTACK	= 1;
-const int BT_JUMP = 4;
-const int BT_ALTATTACK = 32;
+const int ENC_BT_ATTACK	= 1;
+const int ENC_BT_JUMP = 4;
+const int ENC_BT_ALTATTACK = 32;
 // A_JumpIfInventory doesn't desync on high pings, unlike CallACS
 actor Enc_ButtonCheckSync_P : CustomInventory
 {
 states
 {
 Pickup:
-TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",BT_ATTACK,0,240),"Firing")
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192),"Firing")
 TNT1 A 0 A_TakeInventory("BTFireFlag")
 AltfireCheck:
-TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",BT_ALTATTACK,0,240),"Altfiring")
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",ENC_BT_ALTATTACK,0,192),"Altfiring")
 TNT1 A 0 A_TakeInventory("BTAltfireFlag")
 stop
 Firing:

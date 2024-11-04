@@ -1,7 +1,6 @@
 actor RoyalSpinWep_NormalBar : NormalBar{args 160, 229}
 actor RoyalSpinWep : BaseMM8BDMWep
 {
-dropitem "RoyalSpinWep"
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
 Weapon.SlotNumber 4

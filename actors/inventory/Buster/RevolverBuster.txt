@@ -57,6 +57,7 @@ inventory.icon "NULLICON"
 +WEAPON.AMMO_OPTIONAL
 +WEAPON.DONTBOB
 Scale 2.0
+Dropitem ""
 States
 {
 SpawnLoop: 

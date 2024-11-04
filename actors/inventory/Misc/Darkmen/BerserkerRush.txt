@@ -1,7 +1,6 @@
 actor BerserkerRushWep_NormalBar : NormalBar{args 83, 110}
 actor BerserkerRushWep : BaseMM8BDMWep
 {
-dropitem "BerserkerRushWep"
 Weapon.AmmoUse 2
 Weapon.AmmoGive 112
 Weapon.SlotNumber 5

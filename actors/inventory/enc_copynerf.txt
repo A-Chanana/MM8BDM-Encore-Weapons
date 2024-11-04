@@ -23,6 +23,7 @@ actor ENC_CopyNerf : PowerDamage
 	damagefactor "KingRod", 0.901
 	damagefactor "TidalBulwark", 0.901
 	damagefactor "HyperTorrent", 0.901
+	damagefactor "NovaBeam", 0.901
 }
 
 actor ENC_CopyNerf_GC : PowerDamage
@@ -50,4 +51,5 @@ actor ENC_CopyNerf_GC : PowerDamage
 	damagefactor "KingRod", 0.50
 	damagefactor "TidalBulwark", 0.50
 	damagefactor "HyperTorrent", 0.50
+	damagefactor "NovaBeam", 0.50
 }

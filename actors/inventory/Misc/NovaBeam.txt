@@ -3,10 +3,10 @@ const int NBEAM_RANGE = 132;
 actor NovaBeamWep_NormalBar : NormalBar{args 215, 227}
 actor NovaBeamWep : BaseMM8BDMWep
 {
-tag "$TAG_NOVABEAM"
-Weapon.AmmoUse 1
+Weapon.AmmoUse 48
 Weapon.AmmoGive 120
-Weapon.SlotNumber 1
+Weapon.SlotNumber 2
+tag "$TAG_NOVABEAM"
 Obituary "$OB_NOVABEAM"
 Inventory.Pickupmessage "$PU_NOVABEAM"
 weapon.ammotype "NovaBeamAmmo"
@@ -32,8 +32,10 @@ NVBM A 1 ACS_NamedExecuteAlways("core_noammo",0)
 Goto Ready+1
 Fire:
 NVBM A 1 A_JumpIfNoAmmo("NoAmmo")
-NVBM B 4 ACS_NamedExecuteAlways("core_freezeplayer",0,0,1)
-NVBM B 0 A_PlaySoundEx("weapon/ultrabeamcharge","Weapon")
+NVBM B 0 A_ChangeVelocity(0, 0, 0, CVF_RELATIVE|CVF_REPLACE)
+NVBM B 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,1)
+NVBM B 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,1)
+NVBM B 4 A_PlaySoundEx("weapon/ultrabeamcharge","Weapon")
 NVBM B 0 A_GiveInventory("Enc_ButtonCheckSync_P")
 NVBM B 1 A_JumpifInventory("BTFireFlag",1,1)
 goto FireEnd
@@ -52,13 +54,53 @@ NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
 NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
 goto FireEnd
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
-NVBM C 0 A_PlaySoundEx("weapon/ultrabeam","Voice")
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
+goto FireEnd
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
 NVBM C 1 A_JumpifInventory("BTFireFlag",1,"FireLoop")
 goto FireEnd
 FireLoop:
 NVBM D 0 A_JumpIfInventory("NovaBeamAmmo",1,1)
-goto FireEnd
+goto FireEndOfLoop
 NVBM D 0 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM D 0 A_Stop
 NVBM D 0 A_PlaySoundEx("weapon/sunstarbeamloop","Weapon")
@@ -67,16 +109,27 @@ NVBM D 0 A_FireCustomMissile("NovaBeamDamager",0,0,0,0)
 NVBM D 1 Offset(3,0)A_FireCustomMissile("NovaBeamStart",0,0,0)
 NVBM C 1 Offset(-3,0)A_GiveInventory("Enc_ButtonCheckSync_P")
 NVBM C 1 A_JumpifInventory("BTFireFlag",1,"FireLoop")
+goto FireEndOfLoop
 FireEnd:
+NVBM C 0 A_StopSoundEx("Weapon")
 NVBM D 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,0)
+NVBM D 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,0)
+NVBM D 0 A_TakeInventory("NovaBeamAmmo",48)
+NVBM B 8
+NVBM A 28
+Goto Ready+1
+FireEndOfLoop:
+NVBM C 0 A_StopSoundEx("Weapon")
+NVBM D 0 A_PlaySoundEx("weapon/ultrabeam","Weapon")
+NVBM D 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,0)
+NVBM D 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,0)
 NVBM D 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM D 0 A_TakeInventory("NovaBeamAmmo",48)
-NVBM D 6
+NVBM DDDDDD 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 NVBM C 2
-NVBM C 0 A_StopSound("Weapon")
 NVBM DCB 3
 NVBM A 18
-Goto Ready+1
+goto Ready+1
 }
 }
 
@@ -120,17 +173,13 @@ stop
 }
 }
 
-actor NovaBeamFX
+actor NovaBeamFX : BasicGraphicEffect
 {
 PROJECTILE
-+NOINTERACTION
 +THRUACTORS
-+DONTBLAST
 +DONTREFLECT
-+CLIENTSIDEONLY
 +BRIGHT
 +PAINLESS
-damage (0)
 Radius 8
 Height 8
 speed 0
@@ -138,10 +187,7 @@ scale 3.5
 renderstyle none
 states
 {
-Spawn:
-TNT1 A 0
-goto Spawn2
-Spawn2:
+SpawnFrame:
 TNT1 A 0 A_SetPitch(pitch+1)
 TNT1 A 0 A_JumpIf(pitch>NBEAM_RANGE,"EndOfTheLaser")
 TNT1 A 0 A_SpawnItemEx("NovaBeamFX",0,0,0,momx,momy,momz,0,553)
@@ -164,7 +210,7 @@ renderstyle normal
 -NOINTERACTION
 states
 {
-Spawn:
+SpawnFrame:
 TNT1 A 0 
 TNT1 A 0 A_JumpIf(pitch>NBEAM_RANGE,"Death")
 NVBM MN 1 A_Stop
@@ -179,7 +225,7 @@ stop
 }
 }
 
-actor NovaBeamStart : BasicProjectile
+actor NovaBeamStart : ProjSpawnFuncActor
 {
 PROJECTILE
 +NOINTERACTION
@@ -198,14 +244,12 @@ stop
 //
 // Sparks
 //
-actor NovaBeamSparkerFX
+actor NovaBeamSparkerFX : BasicGraphicEffect
 {
 PROJECTILE
-+NOINTERACTION
 +THRUACTORS
 +DONTBLAST
 +DONTREFLECT
-+CLIENTSIDEONLY
 +BRIGHT
 +PAINLESS
 damage (0)
@@ -215,7 +259,7 @@ speed 48
 scale 3.5
 states
 {
-Spawn:
+SpawnFrame:
 TNT1 A 0
 TNT1 A 0 A_SetPitch(pitch+1)
 TNT1 A 0 A_JumpIf(pitch>NBEAM_RANGE,"Death")
@@ -228,17 +272,15 @@ stop
 }
 }
 
-actor NovaBeamSparkFX
+actor NovaBeamSparkFX : BasicGraphicEffect
 {
 PROJECTILE
-+CLIENTSIDEONLY
-+NOINTERACTION
 Renderstyle Add
 Alpha 0.7
 Scale 2.5
 states
 {
-Spawn:
+SpawnFrame:
 S_UN J 0
 S_UN JIHGFE 3
 stop

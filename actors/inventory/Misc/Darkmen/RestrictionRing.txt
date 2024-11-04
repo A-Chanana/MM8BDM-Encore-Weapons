@@ -1,7 +1,6 @@
 actor RestrictionRingWep_NormalBar : NormalBar{args 33, 60}
 actor RestrictionRingWep : BaseMM8BDMWep
 {
-dropitem "RestrictionRingWep"
 Weapon.AmmoUse 3
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4

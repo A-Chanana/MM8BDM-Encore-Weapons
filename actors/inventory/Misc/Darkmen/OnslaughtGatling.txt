@@ -2,7 +2,6 @@ actor OnslaughtGatlingWep_NormalBar : NormalBar{args 87,178}
 actor OnslaughtGatlingWep_ScriptBar : ScriptBar {}
 actor OnslaughtGatlingWep : BaseMM8BDMWep
 {
-dropitem "OnslaughtGatlingWep"
 Weapon.AmmoUse 1
 Weapon.AmmoGive 30
 Weapon.SlotNumber 6

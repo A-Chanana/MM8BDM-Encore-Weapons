@@ -54,6 +54,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Quick Man
 {"MME2QUI",		"LeafShieldWep",		"FlameMixerWep"},
 {"MME2QUI",		"ChillSpikeWep",		"DoppelCrashWep"},
+{"MME2QUI",		"TimeStopperWep",		"NovaBeamWep"},
 //Encore Crash Man
 {"MME2CRA",		"WaveBurnerWep",		"FlameShowerWep"},
 {"MME2CRA",		"RingBoomerangWep",		"CardinalRingWep"},
@@ -147,6 +148,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME5STA",		"PlugBallWep",			"MaestroUpgrade"},
 //Encore Crystal Man
 {"MME5CRY",		"ScrewCrusherWep",		"BondingPasteWep"},
+{"MME5CRY",		"GravityHoldWep",		"NovaBeamWep"},
 {"MME5CRY",		"MegaArmUpgrade",		"BarrierWindWep"},
 {"MME5CRY",		"MegaArmUpgradeC",		"BarrierWindWep"},
 //Encore Dark Man
@@ -195,15 +197,11 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Slash Man
 {"MME7SLA",		"HornetChaserWep",		"BrassBulletWep"},
 {"MME7SLA",		"ScorchWheelWep",		"TimeSwitchWep"},
-//Encore Freeze Man
-{"MME7FRE",		"MirrorBusterWep",		"BarrierWindWep"},
-{"MME7FRE",		"ScorchWheelWep",		"TimeSwitchWep"},
 //Encore Turbo Man
 {"MME7TUR",		"QuickBoomerangWep",	"BerserkerRushWep"},
 {"MME7TUR",		"NoiseCrushWep",	"FlameMixerWep"},
 
 //Encore Astro Man
-{"MME8AST",		"BlackHoleWep",			"ShieldSpiralWep"},
 {"MME8AST",		"GrabBusterWep",		"JoeUpgrade"},
 //Encore Sword Man
 {"MME8SWO",		"IceWaveWep",			"TrailsparkNeedleWep"},
@@ -274,6 +272,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Saturn
 {"MMEVSAT",		"SparkChaserWep",		"DoppelCrashWep"},
 {"MMEVSAT",		"WaterBalloonWep",		"FlameShowerWep"},
+{"MMEVSAT",		"AstroCrushWep",		"NovaBeamWep"},
 
 //Encore Enker
 {"MMEKENK",		"MegaArmUpgrade",	"JoeUpgrade"},
