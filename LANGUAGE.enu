@@ -112,6 +112,10 @@ OB_PURITYMETEOR = "%o was purified by %k's Purity Meteor.";
 PU_PURITYMETEOR = "Power up! Purity Meteor!";
 TAG_PURITYMETEOR = "Purity Meteor";
 
+OB_NOVABEAM = "%o experienced the doomsday through %k's Nova Beam.";
+PU_NOVABEAM = "Power up! Nova Beam!";
+TAG_NOVABEAM = "Nova Beam";
+
 
 //Encore Descs
 DESC_BULLETVULCAN = "Bullet Vulcan shoots a metallic bullet that can split into weaker copies of itself.";
@@ -143,3 +147,4 @@ DESC_HYPERTORRENT = "Hyper Torrent gusts out a short ranged cloud of air that th
 DESC_ROYALSPIN = "Royal Spin rapidly moves the user forth when held, dealing damage to those in their path.";
 DESC_BONDINGPASTE = "Bonding Paste sprays an adhesive substance which can catch under the feet of enemies, greatly decreasing their speed!";
 DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";
+DESC_NOVABEAM = "Charges up and releases a immensely powerful laser that can go through surfaces!";

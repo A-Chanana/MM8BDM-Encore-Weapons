@@ -4,21 +4,32 @@
 #include "DTADD.acs"
 #include "BARLIB.acs"
 
-script "DrawBar_TrailsparkNeedleWep" (void) {
+script "DrawBar_TrailsparkNeedleWep" (void) CLIENTSIDE {
 	SetOverlayBar(CheckInventory("TrailsparkNeedleCharge"), 4);
 }
 
-script "DrawBar_ShieldSpiralWep" (void) {
+script "DrawBar_ShieldSpiralWep" (void) CLIENTSIDE {
 	if(CheckInventory("ShieldCheck")) SetFlashingBar();
 }
-script "DrawBar_OnslaughtGatlingWep" (void) {
+script "DrawBar_OnslaughtGatlingWep" (void) CLIENTSIDE {
 	SetOverlayBar(CheckInventory("OnslaughtGatlingLoad"), 30);
 }
 
-script "DrawBar_TidalBulwarkWep" (void) {
-	DrawCustomBar(48, CheckInventory("TidalBulwarkCheck"), 130);
+script "DrawBar_TidalBulwarkWep" (void) CLIENTSIDE {
 	SetOverlayBar(CheckInventory("TidalBulwarkCheck"), 4);
 }
+
+script "Encore_AssistBarDefine" OPEN CLIENTSIDE {
+	DefineAssistDisplay("Encore_AssistBars");
+}
+
+script "Encore_AssistBars" (int cam) CLIENTSIDE {
+	SetActivator(cam);
+	if(CheckInventory("TidalBulwarkCheck")){
+		DrawCustomBar(48, CheckInventory("TidalBulwarkCheck"), 130);
+		}
+}
+
 
 script "DrawBar_MaestroBusterEnc" (void) {
     if(GetUserCvar(ConsolePlayerNumber(),"mm8bdm_usechargebars")) {
