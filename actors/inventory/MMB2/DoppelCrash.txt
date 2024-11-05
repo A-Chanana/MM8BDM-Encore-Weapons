@@ -29,6 +29,7 @@ Select:
 DCRH A 0
 goto SelectSwap
 Fire:
+DCRH A 0 A_JumpIfInventory("IsSpecialBot", 1 ,"KomusoManCheck")
 DCRH A 0 A_JumpIfNoAmmo("NoAmmo")
 DCRH AA 1 A_JumpIf(CallACS("core_CheckFooting"),"DashStart")
 Goto NoAmmo
@@ -87,6 +88,13 @@ Goto Ready+1
 NoAmmo:
 DCRH A 1 ACS_NamedExecuteAlways("core_noammo",0)
 Goto Ready+1
+KomusoManCheck:
+DCRH A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiuspull", 0, 200, 0)>0, 3)
+DCRH A 0 A_GiveInventory("DopplerAttackWep")
+DCRH A 0 A_SelectWeapon("DopplerAttackWep")
+goto Ready+1
+DCRH A 0
+goto Fire+1
 }
 }
 
