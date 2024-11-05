@@ -72,6 +72,7 @@ Radius 20
 Height 20
 damagetype "KingRod"
 Obituary "$OB_KINGROD"
+reactiontime 1
 States
 {
 Spawn:
@@ -80,8 +81,10 @@ KROD P 0 ACS_NamedExecuteWithResult("core_drawhookshot", ACS_NamedExecuteWithRes
 Spawn2:
 KROD P 1 A_JumpIfCloser(1000,1)
 goto Death
-KROD PPOO 1 A_JumpIfInTargetInventory("KingRodRecallFlag",1,"Death")
+KROD PPOO 1 A_JumpIfInTargetInventory("KingRodRecallFlag",1,"KillMe")
 loop
+KillMe:
+TNT1 A 0 A_Countdown
 Death:
 TNT1 A 0 A_GiveToTarget("KingRodRecallFlag")
 TNT1 A 0 A_SpawnItemEx("ThunderClawPegHelper")
