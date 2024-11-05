@@ -31,7 +31,7 @@ if (!GCInPlay())
 	defineWeapon("TAG_ONSLAUGHTGATLING", "OnslaughtGatlingWep", "ONSGZ0", "OnslaughtGatlingAmmo", 0.25, DTADD_SLOT_AOE, true, true, true);
 }
 
-DefineWeapon("TAG_KINGROD", "KingRodWep", "KRODZ0", "KingRodAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
+DefineWeapon("TAG_KINGROD", "KingRodWep", "KRODZ0", "KingRodAmmo", 1.0, DTADD_SLOT_RANGED, true, true, true);
 DefineWeapon("TAG_TIDALBULWARK", "TidalBulwarkWep", "TBULZ0", "TidalBulwarkAmmo", 1.0, DTADD_SLOT_SHIELD, true, true, true);
 DefineWeapon("TAG_HYPERTORRENT", "HyperTorrentWep", "HTRNZ0", "HyperTorrentAmmo", 1.0, DTADD_SLOT_CLOSE, true, true, true);
 
