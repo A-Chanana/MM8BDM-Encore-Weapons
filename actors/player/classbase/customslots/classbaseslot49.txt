@@ -1,6 +1,5 @@
 actor ClassBaseSlot49 : ClassBaseSlot48 //Encore Weapon
 {
-+QUICKTORETALIATE
 States
 {
 Pain.CardinalRing:
