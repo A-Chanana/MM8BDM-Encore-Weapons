@@ -46,7 +46,7 @@ DATK A 0 A_GiveInventory("DopplerAttackFlag",1)
 DATK A 2
 goto Ready+1
 BotRefireChance:
-DATK A 0 A_Jump(25,"FireEnd")
+DATK A 0 A_Jump(52,"FireEnd")
 goto FireLoop
 
 AltFire:
