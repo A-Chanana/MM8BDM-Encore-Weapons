@@ -143,3 +143,25 @@ int Player = PlayerNumber();
 if(PlayerIsBot(Player) && BotChance > random(0,255)){SetResultValue(true); terminate;}
 SetResultValue((GetPlayerInput(Player, INPUT_BUTTONS) & theButton) > 0);
 }
+
+// Turns distance into pitch changes for bots
+script "Enc_BotLobDist" (int ProjSpeed, int maxPitch)
+{
+int TargetTID = GetActorProperty(0,APROP_TargetTID);
+int TID = ActivatorTID();
+
+int result = xyDistance(TID,TargetTID) / (ProjSpeed/2) - (ProjSpeed/3*2);
+if(result>maxPitch){result = maxPitch;}
+
+//PrintBold(i:result);
+SetResultValue(result);
+}
+
+function int xyDistance(int tid1, int tid2)
+{
+	int x, y, d;
+	x = GetActorX(tid1) - GetActorX(tid2) >> 16;
+	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
+	d = _sqrt8( x*x + y*y );
+	return d;
+}
