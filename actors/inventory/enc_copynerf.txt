@@ -10,6 +10,7 @@ actor ENC_CopyNerf : PowerDamage
 	damagefactor "FlameShowerFloor", 0.901
     damagefactor "FlameMixer", 0.901
     damagefactor "DoppelCrash", 0.901
+	damagefactor "DoppelCrashClone", 0.901
     damagefactor "DopplerAttack", 0.901
     damagefactor "TimeSwitch", 0.901
     damagefactor "TimeBomb", 0.901
@@ -38,6 +39,7 @@ actor ENC_CopyNerf_GC : PowerDamage
 	damagefactor "FlameShowerFloor", 0.50
     damagefactor "FlameMixer", 0.50
     damagefactor "DoppelCrash", 0.50
+	damagefactor "DoppelCrashClone", 0.50
     damagefactor "DopplerAttack", 0.50
     damagefactor "TimeSwitch", 0.50
     damagefactor "TimeBomb", 0.50
