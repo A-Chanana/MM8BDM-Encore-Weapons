@@ -219,8 +219,8 @@ Spawn:
 DCRA V 0
 DCRA VVVVVVVVVVVV 1 A_SpawnItemEx("DoppelCrashCloneDamager")
 SpawnLoop:
-DCRA V 0 A_FaceTarget(28)
-DCRA V 0 A_ChangeVelocity(26*cos(pitch),0,26*-sin(pitch),3)
+DCRA V 0 A_FaceTarget(28,90)
+DCRA V 0 A_ChangeVelocity(26*cos(pitch),0,26*sin(pitch),3)
 DCRA V 0 A_SpawnItemEx("DoppelCrashCloneDamager")
 DCRA V 1 A_JumpIfCloser(60,"Return")
 DCRA V 0 A_JumpIfInTargetInventory("IsDead",1,"Return")
