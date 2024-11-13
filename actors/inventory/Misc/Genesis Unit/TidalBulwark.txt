@@ -67,6 +67,8 @@ TBUH A 0 A_JumpIfInventory("TidalBulwarkCheck",1,"BotFireBuster")
 TBUH A 0 A_JumpIfInventory("TidalBulwarkParry",1,"BotFireBuster")
 goto Fire+1
 BotFireBuster:
+BUST E 0 A_JumpIfInventory("IsSpecialBot", 1 ,"MegaWaterSBot")
+BUST E 0 A_JumpIfInventory("BotUsesRandomWeps", 1 ,"GiveEddieWeapon")
 BUST B 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_MEGABUSTER)
 BUST B 0 A_PlaySoundEx("weapons/busters/megabusterfire","SoundSlot6")
 BUST B 0 A_FireCustomMissile("MegaShot",0,0,8,0)
@@ -77,6 +79,14 @@ BUST B 0 A_JumpIfInventory("TidalBulwarkParry",1,2)
 BUST B 0 ACS_NamedExecuteWithResult("core_weaponcolor",CLR_TIDALBULWARK)
 BUST B 0 A_Refire
 goto Ready
+
+MegaWaterSBot:
+BUST B 0 A_GiveInventory("WaterWaveBotMWS")
+BUST B 0 A_SelectWeapon("WaterWaveBotMWS")
+goto Ready
+GiveEddieWeapon:
+BUST B 0 A_GiveInventory("BotRandomWeapon")
+goto BotFireBuster+2
 }
 }
 

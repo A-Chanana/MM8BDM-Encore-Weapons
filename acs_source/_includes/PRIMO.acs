@@ -129,3 +129,19 @@ function int _Sqrt8(int number)
 
 	return oldAns;
 }
+
+function int _xyzDistance (int tid1, int tid2)
+{
+	int x, y, z, d;
+	x = GetActorX(tid1) - GetActorX(tid2);
+	y = GetActorY(tid1) - GetActorY(tid2);
+	z = GetActorZ(tid1) - GetActorZ(tid2);
+	d = VectorLength(VectorLength(x, y), z) >> 16;
+	return d;
+}
+
+function int _max(int x, int y)
+{
+	if(x > y) return x;
+	return y;
+}

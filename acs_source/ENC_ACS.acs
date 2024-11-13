@@ -1,6 +1,7 @@
 #library "ENC_ACS"
 #include "zcommon.acs"
 #include "primo.acs"
+#import "8BDT.acs"
 
 // Barrier Wind and Tidal Bulwark script
 script "enc_damageeventscript" (int evt, int dmg, int dmgtype) EVENT
@@ -144,24 +145,39 @@ if(PlayerIsBot(Player) && BotChance > random(0,255)){SetResultValue(true); termi
 SetResultValue((GetPlayerInput(Player, INPUT_BUTTONS) & theButton) > 0);
 }
 
-// Turns distance into pitch changes for bots
-script "Enc_BotLobDist" (int ProjSpeed, int maxPitch)
+// Turns distance into pitch changes for bots with lobbing weps
+script "Enc_BotLobDist" (int ProjSpeed, int ProjGravity, int HeightMod)
 {
+//GiveInventory("BotLookEx",1);
+//GiveInventory("EncTargetFacer",1);
+
 int TargetTID = GetActorProperty(0,APROP_TargetTID);
 int TID = ActivatorTID();
 
-int result = xyDistance(TID,TargetTID) / (ProjSpeed/2) - (ProjSpeed/3*2);
-if(result>maxPitch){result = maxPitch;}
+int xyDist = xyDistance(TID,TargetTID);
+int GravTimesDist = (ProjGravity * xyDist) << 16;
+int speedSquared = (ProjSpeed * ProjSpeed) << 16;
 
-//PrintBold(i:result);
-SetResultValue(result);
+int PitchCalc = FixedDiv(GravTimesDist, speedSquared);              
+int pitch = (VectorAngle(1 << 16, PitchCalc) >> 8) + HeightMod - 4;     
+
+//PrintBold(s:"PitchCalc: ",f:PitchCalc,s:", FinalPitch: ",i:pitch);
+SetResultValue(pitch);
 }
 
 function int xyDistance(int tid1, int tid2)
 {
 	int x, y, d;
-	x = GetActorX(tid1) - GetActorX(tid2) >> 16;
-	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
-	d = _sqrt8( x*x + y*y );
+	x = GetActorX(tid1) - GetActorX(tid2);
+	y = GetActorY(tid1) - GetActorY(tid2);
+	d = VectorLength(x, y) >> 16;
 	return d;
+}
+
+//Returns a random weapon
+script "Encore_RandomWeapon" (int TID)
+{
+int Weapon = getWeaponActor(randomWeapon());
+//PrintBold(s:"Name: ",s:Weapon,s:", ID: ",i:Weapon);
+GiveInventory(Weapon,1);
 }

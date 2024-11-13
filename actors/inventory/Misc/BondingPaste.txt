@@ -39,7 +39,7 @@ NoAmmo:
 BPST A 1 ACS_NamedExecuteAlways("core_noammo",0)
 Goto Ready+1
 BotCheck:
-BPST A 0 A_FireCustomMissile("BondingPasteShot",frandom(-3,3),1,8,0,0,CallACS("Enc_BotLobDist",28,42))
+BPST A 0 A_FireCustomMissile("BondingPasteShot",frandom(-3,3),1,8,0,0,CallACS("Enc_BotLobDist",28,1,0))
 Goto RangedFire
 }
 }

@@ -135,3 +135,15 @@ actor ENC_ClassAltfire : Inventory
 }
 
 actor IsSpecialBot : Once {}
+
+Actor BotRandomWeapon : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 ACS_NamedExecuteAlways("Encore_RandomWeapon",0,tid)
+TNT1 A 0 A_GiveInventory("BotUsesRandomWeps")
+stop
+}
+}
+actor BotUsesRandomWeps : Once {}
