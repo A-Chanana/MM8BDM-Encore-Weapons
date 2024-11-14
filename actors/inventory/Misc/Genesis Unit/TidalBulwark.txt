@@ -81,8 +81,8 @@ BUST B 0 A_Refire
 goto Ready
 
 MegaWaterSBot:
-BUST B 0 A_GiveInventory("WaterWaveBotMWS")
-BUST B 0 A_SelectWeapon("WaterWaveBotMWS")
+BUST B 0 A_GiveInventory("WaterWaveWep")
+BUST B 0 A_SelectWeapon("WaterWaveWep")
 goto Ready
 GiveEddieWeapon:
 BUST B 0 A_GiveInventory("BotRandomWeapon")
