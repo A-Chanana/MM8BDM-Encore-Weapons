@@ -1,48 +1,54 @@
-const int CLR_MAESTROBUSTER = 4240;
-const int CLR_MAESTROBUSTERCHARGE1 = 4241;
-const int CLR_MAESTROBUSTERCHARGE2 = 4242;
-const int CLR_MAESTROBUSTERCHARGE3 = 4243;
 
-const int CLR_REVOLVERBUSTER = 4244;
+// Knockback actors should inherit from this
+actor EncoreKnockbackHelper
+{
+Mass 1 //Thrust
+Accuracy 0 //ZThrust
+Meleerange 0 //Flags //Radial = 1, Halt = 2
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_RearrangePointers(0,0,2)
+TNT1 A 0 A_TransferPointer(2,0,2,2)
+TNT1 A 0 A_SetArg(0,CallACS("core_gettracer"))
+TNT1 A 0 A_JumpIf(Accuracy<1,2)
+TNT1 A 0 ThrustThingZ(args[0],Accuracy,0,0)
+TNT1 A 0 ACS_NamedExecuteAlways("enc_knockback",0,args[0],Mass,Meleerange)
+TNT1 A 1 A_Jump(256,"SpawnFX")
+SpawnFX:
+TNT1 A 1
+stop
+}
+}
 
-const int CLR_BULLETVULCAN = 4245;
-const int CLR_BRASSBULLET = 4246;
-const int CLR_FLAMESHOWER = 4247;
-const int CLR_FLAMEMIXER = 4248;
-const int CLR_DOPPELCRASH = 4249;
-const int CLR_DOPPLERATTACK = 4250;
-const int CLR_TIMESWITCH = 4251;
-const int CLR_TIMEBOMB = 4252;
-const int CLR_BARRIERWIND = 4253;
-const int CLR_WINDCYCLONE = 4254;
-const int CLR_TRAILSPARKNEEDLE = 4255;
-const int CLR_CARDINALRING = 4256;
+const int ENC_BT_ATTACK	= 1;
+const int ENC_BT_JUMP = 4;
+const int ENC_BT_ALTATTACK = 32;
+// A_JumpIfInventory doesn't desync on high pings, unlike CallACS
+actor Enc_ButtonCheckSync_P : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192),"Firing")
+TNT1 A 0 A_TakeInventory("BTFireFlag")
+AltfireCheck:
+TNT1 A 0 A_Jumpif(CallACS("Enc_ButtonCheck",ENC_BT_ALTATTACK,0,192),"Altfiring")
+TNT1 A 0 A_TakeInventory("BTAltfireFlag")
+stop
+Firing:
+TNT1 A 0 A_GiveInventory("BTFireFlag")
+goto AltfireCheck
+Altfiring:
+TNT1 A 0 A_GiveInventory("BTAltfireFlag")
+stop
+}
+}
+actor BTFireFlag : Once {}
+actor BTAltfireFlag : Once {}
+actor BTJumpFlag : Once {}
 
-const int CLR_PURITYMETEOR = 4257;
-const int CLR_PMETEORCHRG = 4258;
-
-
-#Include "actors/inventory/mmb2/BulletVulcan.txt"
-#Include "actors/inventory/mmb2/BrassBullet.txt"
-#Include "actors/inventory/mmb2/FlameShower.txt"
-#Include "actors/inventory/mmb2/FlameMixer.txt"
-#Include "actors/inventory/mmb2/DoppelCrash.txt"
-#Include "actors/inventory/mmb2/DopplerAttack.txt"
-#Include "actors/inventory/mmb2/TimeSwitch.txt"
-#Include "actors/inventory/mmb2/TimeBomb.txt"
-#Include "actors/inventory/mmb2/BarrierWind.txt"
-#Include "actors/inventory/mmb2/WindCyclone.txt"
-#Include "actors/inventory/mmb2/TrailsparkNeedle.txt"
-#Include "actors/inventory/mmb2/CardinalRing.txt"
-
-#Include "actors/inventory/buster/JoeBuster.txt"
-#Include "actors/inventory/buster/MaestroBuster.txt"
-#Include "actors/inventory/buster/RevolverBuster.txt"
-
-
-#Include "actors/inventory/misc/PurityMeteor.txt"
-
-#Include "actors/inventory/enc_copynerf.txt"
 
 actor MMB2Weapons : MMWeaponGiver
 {
@@ -66,7 +72,6 @@ TNT1 A 0 A_SpawnItemEx("WindCycloneWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 9)
 TNT1 A 0 A_SpawnItemEx("TrailsparkNeedleWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 10)
 TNT1 A 0 A_SpawnItemEx("CardinalRingWep", 16 * 2, 0, 0, 0, 0, 0, 30 * 11)
 stop
-stop
 Use:
 TNT1 A 0 A_PlaySoundEx("item/refill","Voice")
 TNT1 A 0 A_GiveInventory("BulletVulcanWep", 1)
@@ -85,6 +90,21 @@ stop
 }
 }
 
+actor EncMiscWeapons : MMWeaponGiver
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+SpawnWeapons:
+TNT1 A 0 A_SpawnItemEx("PurityMeteorWep")
+stop
+Use:
+TNT1 A 0 A_PlaySoundEx("item/refill","Voice")
+TNT1 A 0 A_GiveInventory("PurityMeteorWep",1)
+stop
+}
+}
+
 // Given by "enc_class_altfire" script
 // Used to allow clientside prediction of class altfires
 actor ENC_ClassAltfire : Inventory
@@ -92,3 +112,17 @@ actor ENC_ClassAltfire : Inventory
     inventory.amount 1
     inventory.maxamount 1
 }
+
+actor IsSpecialBot : Once {}
+
+Actor BotRandomWeapon : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 ACS_NamedExecuteAlways("Encore_RandomWeapon",0,tid)
+TNT1 A 0 A_GiveInventory("BotUsesRandomWeps")
+stop
+}
+}
+actor BotUsesRandomWeps : Once {}

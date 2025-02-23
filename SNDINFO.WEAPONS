@@ -24,6 +24,8 @@ weapon/bwindjet PUMPJET
 weapon/timeswitch TSWITCH
 weapon/timeswitchdissipate TSLIGHT
 
+weapon/doppelcrashillusion DCRSHILL
+
 weapon/puritymeteorcharge PMTRCHRG
 weapon/puritymeteorlaunch PMTRLNCH
 weapon/puritymeteorbounce PMTRBNCE

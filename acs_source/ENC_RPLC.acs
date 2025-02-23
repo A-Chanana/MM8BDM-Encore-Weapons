@@ -28,11 +28,11 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME1ICE",		"MagnetMissileWep",		"BrassBulletWep"},
 {"MME1ICE",		"KnightCrushWep",		"WindCycloneWep"},
 //Encore Fire Man
-//{"MME1FIR",		"QuickBoomerangWep",	"KingRodWep"},
+//{"MME1FIR",		"QuickBoomerangWep",	"KingsRodWep"},
 {"MME1FIR",		"AtomicFireWep",		"FlameShowerWep"},
 //Encore Time Man
 {"MME1TIM",		"CentaurFlashWep",		"TimeSwitchWep"},
-//{"MME1TIM",		"DrillBombWep",		"ClammyHarpoonWep"},
+//{"MME1TIM",		"DrillBombWep",		"TidalBulwarkWep"},
 //Encore Oil Man
 {"MME1OIL",		"WaterBalloonWep",		"FlameShowerWep"},
 {"MME1OIL",		"ArrowBusterUpgrade",	"RevolverUpgrade"},
@@ -63,7 +63,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME2DW1",		"LightningBoltWep",		"PurityMeteorWep"},
 {"MME2DW1",		"PhotonMissileWep",		"BrassBulletWep"},
 //Encore 2 Dr. Wily 2
-//{"MME2DW2",		"QuickBoomerangWep",	"ClammyHarpoonWep"},
+//{"MME2DW2",		"QuickBoomerangWep",	"TidalBulwarkWep"},
 //{"MME2DW2",		"GeminiLaserWep",	"BerserkerRushWep"},
 //Encore 2 Dr. Wily 3
 {"MME2DW3",		"ArrowBusterUpgrade",	"MaestroUpgrade"},
@@ -85,7 +85,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //Encore Gemini Man
 {"MME3GEM",		"LaserBusterUpgrade",	"JoeUpgrade"},
 {"MME3GEM",		"LaserBusterUpgradeC",	"JoeUpgrade"},
-//{"MME3GEM",		"ElectricShockWep",	"KingRodWep"},
+//{"MME3GEM",		"ElectricShockWep",	"KingsRodWep"},
 //Encore Magnet Man
 {"MME3MAG",		"TripleBladeWep",		"BulletVulcanWep"},
 {"MME3MAG",		"PhotonMissileWep",		"DopplerAttackWep"},
@@ -139,7 +139,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 {"MME5WAV",		"FlameBlastWep",		"WindCycloneWep"},
 //Encore Gravity Man
 //{"MME5GRA",		"LightningBoltWep",		"OnslaughtGatlingWep"},
-//{"MME5GRA",		"ElectricShockWep",		"KingRodWep"},
+//{"MME5GRA",		"ElectricShockWep",		"KingsRodWep"},
 //Encore Star Man
 {"MME5STA",		"MagicCardWep",			"CardinalRingWep"},
 {"MME5STA",		"PlugBallWep",			"MaestroUpgrade"},
@@ -166,7 +166,7 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 
 //Encore Plant Man
 //{"MME6PLA",		"ChillSpikeWep",		"RestrictionRingWep"},
-//{"MME6PLA",		"GeminiLaserWep",		"ClammyHarpoonWep"},
+//{"MME6PLA",		"GeminiLaserWep",		"TidalBulwarkWep"},
 //Encore Yamato Man
 {"MME6YAM",		"SparkChaserWep",		"PurityMeteorWep"},
 //{"MME6YAM",		"ShadowBladeWep",		"RoyalSpinWep"},
@@ -215,12 +215,12 @@ str Wep_replacer[MAX_WEAPREPLACES][3] = {
 //{"MMEBMAG",		"AstroCrushWep",		"OnslaughtGatlingWep"},
 
 //Encore Wily Tower 1 
-//{"MMEWTDW1",		"ThunderBeamWep",	"KingRodWep"},
-//{"MMEWTDW1",		"BubbleLeadWep",	"ClammyHarpoonWep"},
+//{"MMEWTDW1",		"ThunderBeamWep",	"KingsRodWep"},
+//{"MMEWTDW1",		"BubbleLeadWep",	"TidalBulwarkWep"},
 //{"MMEWTDW1",		"SuperArmWep",		"HyperTorrentWep"},
 //Encore Wily Tower 2
-//{"MMEWTDW2",		"IceSlasherWep",		"KingRodWep"},
-//{"MMEWTDW2",		"NeedleCannonWep",		"ClammyHarpoonWep"},
+//{"MMEWTDW2",		"IceSlasherWep",		"KingsRodWep"},
+//{"MMEWTDW2",		"NeedleCannonWep",		"TidalBulwarkWep"},
 //{"MMEWTDW2",		"AtomicFireWep",		"HyperTorrentWep"},
 
 //Encore Concrete Man

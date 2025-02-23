@@ -26,4 +26,3 @@ graphic CRINICON, 30, 30{XScale 2.0 YScale 2.0 Patch CRINA0, 0, 0}
 
 //Misc Weps
 graphic PMETICON, 30, 30{XScale 2.0 YScale 2.0 Patch PMETA0, 0, 0}
-//graphic NVBMICON, 30, 30{XScale 2.0 YScale 2.0 Patch NVBMA0, 0, 0}

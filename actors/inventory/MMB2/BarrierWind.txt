@@ -29,12 +29,21 @@ Select:
 BWIN I 0
 goto SelectSwap
 Fire:
+BWIN I 0 A_JumpIfInventory("IsSpecialBot", 1 ,"AirconManCheck")
 BWIN I 0 A_JumpIfNoAmmo("NoAmmo")
 BWIN I 0 A_PlaySoundEx("weapon/bwindjet", "weapon")
 BWIN J 4 A_FireCustomMissile("BarrierWindBlocker",0,1,0,-20)
 BWIN JJKK 4
 BWIN I 18
 Goto Ready+1
+
+AirconManCheck:
+BWIN A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiuspull", 0, 400, 0)>0, 3)
+BWIN A 1 A_GiveInventory("WindCycloneWep",1)
+BWIN A 1 A_SelectWeapon("WindCycloneWep")
+BWIN A 1 
+Goto Fire+1
+
 NoAmmo:
 BWIN I 1 ACS_NamedExecute("core_noammo",0)
 Goto Ready+1
@@ -48,6 +57,8 @@ inventory.maxamount 28
 +INVENTORY.IGNORESKILL
 }
 
+actor ImABarrierWindBlocker : Once {}
+
 actor BarrierWindBlocker
 {
 +MISSILE
@@ -56,7 +67,7 @@ actor BarrierWindBlocker
 +RIPPER
 +DONTBLAST
 +DONTRIP
-+SHOOTABLE
+//+SHOOTABLE
 +DONTDRAIN
 +NOGRAVITY
 +THRUSPECIES
@@ -66,9 +77,9 @@ actor BarrierWindBlocker
 +DONTREFLECT
 +BOUNCEONFLOORS
 BounceFactor 0.8
-
 +BOUNCEONWALLS
 WallBounceFactor 0.1
+var int user_PierceRipper;
 damagetype "BarrierWind"
 Obituary "$OB_BARRIERWIND"
 RenderStyle "Translucent"
@@ -85,17 +96,18 @@ States
 {
 Spawn:
 TNT1 A 0
+TNT1 A 0 A_GiveInventory("ImABarrierWindBlocker")
+TNT1 A 0 A_ChangeFlag("SHOOTABLE",true)
 TNT1 A 0 A_GiveInventory("ProjTeamColor1Server",1)
 TNT1 A 0 ACS_NamedExecuteAlways("core_targetyawpitch", 0, 0)
-BWIN C 0 //A_ChangeFlag("THRUACTORS",0)
 BWIN BCDCBCD 4 A_GiveInventory("BarrierWindBlockerMove_P")
 goto Death
 Repeat:
-BWIN C 0 //A_ChangeFlag("THRUACTORS",0)
-BWIN BCDCBCD 4 A_GiveInventory("BarrierWindBlockerMove2_P")
+BWIN B 0 A_SpawnItemEx("BarrierWindSmoke", 8, random(-8, 8), random(16, 32), 0, 0, 0, 0)
+BWIN BCDCBCD 4 A_GiveInventory("BarrierWindBlockerMove_P")
 goto Death
 Death:
-BWIN EE 1 A_SpawnItemEx("PropBlowerEffect")
+BWIN EF 2 A_SpawnItemEx("PropBlowerEffect")
 stop
 
 Pain:
@@ -109,30 +121,21 @@ goto Repeat
 
 actor BarrierWindBlockerMove_P : CustomInventory
 {
-    States
-    {
-    Pickup:
-    TNT1 A 0 A_SpawnItemEx("PropBlowerEffect") 
-	TNT1 A 0 A_ScaleVelocity(0.5)
-	stop
-}}
-
-actor BarrierWindBlockerMove2_P : CustomInventory
+States
 {
-    States
-    {
-    Pickup:
-    TNT1 A 0 A_SpawnItemEx("PropBlowerEffect") 
-	TNT1 A 0 A_ScaleVelocity(0.5)
-	BWIN D 0 A_SpawnItemEx("BarrierWindSmoke", -momx+random(-8, 8), -momy+random(-8, 8), -momz+random(0, 16), 0, 0, 0, 0, SXF_ABSOLUTEPOSITION)
-	stop
-}}
+Pickup:
+TNT1 A 0 A_SpawnItemEx("PropBlowerEffect") 
+TNT1 A 0 A_ScaleVelocity(0.5)
+stop
+}
+}
 
 actor BarrierWindDeflect : CustomInventory
 {
 States
 {
 Pickup:
+//TNT1 A 0 A_LogInt(tid)
 TNT1 A 0 A_ChangeFlag("THRUSPECIES",1)
 TNT1 A 0 A_RearrangePointers(AAPTR_Master,AAPTR_Null,AAPTR_Default)
 TNT1 A 0 A_FaceTracer(0,180)
@@ -144,14 +147,20 @@ actor BarrierWindDeflected : Once {}
 
 actor BarrierWindSmoke : BasicGraphicEffect
 {
-	Translation "213:213=4:4", "217:217=248:248"
-    +FORCEXYBILLBOARD
-    States
-    {
-    SpawnFrame:
-        WCYC LMNO 2
-        stop
-    }
+Translation "213:213=4:4", "217:217=248:248"
++FORCEXYBILLBOARD
+States
+{
+SpawnFrame:
+WCYC LMNO 2
+stop
+}
 }
 
-actor BarrierWindProtect : PowerProtection {damagefactor "BarrierWind", 0.0 powerup.duration 60}
+//actor BarrierWindProtect : PowerProtection {damagefactor "BarrierWind", 0.0 powerup.duration 35}
+
+actor BarrierWindKnockback : EncoreKnockbackHelper
+{
+Mass 12
+Accuracy 10
+}

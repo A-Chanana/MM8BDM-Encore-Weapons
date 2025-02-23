@@ -1,0 +1,45 @@
+const int CLR_MAESTROBUSTER = 4240;
+const int CLR_MAESTROBUSTERCHARGE1 = 4241;
+const int CLR_MAESTROBUSTERCHARGE2 = 4242;
+const int CLR_MAESTROBUSTERCHARGE3 = 4243;
+
+const int CLR_REVOLVERBUSTER = 4244;
+
+const int CLR_BULLETVULCAN = 4245;
+const int CLR_BRASSBULLET = 4246;
+const int CLR_FLAMESHOWER = 4247;
+const int CLR_FLAMEMIXER = 4248;
+const int CLR_DOPPELCRASH = 4249;
+const int CLR_DOPPLERATTACK = 4250;
+const int CLR_TIMESWITCH = 4251;
+const int CLR_TIMEBOMB = 4252;
+const int CLR_BARRIERWIND = 4253;
+const int CLR_WINDCYCLONE = 4254;
+const int CLR_TRAILSPARKNEEDLE = 4255;
+const int CLR_CARDINALRING = 4256;
+
+const int CLR_PURITYMETEOR = 4257;
+const int CLR_PMETEORCHRG = 4258;
+
+#Include "actors/inventory/enc_weptools.txt"
+#Include "actors/inventory/enc_copynerf.txt"
+#include "actors/inventory/enc_wepoverhead.txt"
+
+#Include "actors/inventory/mmb2/BulletVulcan.txt"
+#Include "actors/inventory/mmb2/BrassBullet.txt"
+#Include "actors/inventory/mmb2/FlameShower.txt"
+#Include "actors/inventory/mmb2/FlameMixer.txt"
+#Include "actors/inventory/mmb2/DoppelCrash.txt"
+#Include "actors/inventory/mmb2/DopplerAttack.txt"
+#Include "actors/inventory/mmb2/TimeSwitch.txt"
+#Include "actors/inventory/mmb2/TimeBomb.txt"
+#Include "actors/inventory/mmb2/BarrierWind.txt"
+#Include "actors/inventory/mmb2/WindCyclone.txt"
+#Include "actors/inventory/mmb2/TrailsparkNeedle.txt"
+#Include "actors/inventory/mmb2/CardinalRing.txt"
+
+#Include "actors/inventory/buster/JoeBuster.txt"
+#Include "actors/inventory/buster/MaestroBuster.txt"
+#Include "actors/inventory/buster/RevolverBuster.txt"
+
+#Include "actors/inventory/misc/PurityMeteor.txt"

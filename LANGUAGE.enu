@@ -15,17 +15,17 @@ PU_REVOLVERUPGRADE = "Support Item! Revolver Buster!";
 TAG_REVOLVERUPGRADE = "Revolver Buster Upgrade";
 TAG_REVOLVERBUSTER = "Revolver Buster";
 
-OB_JOEBUSTER = "%o was shot down by %k's Joe Buster."; 
+OB_JOEBUSTER = "%o was assailed by %k's Joe Buster."; 
 PU_JOEUPGRADE = "Support Item! Joe Buster!";
 TAG_JOEUPGRADE = "Joe Buster Upgrade";
 TAG_JOEBUSTER = "Joe Buster";
 
 //MMB2
-OB_BULLETVULCAN = "%o was perforated by %k's Bullet Vulcan.";
+OB_BULLETVULCAN = "%o was pumped full of lead by %k's Bullet Vulcan.";
 PU_BULLETVULCAN = "Power up! Bullet Vulcan!";
 TAG_BULLETVULCAN = "Bullet Vulcan";
 
-OB_BRASSBULLET = "%o was pumped full of lead by %k's Brass Bullet.";
+OB_BRASSBULLET = "%o was perforated by %k's Brass Bullet.";
 PU_BRASSBULLET = "Power up! Brass Bullet!";
 TAG_BRASSBULLET = "Brass Bullet";
 
@@ -37,7 +37,7 @@ OB_FLAMEMIXER = "%o was done well by %k's Flame Mixer.";
 PU_FLAMEMIXER = "Power up! Flame Mixer!";
 TAG_FLAMEMIXER = "Flame Mixer";
 
-OB_DOPPELCRASH = "%o was darkened by %k's Doppel Crash.";
+OB_DOPPELCRASH = "%o was unburdened by %k's Doppel Crash.";
 PU_DOPPELCRASH = "Power up! Doppel Crash!";
 TAG_DOPPELCRASH = "Doppel Crash";
 
@@ -57,7 +57,7 @@ OB_BARRIERWIND = "%o was repelled by %k's Barrier Wind.";
 PU_BARRIERWIND = "Power up! Barrier Wind!";
 TAG_BARRIERWIND = "Barrier Wind";
 
-OB_WINDCYCLONE = "%o was repelled by %k's Wind Cyclone.";
+OB_WINDCYCLONE = "%o was stormed by %k's Wind Cyclone.";
 PU_WINDCYCLONE = "Power up! Wind Cyclone!";
 TAG_WINDCYCLONE = "Wind Cyclone";
 
@@ -69,17 +69,18 @@ OB_CARDINALRING = "%o was rung around by %k's Cardinal Ring.";
 PU_CARDINALRING = "Power up! Cardinal Ring!";
 TAG_CARDINALRING = "Cardinal Ring";
 
-//Misc
+//Misc - Other
 OB_PURITYMETEOR = "%o was purified by %k's Purity Meteor.";
 PU_PURITYMETEOR = "Power up! Purity Meteor!";
 TAG_PURITYMETEOR = "Purity Meteor";
+
 
 //Encore Descs
 DESC_BULLETVULCAN = "Bullet Vulcan shoots a metallic bullet that can split into weaker copies of itself.";
 DESC_BRASSBULLET = "Brass Bullet is a weak, very accurate homing projectile that greatly increases in damage over distance.";
 DESC_FLAMESHOWER = "Flame Shower is a spray of weak lingering flames that have greater hitstun if they're stepped on.";
 DESC_FLAMEMIXER = "Flame Mixer centrifuges powerful high-heat flames, which return to the user after finishing their orbit, dealing damage on the way out and back.";
-DESC_DOPPELCRASH = "Doppel Crash is a grounded dash that travels fast, hits hard, and knocks both parties back, but is stuck to the ground.";
+DESC_DOPPELCRASH = "Doppel Crash creates a doppel, then dashes. When the dash ends, the doppel follows you, splitting into 3, and hurting opponents in the way.";
 DESC_DOPPLERATTACK = "Doppler Attack creates doppels that hold in place until released, where they all fly in the direction they were originally aimed at.";
 DESC_TIMEBOMB = "Time Bomb lobs a clock that slows down enemies in a small radius, dealing decent damage if it hits directly.";
 DESC_TIMESWITCH = "Time Switch summons a clock that electrically charges the ground to increase the user's speed. Anything caught between it and the ground will suffer an electrifying demise. Use it in mid-air for an extra thrust!";
@@ -92,5 +93,6 @@ DESC_CARDINALRING = "Throws a spiked ring, which can spin through walls, block i
 DESC_MAESTROBUSTER = "Maestro Buster is obtained from an inventory item. It allows you to use charge shots or spray fire with its middle charge! Use Altfire to fire uncharged shots.";
 DESC_JOEBUSTER = "Joe Buster is obtained from an inventory item. It allows you to shoot slow, powerful shots and block enemy fire with a shield!";
 DESC_REVOLVERBUSTER = "Revolver Buster is obtained from an inventory item. It allows you to fire a barrage of fast, strong projectiles, at the cost of having to reload. Use Altfire to reload earlier.";
+
 //Misc Descs
-DESC_PURITYMETEOR = "Charges up and releases a immensely powerful meteor dash attack! Use Altfire to fire energy fists.";
+DESC_PURITYMETEOR = "Charges up and releases an immensely powerful meteor dash attack! Use Altfire to fire energy fists.";

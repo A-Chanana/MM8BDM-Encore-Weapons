@@ -43,11 +43,7 @@ NoAmmo:
 TBOM O 1 ACS_NamedExecute("core_noammo",0)
 Goto Ready+1
 BotCheck:
-TBOM A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 300, 0)>0, "RangedFire")
-TBOM A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiusPull", 0, 600, 0)>0, 2)
-TBOM A 0 A_FireCustomMissile("TimeBomb",0,1,0,10,0,20)
-Goto RangedFire+1
-TBOM A 0 A_FireCustomMissile("TimeBomb",0,1,0,10,0,10)
+TBOM A 0 A_FireCustomMissile("TimeBomb",0,1,0,10,0,CallACS("Enc_BotLobDist",35,42))
 Goto RangedFire+1
 ClockManCheck:
 TBOM O 0 A_JumpIfInventory("TimeSwitchSpeed", 1, 2)

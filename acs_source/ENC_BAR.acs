@@ -4,7 +4,7 @@
 #include "DTADD.acs"
 #include "BARLIB.acs"
 
-script "DrawBar_TrailsparkNeedleWep" (void) {
+script "DrawBar_TrailsparkNeedleWep" (void) CLIENTSIDE {
 	SetOverlayBar(CheckInventory("TrailsparkNeedleCharge"), 4);
 }
 
@@ -31,4 +31,6 @@ script "DrawBar_MaestroBusterEnc" (void) {
     }
 }
 
-script "DrawBar_RevolverBusterEnc" (void) CLIENTSIDE {DrawCustomBar(49, CheckInventory("RevolverBusterAmmo"), 30);}
+script "DrawBar_RevolverBusterEnc" (void) CLIENTSIDE {
+	DrawCustomBar(49, CheckInventory("RevolverBusterAmmo"), 30);
+}

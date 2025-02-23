@@ -28,7 +28,9 @@ goto DeselectSwap
 Select:
 WCYC I 0
 goto SelectSwap
+
 Fire:
+WCYC I 0 A_JumpIfInventory("IsSpecialBot", 1 ,"AirconManCheck")
 WCYC I 0 A_JumpIfNoAmmo("NoAmmo")
 WCYC I 0 A_PlaySoundEx("weapon/bwindjet", "weapon")
 WCYC J 0 A_FireCustomMissile("WindCyclone",0,1,0,0)
@@ -36,6 +38,13 @@ WCYC J 3 A_FireCustomMissile("WindCyclone2",0,0,0,0)
 WCYC JJKK 3
 WCYC I 8
 Goto Ready+1
+AirconManCheck:
+BWIN A 0 A_JumpIf(ACS_NamedExecuteWithResult("core_radiuspull", 0, 300, 0)>0, 1)
+Goto Fire+1
+BWIN A 1 A_GiveInventory("BarrierWindWep",1)
+BWIN A 1 A_SelectWeapon("BarrierWindWep")
+Goto Fire+1
+
 NoAmmo:
 WCYC I 1 ACS_NamedExecute("core_noammo",0)
 Goto Ready+1
@@ -101,3 +110,9 @@ Accuracy -1
 }
 
 actor WindCycloneSmoke : BarrierWindSmoke {Translation "4:4=4:4"}   
+
+actor WindCycloneKnockback : EncoreKnockbackHelper
+{
+Mass -4
+Accuracy 20
+}

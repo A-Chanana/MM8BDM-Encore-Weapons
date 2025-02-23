@@ -1,45 +1,52 @@
 #library "ENC_ACS"
 #include "zcommon.acs"
+#include "primo.acs"
+#import "8BDT.acs"
 
-// Barrier Wind script
-script "enc_barrierwinddeflect" (int evt, int dmg, int dmgtype) EVENT
+// Barrier Wind and Tidal Bulwark script
+script "enc_damageeventscript" (int evt, int dmg, int dmgtype) EVENT
 {
 if(evt == GAMEEVENT_ACTOR_DAMAGED)
-	{
-	if(stricmp(GetActorClass(0),"BarrierWindBlocker")==0)
+	{	
+	if(CheckInventory("ImABarrierWindBlocker")>0)
 		{
 		int BarrierOwner = GetActorProperty(0,APROP_TargetTID);
 		bool redir = SetActivator(0, AAPTR_DAMAGE_INFLICTOR);
 		if(redir && !CheckFlag(0, "DONTREFLECT"))
 			{
-			SetActorProperty(0, APROP_Species, "BarrierWindBlocker");
-			SetPointer(AAPTR_MASTER, BarrierOwner);
 			SetPointer(AAPTR_TRACER, 0, AAPTR_DAMAGE_SOURCE);
-			delay(1);
-			if(ClassifyActor(0)==ACTOR_MISSILE)
-				{
-				GiveInventory("BarrierWindDeflect",1);
-				}
+			ACS_NamedExecuteAlways("enc_BarrierWindDeflect",0,BarrierOwner);
 			}
 		}
+		
 	}
 }
 
+script "enc_BarrierWindDeflect" (int BarrierOwner)
+{
+if(ClassifyActor(0) & ACTOR_Missile){
+	SetActorProperty(0, APROP_Species, "BarrierWindBlocker");
+	SetPointer(AAPTR_MASTER, BarrierOwner);
+	GiveInventory("BarrierWindDeflect",1);
+	}
+}
 
 //State change
 script "enc_StateChange" (int state)
 {
 if(GetActorProperty(0,APROP_HEALTH)>0){
-switch(state)
-{
-case 1:
-SetActorState (0, "See");
-break;
-case 2:
-SetActorState (0, "Missile");
-break;
-}
-}
+	switch(state){
+		default:
+			PrintBold(s:"Invalid state change");
+			break;
+		case 1:
+			SetActorState (0, "See");
+			break;
+		case 2:
+			SetActorState (0, "Missile");
+			break;
+		}
+	}
 }
 
 //Checks if the target is stunned/frozen
@@ -69,4 +76,60 @@ Switch(type)
 	else{SetResultValue(0);}
 	break;
 	}
+}
+
+// Knockback script
+Script "enc_knockback" (int tid, int thrust, int flags)
+{
+int owner = ACS_NamedExecuteWithResult("core_gettarget",0);
+
+//PrintBold(s:"Owner: ",i:owner,s:", TID: ",i:tid,s:", thrust: ",i:thrust,s:", flags: ",i:flags);
+KnockbackFunc(owner, tid, thrust, flags);
+}
+
+// Checks if button is pressed
+Script "Enc_ButtonCheck" (int theButton, int TID, int BotChance)
+{
+if(TID != 0){SetActivator(TID,0);}
+int Player = PlayerNumber();
+
+if(PlayerIsBot(Player) && BotChance > random(0,255)){SetResultValue(true); terminate;}
+SetResultValue((GetPlayerInput(Player, INPUT_BUTTONS) & theButton) > 0);
+}
+
+// Turns distance into pitch changes for bots with lobbing weps
+script "Enc_BotLobDist" (int ProjSpeed, int ProjGravity, int HeightMod)
+{
+//GiveInventory("BotLookEx",1);
+//GiveInventory("EncTargetFacer",1);
+
+int TargetTID = GetActorProperty(0,APROP_TargetTID);
+int TID = ActivatorTID();
+
+int xyDist = xyDistance(TID,TargetTID);
+int GravTimesDist = (ProjGravity * xyDist) << 16;
+int speedSquared = (ProjSpeed * ProjSpeed) << 16;
+
+int PitchCalc = FixedDiv(GravTimesDist, speedSquared);              
+int pitch = (VectorAngle(1 << 16, PitchCalc) >> 8) + HeightMod - 4;     
+
+//PrintBold(s:"PitchCalc: ",f:PitchCalc,s:", FinalPitch: ",i:pitch);
+SetResultValue(pitch);
+}
+
+function int xyDistance(int tid1, int tid2)
+{
+	int x, y, d;
+	x = GetActorX(tid1) - GetActorX(tid2);
+	y = GetActorY(tid1) - GetActorY(tid2);
+	d = VectorLength(x, y) >> 16;
+	return d;
+}
+
+//Returns a random weapon
+script "Encore_RandomWeapon" (int TID)
+{
+int Weapon = getWeaponActor(randomWeapon());
+//PrintBold(s:"Name: ",s:Weapon,s:", ID: ",i:Weapon);
+GiveInventory(Weapon,1);
 }
