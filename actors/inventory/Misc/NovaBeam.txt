@@ -37,86 +37,73 @@ NVBM B 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,1)
 NVBM B 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,1)
 NVBM B 4 A_PlaySoundEx("weapon/ultrabeamcharge","Weapon")
 NVBM B 0 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM B 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM B 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM B 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM B 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM B 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM B 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM B 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
-NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
-NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
-NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 /*
-NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
-NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
 NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,1)
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
 NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,"FireLoop")
-goto FireEnd
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
 */
+NVBM C 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
+NVBM C 3 ACS_NamedExecuteAlways("enc_StateChange",0,2)
+NVBM C 2 A_GiveInventory("Enc_ButtonCheckSync_P")
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEnd")
+goto FireLoop
 FireLoop:
 NVBM D 0 A_JumpIfInventory("NovaBeamAmmo",1,1)
 goto FireEndOfLoop
 NVBM D 0 ACS_NamedExecuteAlways("enc_StateChange",0,2)
 NVBM D 0 A_Stop
 NVBM D 0 A_PlaySoundEx("weapon/sunstarbeamloop","Weapon")
-NVBM D 0 A_TakeInventory("NovaBeamAmmo",4)
 NVBM D 0 A_FireCustomMissile("NovaBeamDamager",0,0,0,0)
+NVBM D 0 A_GiveInventory("TakeNovaBeamAmmo1",1)
 NVBM D 1 Offset(3,0)A_FireCustomMissile("NovaBeamStart",0,0,0)
 NVBM C 1 Offset(-3,0)A_GiveInventory("Enc_ButtonCheckSync_P")
-NVBM C 1 A_JumpifInventory("BTFireFlag",1,"FireLoop")
-goto FireEndOfLoop
+NVBM C 1 A_JumpIf((CallACS("Enc_ButtonCheck",ENC_BT_ATTACK,0,192)==0),"FireEndOfLoop")
+goto FireLoop
 FireEnd:
 NVBM C 0 A_StopSoundEx("Weapon")
 NVBM D 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,0)
 NVBM D 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,0)
-NVBM D 0 A_TakeInventory("NovaBeamAmmo",48)
+NVBM D 0 A_GiveInventory("TakeNovaBeamAmmo2",1)
 NVBM B 8
 NVBM A 28
 Goto Ready+1
@@ -126,7 +113,7 @@ NVBM D 0 A_PlaySoundEx("weapon/ultrabeam","Weapon")
 NVBM D 0 ACS_NamedExecuteAlways("core_freezeplayer",0,0,0)
 NVBM D 0 ACS_NamedExecuteAlways("core_flyplayer",0,0,0)
 NVBM D 0 A_FireCustomMissile("NovaBeamSparkerFXStart",0,0,0)
-NVBM D 0 A_TakeInventory("NovaBeamAmmo",48)
+NVBM D 0 A_GiveInventory("TakeNovaBeamAmmo2",1)
 NVBM DDDDDD 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
 NVBM C 2
 NVBM DCB 3
@@ -297,6 +284,26 @@ states
 Spawn:
 TNT1 A 0
 TNT1 A 2 A_SpawnItemEx("NovaBeamSparkerFX",0,0,0,momx,momy,momz,0,SXF_AbsoluteVelocity)
+stop
+}
+}
+
+actor TakeNovaBeamAmmo1 : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 A_TakeInventory("NovaBeamAmmo", 4, TIF_NOTAKEINFINITE)
+stop
+}
+}
+
+actor TakeNovaBeamAmmo2 : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0 A_TakeInventory("NovaBeamAmmo", 48, TIF_NOTAKEINFINITE)
 stop
 }
 }
