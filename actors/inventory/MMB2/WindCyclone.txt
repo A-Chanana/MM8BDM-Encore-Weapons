@@ -113,6 +113,6 @@ actor WindCycloneSmoke : BarrierWindSmoke {Translation "4:4=4:4"}
 
 actor WindCycloneKnockback : EncoreKnockbackHelper
 {
-Mass -4
+Mass 4
 Accuracy 20
 }
